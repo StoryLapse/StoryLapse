@@ -8,6 +8,7 @@
 
 import UIKit
 import iCarousel
+import FXImageView
 
 class PhotoViewController: UIViewController, iCarouselDataSource, iCarouselDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
@@ -43,6 +44,7 @@ class PhotoViewController: UIViewController, iCarouselDataSource, iCarouselDeleg
     }
 
     func carousel(carousel: iCarousel, viewForItemAtIndex index: Int, reusingView view: UIView?) -> UIView {
+        
         var itemView: UIImageView
         if (view == nil) {
             itemView = UIImageView(frame:CGRect(x:0, y:0, width:250, height:350))
@@ -97,6 +99,5 @@ class PhotoViewController: UIViewController, iCarouselDataSource, iCarouselDeleg
                 self.navigationBar.image = UIImage(named: "photomenu")?.imageWithRenderingMode(.AlwaysOriginal)
             }
         }
-
     }
 }
