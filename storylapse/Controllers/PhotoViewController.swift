@@ -20,6 +20,9 @@ class PhotoViewController: UIViewController, iCarouselDataSource, iCarouselDeleg
     override func viewDidLoad() {
 
         super.viewDidLoad()
+        title = "Story??"
+        navigationController!.navigationBar.barTintColor = UIColor(red: 82/255, green: 173/255, blue: 243/255, alpha: 1.0)
+        navigationController!.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
 
         images = NSMutableArray(array: ["1","2","3","4","5","6","7","8","9","10", "1","2","3","4","5","6","7","8","9","10", "1","2","3","4","5","6","7","8","9","10"])
         viewCarousel.type = iCarouselType.Cylinder
