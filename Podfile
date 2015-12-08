@@ -6,8 +6,8 @@ use_frameworks!
 target 'storylapse' do
 
 # Networking
-pod 'Alamofire', '~> 3.1.2'
-pod 'AlamofireImage', '~> 2.0'
+pod 'Alamofire', '~> 3.1.3'
+pod 'AlamofireImage', '~> 2.1.1'
 
 end
 
