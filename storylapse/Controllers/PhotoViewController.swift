@@ -24,7 +24,8 @@ class PhotoViewController: UIViewController, iCarouselDataSource, iCarouselDeleg
         navigationController!.navigationBar.barTintColor = UIColor(red: 82/255, green: 173/255, blue: 243/255, alpha: 1.0)
         navigationController!.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
 
-        images = NSMutableArray(array: ["1","2","3","4","5","6","7","8","9","10", "1","2","3","4","5","6","7","8","9","10", "1","2","3","4","5","6","7","8","9","10"])
+//        images = NSMutableArray(array: ["1","2","3","4","5","6","7","8","9","10", "1","2","3","4","5","6","7","8","9","10", "1","2","3","4","5","6","7","8","9","10"])
+        images = NSMutableArray(array: ["11", "12", "13", "14", "15", "16", "17", "18", "11", "12", "13", "14", "15", "16", "17", "18", "11", "12", "13", "14", "15", "16", "17", "18"])
         viewCarousel.type = iCarouselType.Cylinder
         viewCarousel.reloadData()
         self.navigationBar.image = UIImage(named: "collectionmenu")?.imageWithRenderingMode(.AlwaysOriginal)
@@ -47,7 +48,6 @@ class PhotoViewController: UIViewController, iCarouselDataSource, iCarouselDeleg
             itemView = UIImageView(frame:CGRect(x:0, y:0, width:250, height:350))
             itemView.contentMode = .ScaleAspectFit
             viewCarousel.backgroundColor = UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 1.0)
-            //viewCarousel.backgroundColor = UIColor(patternImage: UIImage(named: images[index] as! String)!)
         }
         else {
             itemView = view as! UIImageView;
