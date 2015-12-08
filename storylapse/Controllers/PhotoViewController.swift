@@ -68,6 +68,16 @@ class PhotoViewController: UIViewController, iCarouselDataSource, iCarouselDeleg
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("Cell", forIndexPath: indexPath) as! PhotoCollectionViewCell
         cell.photoImageView.image = UIImage(named: images[indexPath.row] as! String)
+        cell.photoImageView.alpha = 0
+
+        let millisecondDelay = UInt64(arc4random() % 600) / 1000
+
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(millisecondDelay * NSEC_PER_SEC)), dispatch_get_main_queue(),({ () -> Void in
+
+            UIView.animateWithDuration(0.5, animations: ({
+                cell.photoImageView.alpha = 1.0
+            }))
+        }))
         return cell
     }
 
