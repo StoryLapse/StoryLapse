@@ -28,7 +28,7 @@ class PhotoViewController: UIViewController, iCarouselDataSource, iCarouselDeleg
         images = NSMutableArray(array: ["11", "12", "13", "14", "15", "16", "17", "18", "11", "12", "13", "14", "15", "16", "17", "18", "11", "12", "13", "14", "15", "16", "17", "18"])
         viewCarousel.type = iCarouselType.Cylinder
         viewCarousel.reloadData()
-        self.navigationBar.image = UIImage(named: "collectionmenu")?.imageWithRenderingMode(.AlwaysOriginal)
+        self.navigationBar.image = UIImage(named: "photomenu")?.imageWithRenderingMode(.AlwaysOriginal)
     }
 
     override func didReceiveMemoryWarning() {
@@ -80,14 +80,13 @@ class PhotoViewController: UIViewController, iCarouselDataSource, iCarouselDeleg
             if self.collectionView.alpha == 1.0 {
                 self.viewCarousel.alpha = 1.0
                 self.collectionView.alpha = 0.0
+                self.navigationBar.image = UIImage(named: "collectionmenu")?.imageWithRenderingMode(.AlwaysOriginal)
             } else if self.viewCarousel.alpha == 1.0 {
                 self.collectionView.alpha = 1.0
                 self.viewCarousel.alpha = 0.0
+                self.navigationBar.image = UIImage(named: "photomenu")?.imageWithRenderingMode(.AlwaysOriginal)
             }
         }
-
-        let imageName = collectionView.hidden ? "photomenu" : "collectionmenu"
-        self.navigationBar.image = UIImage(named: imageName)?.imageWithRenderingMode(.AlwaysOriginal)
 
     }
 }
