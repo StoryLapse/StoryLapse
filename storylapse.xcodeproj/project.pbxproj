@@ -18,6 +18,7 @@
 		99EECC691C16D1A000C6B792 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99EECC681C16D1A000C6B792 /* Photo.swift */; };
 		99EECC6B1C16D1F300C6B792 /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99EECC6A1C16D1F300C6B792 /* PhotoViewController.swift */; };
 		99EECC6D1C16D21700C6B792 /* PhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99EECC6C1C16D21700C6B792 /* PhotoView.swift */; };
+		99EECC6F1C170EDC00C6B792 /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99EECC6E1C170EDC00C6B792 /* PhotoCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		99EECC681C16D1A000C6B792 /* Photo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 		99EECC6A1C16D1F300C6B792 /* PhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
 		99EECC6C1C16D21700C6B792 /* PhotoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoView.swift; sourceTree = "<group>"; };
+		99EECC6E1C170EDC00C6B792 /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
 		9D6BE209FD67D57ABFBE7798 /* Pods_storylapse.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_storylapse.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5D872D0D4C336A457BF5341 /* Pods-storylapse.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-storylapse.debug.xcconfig"; path = "Pods/Target Support Files/Pods-storylapse/Pods-storylapse.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -114,6 +116,7 @@
 			isa = PBXGroup;
 			children = (
 				99EECC6C1C16D21700C6B792 /* PhotoView.swift */,
+				99EECC6E1C170EDC00C6B792 /* PhotoCollectionViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -250,6 +253,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				99EECC691C16D1A000C6B792 /* Photo.swift in Sources */,
+				99EECC6F1C170EDC00C6B792 /* PhotoCollectionViewCell.swift in Sources */,
 				99EECC6B1C16D1F300C6B792 /* PhotoViewController.swift in Sources */,
 				589ACA471C16DD5B0030A54D /* StoryIndexViewController.swift in Sources */,
 				58C42B601C1430BD00D4CCB8 /* AppDelegate.swift in Sources */,

@@ -9,8 +9,10 @@
 import UIKit
 import iCarousel
 
-class PhotoViewController: UIViewController, iCarouselDataSource, iCarouselDelegate {
-    
+class PhotoViewController: UIViewController, iCarouselDataSource, iCarouselDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+
+
+    @IBOutlet var collectionView: UICollectionView!
     @IBOutlet var viewCarousel: iCarousel!
     var images : NSMutableArray = NSMutableArray()
 
@@ -18,7 +20,7 @@ class PhotoViewController: UIViewController, iCarouselDataSource, iCarouselDeleg
 
         super.viewDidLoad()
 
-        images = NSMutableArray(array: ["1.jpg","2.jpg","3","4","5","6","7","8","9","10"])
+        images = NSMutableArray(array: ["1","2","3","4","5","6","7","8","9","10", "1","2","3","4","5","6","7","8","9","10", "1","2","3","4","5","6","7","8","9","10"])
         viewCarousel.type = iCarouselType.Cylinder
         viewCarousel.reloadData()
     }
@@ -28,7 +30,7 @@ class PhotoViewController: UIViewController, iCarouselDataSource, iCarouselDeleg
         // Dispose of any resources that can be recreated.
     }
 
-    //MARK: icarousel delegate methods
+    // MARK: icarousel delegate methods
 
     func numberOfItemsInCarousel(carousel: iCarousel) -> Int {
         return images.count
@@ -36,17 +38,40 @@ class PhotoViewController: UIViewController, iCarouselDataSource, iCarouselDeleg
 
     func carousel(carousel: iCarousel, viewForItemAtIndex index: Int, reusingView view: UIView?) -> UIView {
         var itemView: UIImageView
-        if (view == nil)
-        {
-            itemView = UIImageView(frame:CGRect(x:0, y:0, width:250, height:250))
+        if (view == nil) {
+            itemView = UIImageView(frame:CGRect(x:0, y:0, width:250, height:350))
             itemView.contentMode = .ScaleAspectFit
+            viewCarousel.backgroundColor = UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 1.0)
+            //viewCarousel.backgroundColor = UIColor(patternImage: UIImage(named: images[index] as! String)!)
         }
-        else
-        {
+        else {
             itemView = view as! UIImageView;
         }
         itemView.image = UIImage(named: "\(images.objectAtIndex(index))")
         return itemView
     }
 
+    // MARK: Collection
+    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+        return 1
+    }
+
+    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return images.count
+    }
+
+    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("Cell", forIndexPath: indexPath) as! PhotoCollectionViewCell
+        cell.photoImageView.image = UIImage(named: images[indexPath.row] as! String)
+        return cell
+    }
+
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+        return CGSize(width: collectionView.frame.width/3 - 5, height: collectionView.frame.width/3 - 5)
+    }
+
+    @IBAction func switchTypeWatchTouch(sender: AnyObject) {
+        collectionView.hidden = !collectionView.hidden
+        viewCarousel.hidden = !collectionView.hidden
+    }
 }
