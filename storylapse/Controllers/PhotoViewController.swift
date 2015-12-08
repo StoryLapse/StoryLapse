@@ -76,8 +76,15 @@ class PhotoViewController: UIViewController, iCarouselDataSource, iCarouselDeleg
     }
 
     @IBAction func switchTypeWatchTouch(sender: AnyObject) {
-        collectionView.hidden = !collectionView.hidden
-        viewCarousel.hidden = !collectionView.hidden
+        UIView.animateWithDuration(1.0) { () -> Void in
+            if self.collectionView.alpha == 1.0 {
+                self.viewCarousel.alpha = 1.0
+                self.collectionView.alpha = 0.0
+            } else if self.viewCarousel.alpha == 1.0 {
+                self.collectionView.alpha = 1.0
+                self.viewCarousel.alpha = 0.0
+            }
+        }
 
         let imageName = collectionView.hidden ? "photomenu" : "collectionmenu"
         self.navigationBar.image = UIImage(named: imageName)?.imageWithRenderingMode(.AlwaysOriginal)
