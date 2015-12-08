@@ -12,6 +12,7 @@ import iCarousel
 class PhotoViewController: UIViewController, iCarouselDataSource, iCarouselDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
 
+    @IBOutlet var navigationBar: UIBarButtonItem!
     @IBOutlet var collectionView: UICollectionView!
     @IBOutlet var viewCarousel: iCarousel!
     var images : NSMutableArray = NSMutableArray()
@@ -23,6 +24,7 @@ class PhotoViewController: UIViewController, iCarouselDataSource, iCarouselDeleg
         images = NSMutableArray(array: ["1","2","3","4","5","6","7","8","9","10", "1","2","3","4","5","6","7","8","9","10", "1","2","3","4","5","6","7","8","9","10"])
         viewCarousel.type = iCarouselType.Cylinder
         viewCarousel.reloadData()
+        self.navigationBar.image = UIImage(named: "collectionmenu")?.imageWithRenderingMode(.AlwaysOriginal)
     }
 
     override func didReceiveMemoryWarning() {
@@ -73,5 +75,9 @@ class PhotoViewController: UIViewController, iCarouselDataSource, iCarouselDeleg
     @IBAction func switchTypeWatchTouch(sender: AnyObject) {
         collectionView.hidden = !collectionView.hidden
         viewCarousel.hidden = !collectionView.hidden
+
+        let imageName = collectionView.hidden ? "photomenu" : "collectionmenu"
+        self.navigationBar.image = UIImage(named: imageName)?.imageWithRenderingMode(.AlwaysOriginal)
+
     }
 }

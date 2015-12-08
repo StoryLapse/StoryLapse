@@ -88,6 +88,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="collectionView" destination="aNf-TI-lUo" id="4c9-ET-S1n"/>
+                        <outlet property="navigationBar" destination="Mqr-t6-fVv" id="hNZ-kr-AKy"/>
                         <outlet property="viewCarousel" destination="TEz-Fc-OeK" id="h2P-Yt-Uzy"/>
                     </connections>
                 </viewController>
