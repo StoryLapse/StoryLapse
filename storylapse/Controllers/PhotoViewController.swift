@@ -16,7 +16,7 @@ class PhotoViewController: UIViewController, iCarouselDataSource, iCarouselDeleg
     @IBOutlet var navigationBar: UIBarButtonItem!
     @IBOutlet var collectionView: UICollectionView!
     @IBOutlet var viewCarousel: iCarousel!
-    var images : NSMutableArray = NSMutableArray()
+    var images = [String]()
 
     override func viewDidLoad() {
 
@@ -26,7 +26,7 @@ class PhotoViewController: UIViewController, iCarouselDataSource, iCarouselDeleg
         navigationController!.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
 
 //        images = NSMutableArray(array: ["1","2","3","4","5","6","7","8","9","10", "1","2","3","4","5","6","7","8","9","10", "1","2","3","4","5","6","7","8","9","10"])
-        images = NSMutableArray(array: ["11", "12", "13", "14", "15", "16", "17", "18", "11", "12", "13", "14", "15", "16", "17", "18", "11", "12", "13", "14", "15", "16", "17", "18"])
+        images = ["11", "12", "13", "14", "15", "16", "17", "18", "11", "12", "13", "14", "15", "16", "17", "18", "11", "12", "13", "14", "15", "16", "17", "18"]
         viewCarousel.type = iCarouselType.Cylinder
         viewCarousel.reloadData()
         self.navigationBar.image = UIImage(named: "photomenu")?.imageWithRenderingMode(.AlwaysOriginal)
@@ -46,15 +46,35 @@ class PhotoViewController: UIViewController, iCarouselDataSource, iCarouselDeleg
     func carousel(carousel: iCarousel, viewForItemAtIndex index: Int, reusingView view: UIView?) -> UIView {
         
         var itemView: UIImageView
+
         if (view == nil) {
             itemView = UIImageView(frame:CGRect(x:0, y:0, width:250, height:350))
             itemView.contentMode = .ScaleAspectFit
             viewCarousel.backgroundColor = UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 1.0)
+
+            let imageView = FXImageView(frame: CGRect(x: 0.0, y: 355, width: 235, height: 30))
+            imageView.reflectionScale = 1.0
+            imageView.reflectionAlpha = 0.9
+            imageView.reflectionGap = 2.0
+            imageView.alpha = 0.25
+            imageView.shadowOffset = CGSizeMake(0, 0)
+            imageView.shadowBlur = 0.0
+            imageView.cornerRadius = 1.0
+
+            itemView.addSubview(imageView)
+        } else {
+            itemView = view as! UIImageView
         }
-        else {
-            itemView = view as! UIImageView;
+
+        let image = UIImage(named: images[index])
+
+        if let imageView = view?.subviews.first as? FXImageView {
+            imageView.image = image
         }
-        itemView.image = UIImage(named: "\(images.objectAtIndex(index))")
+
+
+        itemView.image = image
+
         return itemView
     }
 
