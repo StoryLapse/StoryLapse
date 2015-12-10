@@ -11,7 +11,25 @@ import UIKit
 
 class PhotoDetailViewController: UIViewController {
 
+    var selectedImage : UIImage!
+
+    @IBOutlet var photoImageView: UIImageView!
+    @IBOutlet var numberOfLoveFace: UILabel!
+    @IBOutlet var numberOfLove: UILabel!
+    @IBOutlet var numberOfKiss: UILabel!
+    @IBOutlet var loveImageView: UIImageView!
+    @IBOutlet var kissImageView: UIImageView!
+    @IBOutlet var loveFaceImageView: UIImageView!
+    @IBOutlet var numberOfPunch: UILabel!
+    @IBOutlet var punchImageView: UIImageView!
+    @IBOutlet var timeTakenLabel: UILabel!
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        photoImageView.image = selectedImage
+    }
+
+    @IBAction func onBackClicked(sender: AnyObject) {
+        self.navigationController?.popViewControllerAnimated(true)
     }
 }

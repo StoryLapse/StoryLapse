@@ -17,6 +17,7 @@ class PhotoViewController: UIViewController, iCarouselDataSource, iCarouselDeleg
     @IBOutlet var collectionView: UICollectionView!
     @IBOutlet var viewCarousel: iCarousel!
     var images = [String]()
+    var selectedIndex : Int!
 
     override func viewDidLoad() {
 
@@ -76,6 +77,19 @@ class PhotoViewController: UIViewController, iCarouselDataSource, iCarouselDeleg
         itemView.image = image
 
         return itemView
+    }
+
+    func carousel(carousel: iCarousel, didSelectItemAtIndex index: Int) {
+        selectedIndex = index
+        self.performSegueWithIdentifier("imageDisplaySegue", sender: nil)
+    }
+
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
+        if (segue.identifier == "imageDisplaySegue")
+        {
+//            let viewController : PhotoDetailViewController = segue.destinationViewController as! PhotoDetailViewController
+//            viewController.photoImageDetail =
+        }
     }
 
     // MARK: Collection
