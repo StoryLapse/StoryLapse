@@ -7,3 +7,14 @@
 //
 
 import Foundation
+import UIKit
+
+struct PhotoView {
+    var numberOfEmoticon1: Int
+    var numberOfEmoticon2: Int
+    var numberOfEmoticon3: Int
+    var numberOfEmoticon4: Int
+    var numberOfEmoticon5: Int
+    var photoImage: UIImageView
+    var reminder: NSDate
+}
