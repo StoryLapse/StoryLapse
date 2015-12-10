@@ -13,6 +13,7 @@ class SLNavigationController: UINavigationController {
   override func awakeFromNib() {
     super.awakeFromNib()
     
-    navigationBar.backgroundColor = UIColor.redColor()
+    navigationBar.barTintColor = Colors.venice
+    navigationBar.barStyle = .Black
   }
 }

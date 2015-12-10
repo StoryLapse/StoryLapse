@@ -13,5 +13,8 @@ class StoryIndexViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    
+    title = "YOUR STORIES"
+    navigationController?.title = nil
   }
 }

@@ -10,6 +10,7 @@
 		589ACA471C16DD5B0030A54D /* StoryIndexViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 589ACA461C16DD5B0030A54D /* StoryIndexViewController.swift */; };
 		589ACA491C16E1200030A54D /* SLTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 589ACA481C16E1200030A54D /* SLTabBarController.swift */; };
 		589ACA4B1C16E3F80030A54D /* SLNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 589ACA4A1C16E3F80030A54D /* SLNavigationController.swift */; };
+		589ACA4E1C17F8880030A54D /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 589ACA4D1C17F8880030A54D /* Colors.swift */; };
 		58C42B601C1430BD00D4CCB8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58C42B5F1C1430BD00D4CCB8 /* AppDelegate.swift */; };
 		58C42B651C1430BD00D4CCB8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 58C42B631C1430BD00D4CCB8 /* Main.storyboard */; };
 		58C42B671C1430BD00D4CCB8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 58C42B661C1430BD00D4CCB8 /* Assets.xcassets */; };
@@ -26,6 +27,7 @@
 		589ACA461C16DD5B0030A54D /* StoryIndexViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryIndexViewController.swift; sourceTree = "<group>"; };
 		589ACA481C16E1200030A54D /* SLTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SLTabBarController.swift; sourceTree = "<group>"; };
 		589ACA4A1C16E3F80030A54D /* SLNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SLNavigationController.swift; sourceTree = "<group>"; };
+		589ACA4D1C17F8880030A54D /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		58C42B5C1C1430BC00D4CCB8 /* storylapse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = storylapse.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		58C42B5F1C1430BD00D4CCB8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		58C42B641C1430BD00D4CCB8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -60,6 +62,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		589ACA4C1C17F87D0030A54D /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				589ACA4D1C17F8880030A54D /* Colors.swift */,
+			);
+			name = Constants;
+			sourceTree = "<group>";
+		};
 		58C42B531C1430BC00D4CCB8 = {
 			isa = PBXGroup;
 			children = (
@@ -81,6 +91,7 @@
 		58C42B5E1C1430BC00D4CCB8 /* storylapse */ = {
 			isa = PBXGroup;
 			children = (
+				589ACA4C1C17F87D0030A54D /* Constants */,
 				99EECC651C16D18400C6B792 /* Controllers */,
 				99EECC661C16D18400C6B792 /* Models */,
 				99EECC671C16D18400C6B792 /* Views */,
@@ -253,6 +264,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				99EECC691C16D1A000C6B792 /* Photo.swift in Sources */,
+				589ACA4E1C17F8880030A54D /* Colors.swift in Sources */,
 				99EECC6F1C170EDC00C6B792 /* PhotoCollectionViewCell.swift in Sources */,
 				99EECC6B1C16D1F300C6B792 /* PhotoViewController.swift in Sources */,
 				589ACA471C16DD5B0030A54D /* StoryIndexViewController.swift in Sources */,
