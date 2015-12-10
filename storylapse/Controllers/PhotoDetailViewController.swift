@@ -25,8 +25,10 @@ class PhotoDetailViewController: UIViewController {
     @IBOutlet var timeTakenLabel: UILabel!
 
     override func viewDidLoad() {
+        title = "Photo Detail"
         super.viewDidLoad()
-        photoImageView.image = selectedImage
+        //photoImageView.image = selectedImage
+        photoImageView.image = UIImage(named: "16")
     }
 
     @IBAction func onBackClicked(sender: AnyObject) {
