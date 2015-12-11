@@ -8,8 +8,7 @@ target 'storylapse' do
 # Networking
 pod 'Alamofire', '~> 3.1.3'
 pod 'AlamofireImage', '~> 2.1.1'
-pod 'iCarousel', '~> 1.8'
-pod 'FXImageView', '~> 1.3'
+pod 'AAShareBubbles'
 
 end
 

@@ -8,8 +8,9 @@
 
 import Foundation
 import UIKit
+import AAShareBubbles
 
-class PhotoDetailViewController: UIViewController {
+class PhotoDetailViewController: UIViewController, AAShareBubblesDelegate {
 
     
     @IBOutlet var topView: UIView!
@@ -61,4 +62,26 @@ class PhotoDetailViewController: UIViewController {
         photoImageView.layer.addAnimation(transitionAnimation, forKey: "fadeAnimation")
 
     }
+
+
+  @IBAction func onShareTouched(sender: AnyObject) {
+
+    print("share")
+
+    let myShare = "I am feeling *** today"
+
+    let shareVC: UIActivityViewController = UIActivityViewController(activityItems: [myShare], applicationActivities: nil)
+    self.presentViewController(shareVC, animated: true, completion: nil)
+//    print("share bubles")
+//    let shareBubles: AAShareBubbles = AAShareBubbles.init(centeredInWindowWithRadius: 100)
+//    shareBubles.delegate = self
+//    shareBubles.bubbleRadius = 40
+//    shareBubles.sizeToFit()
+//    //shareBubles.showFacebookBubble = true
+//    shareBubles.showTwitterBubble = true
+//    shareBubles.addCustomButtonWithIcon(UIImage(named: "twitter"), backgroundColor: UIColor.whiteColor(), andButtonId: 100)
+//    shareBubles.show()
+
+  }
+
 }

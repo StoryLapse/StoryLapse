@@ -220,7 +220,11 @@
                             </connections>
                         </barButtonItem>
                         <rightBarButtonItems>
-                            <barButtonItem image="share" id="O0U-S6-FqP"/>
+                            <barButtonItem image="share" id="O0U-S6-FqP">
+                                <connections>
+                                    <action selector="onShareTouched:" destination="o0t-fy-QbQ" id="TLu-BU-Ecq"/>
+                                </connections>
+                            </barButtonItem>
                             <barButtonItem image="delete" id="4yv-w0-PHk"/>
                         </rightBarButtonItems>
                     </navigationItem>
