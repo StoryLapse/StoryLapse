@@ -41,6 +41,7 @@ class PhotoDetailViewController: UIViewController {
             let screenHeight = screenSize.height
             photoImageView.frame = CGRect(x: 0, y: 0, width: screenWidth, height: screenHeight)
             checkTapGestureRecognize = false
+            showAminationOnAdvert()
         }
         else if checkTapGestureRecognize == false {
             bottomView.hidden = false
@@ -48,5 +49,16 @@ class PhotoDetailViewController: UIViewController {
             self.navigationController?.navigationBarHidden = false
             checkTapGestureRecognize = true
         }
+    }
+
+    func showAminationOnAdvert() {
+        let transitionAnimation = CATransition();
+        transitionAnimation.type = kCAEmitterBehaviorValueOverLife
+        transitionAnimation.subtype = kCAEmitterBehaviorValueOverLife
+        transitionAnimation.duration = 2.5
+        transitionAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+        transitionAnimation.fillMode = kCAFillModeBoth
+        photoImageView.layer.addAnimation(transitionAnimation, forKey: "fadeAnimation")
+
     }
 }
