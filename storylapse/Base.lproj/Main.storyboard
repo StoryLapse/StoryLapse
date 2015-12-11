@@ -156,22 +156,44 @@
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yoP-di-qjG">
-                                        <rect key="frame" x="48" y="13" width="116" height="18"/>
+                                        <rect key="frame" x="48" y="13" width="77" height="18"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="116" id="ckX-Ly-Qkx"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="ckX-Ly-Qkx"/>
+                                            </mask>
+                                        </variation>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Friday 29th-Dec-2015" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wm9-Gp-qGl">
-                                        <rect key="frame" x="172" y="13" width="131" height="18"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hzc-Dg-kD8">
+                                        <rect key="frame" x="148" y="11" width="25" height="24"/>
                                         <constraints>
+                                            <constraint firstAttribute="width" constant="25" id="F58-YA-gBQ"/>
+                                            <constraint firstAttribute="height" constant="24" id="dz3-uY-HTd"/>
+                                        </constraints>
+                                        <state key="normal" title="Button" image="play"/>
+                                        <connections>
+                                            <action selector="playAutomaticPhotoImages:" destination="o0t-fy-QbQ" eventType="touchUpInside" id="Wee-Yc-TIe"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Friday 29th-Dec-2015" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wm9-Gp-qGl">
+                                        <rect key="frame" x="178" y="13" width="125" height="16"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="125" id="iiY-iP-eK7"/>
                                             <constraint firstAttribute="width" constant="131" id="xSd-76-baG"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="xSd-76-baG"/>
+                                            </mask>
+                                        </variation>
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -179,13 +201,28 @@
                                     <constraint firstItem="yoP-di-qjG" firstAttribute="top" secondItem="gHh-ZX-0Ct" secondAttribute="top" constant="13" id="1m6-EC-z8l"/>
                                     <constraint firstItem="Wm9-Gp-qGl" firstAttribute="leading" secondItem="yoP-di-qjG" secondAttribute="trailing" constant="8" id="2mX-MC-0n5"/>
                                     <constraint firstItem="1if-YC-Vs3" firstAttribute="top" secondItem="gHh-ZX-0Ct" secondAttribute="top" constant="8" id="7B0-7z-n2t"/>
+                                    <constraint firstItem="Hzc-Dg-kD8" firstAttribute="centerX" secondItem="gHh-ZX-0Ct" secondAttribute="centerX" id="A0O-3q-UZv"/>
                                     <constraint firstItem="Wm9-Gp-qGl" firstAttribute="top" secondItem="yoP-di-qjG" secondAttribute="top" id="NPl-6m-clw"/>
+                                    <constraint firstItem="Hzc-Dg-kD8" firstAttribute="top" secondItem="yoP-di-qjG" secondAttribute="top" id="RuH-91-hxZ"/>
+                                    <constraint firstItem="Wm9-Gp-qGl" firstAttribute="leading" secondItem="Hzc-Dg-kD8" secondAttribute="trailing" constant="5" id="Td0-hw-7Ky"/>
                                     <constraint firstAttribute="trailing" secondItem="Wm9-Gp-qGl" secondAttribute="trailing" constant="17" id="U28-Xz-tsq"/>
+                                    <constraint firstItem="Hzc-Dg-kD8" firstAttribute="centerY" secondItem="gHh-ZX-0Ct" secondAttribute="centerY" id="Vxm-Kc-dGY"/>
                                     <constraint firstAttribute="height" constant="45" id="Zp8-BC-yYb"/>
+                                    <constraint firstItem="Hzc-Dg-kD8" firstAttribute="leading" secondItem="yoP-di-qjG" secondAttribute="trailing" constant="12" id="ZtK-D3-CMC"/>
+                                    <constraint firstItem="Wm9-Gp-qGl" firstAttribute="leading" secondItem="Hzc-Dg-kD8" secondAttribute="trailing" constant="14" id="ef9-Gl-3EY"/>
                                     <constraint firstItem="1if-YC-Vs3" firstAttribute="leading" secondItem="gHh-ZX-0Ct" secondAttribute="leading" constant="8" id="n2Q-mu-Ljp"/>
                                     <constraint firstAttribute="bottom" secondItem="yoP-di-qjG" secondAttribute="bottom" constant="14" id="nMK-nP-5fW"/>
                                     <constraint firstItem="yoP-di-qjG" firstAttribute="leading" secondItem="1if-YC-Vs3" secondAttribute="trailing" constant="8" id="ssc-rm-GnY"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="1m6-EC-z8l"/>
+                                        <exclude reference="RuH-91-hxZ"/>
+                                        <exclude reference="ZtK-D3-CMC"/>
+                                        <exclude reference="2mX-MC-0n5"/>
+                                        <exclude reference="ef9-Gl-3EY"/>
+                                    </mask>
+                                </variation>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -357,6 +394,7 @@
         <image name="delete" width="24" height="24"/>
         <image name="person" width="32" height="32"/>
         <image name="photomenu" width="24" height="24"/>
+        <image name="play" width="24" height="24"/>
         <image name="share" width="24" height="24"/>
     </resources>
 </document>
