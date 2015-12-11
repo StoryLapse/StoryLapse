@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		5890ABAA1C1A4CE0004A74DC /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5890ABA91C1A4CE0004A74DC /* User.swift */; };
+		5890ABAC1C1A8906004A74DC /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5890ABAB1C1A8906004A74DC /* Comment.swift */; };
+		5890ABAE1C1A8D17004A74DC /* Interaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5890ABAD1C1A8D17004A74DC /* Interaction.swift */; };
 		589ACA471C16DD5B0030A54D /* StoryIndexViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 589ACA461C16DD5B0030A54D /* StoryIndexViewController.swift */; };
 		589ACA491C16E1200030A54D /* SLTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 589ACA481C16E1200030A54D /* SLTabBarController.swift */; };
 		589ACA4B1C16E3F80030A54D /* SLNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 589ACA4A1C16E3F80030A54D /* SLNavigationController.swift */; };
@@ -28,6 +30,8 @@
 /* Begin PBXFileReference section */
 		1A1FE3561D03CAB96D0AA04A /* Pods-storylapse.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-storylapse.release.xcconfig"; path = "Pods/Target Support Files/Pods-storylapse/Pods-storylapse.release.xcconfig"; sourceTree = "<group>"; };
 		5890ABA91C1A4CE0004A74DC /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		5890ABAB1C1A8906004A74DC /* Comment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
+		5890ABAD1C1A8D17004A74DC /* Interaction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Interaction.swift; sourceTree = "<group>"; };
 		589ACA461C16DD5B0030A54D /* StoryIndexViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryIndexViewController.swift; sourceTree = "<group>"; };
 		589ACA481C16E1200030A54D /* SLTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SLTabBarController.swift; sourceTree = "<group>"; };
 		589ACA4A1C16E3F80030A54D /* SLNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SLNavigationController.swift; sourceTree = "<group>"; };
@@ -128,6 +132,8 @@
 				99EECC681C16D1A000C6B792 /* Photo.swift */,
 				58E4A9461C19A93F0008592E /* Story.swift */,
 				5890ABA91C1A4CE0004A74DC /* User.swift */,
+				5890ABAB1C1A8906004A74DC /* Comment.swift */,
+				5890ABAD1C1A8D17004A74DC /* Interaction.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -280,6 +286,8 @@
 				58C42B601C1430BD00D4CCB8 /* AppDelegate.swift in Sources */,
 				589ACA491C16E1200030A54D /* SLTabBarController.swift in Sources */,
 				589ACA4B1C16E3F80030A54D /* SLNavigationController.swift in Sources */,
+				5890ABAE1C1A8D17004A74DC /* Interaction.swift in Sources */,
+				5890ABAC1C1A8906004A74DC /* Comment.swift in Sources */,
 				5890ABAA1C1A4CE0004A74DC /* User.swift in Sources */,
 				994832A71C19616600DBB136 /* PhotoDetailViewController.swift in Sources */,
 				99EECC6D1C16D21700C6B792 /* PhotoView.swift in Sources */,

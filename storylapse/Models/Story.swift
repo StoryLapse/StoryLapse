@@ -10,7 +10,7 @@ import Foundation
 
 struct Story {
   
-  enum RemindTypes {
+  enum RemindType {
     case Daily(hour: Int, minute: Int)
     case Weekly(weekday: Int, hour: Int, minute: Int)
     case Monthly(day: Int, hour: Int, minute: Int)
@@ -20,7 +20,11 @@ struct Story {
   var description: String
   var photos: [Photo] = []
   var hashtags: [String] = []
-  var remindType: RemindTypes? // It could be nil when user didn't set
+  var remindType: RemindType? // It could be nil when user didn't set
+  
+  var interactionCount: Int
+  var commentCount: Int
+  
   var createdAt: NSDate
   var updatedAt: NSDate
   var createdBy: User
