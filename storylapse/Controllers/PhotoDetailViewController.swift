@@ -9,10 +9,12 @@
 import Foundation
 import UIKit
 import AAShareBubbles
+import SwipeView
 
 class PhotoDetailViewController: UIViewController, AAShareBubblesDelegate {
 
 
+  @IBOutlet var scrollView: UIScrollView!
   @IBOutlet var topView: UIView!
   @IBOutlet var bottomView: UIView!
   @IBOutlet var photoImageView: UIImageView!
@@ -24,6 +26,26 @@ class PhotoDetailViewController: UIViewController, AAShareBubblesDelegate {
     title = "Photo Detail"
     super.viewDidLoad()
     photoImageView.image = photoImage
+    scrollPhotoView()
+  }
+
+  func scrollPhotoView() {
+
+    scrollView.frame = CGRectMake(0, 0, UIScreen.mainScreen().bounds.size.width, self.scrollView.frame.height)
+    //    let scrollViewHeight = self.scrollView.frame.height
+    let scrollViewWidth = self.scrollView.frame.width
+    let scrollViewHeight = UIScreen.mainScreen().bounds.size.height
+
+    for position in 0...images.count - 1 {
+      let imageScroll = UIImageView(frame: CGRectMake(scrollViewWidth * CGFloat(position), 0, scrollViewWidth, scrollViewHeight))
+      imageScroll.image = UIImage(named: images[position])
+      self.scrollView.addSubview(imageScroll)
+    }
+
+    let imagesCount: CGFloat = CGFloat(images.count)
+
+    self.scrollView.contentSize = CGSizeMake(self.scrollView.frame.width * imagesCount, self.scrollView.frame.height)
+
   }
 
   @IBAction func onBackClicked(sender: AnyObject) {

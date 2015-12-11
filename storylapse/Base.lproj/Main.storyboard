@@ -93,17 +93,17 @@
         <!--Photo Detail-->
         <scene sceneID="Yai-yl-zbY">
             <objects>
-                <viewController id="o0t-fy-QbQ" customClass="PhotoDetailViewController" customModule="storylapse" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="o0t-fy-QbQ" customClass="PhotoDetailViewController" customModule="storylapse" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="t4k-it-ppc"/>
                         <viewControllerLayoutGuide type="bottom" id="klN-su-vLs"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="IbZ-9n-XmQ">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="13" translatesAutoresizingMaskIntoConstraints="NO" id="E76-1J-ngI">
-                                <rect key="frame" x="0.0" y="-66" width="320" height="600"/>
+                                <rect key="frame" x="0.0" y="-130" width="320" height="600"/>
                                 <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="600" id="Uak-am-jT7"/>
@@ -114,7 +114,7 @@
                                 </connections>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gke-XJ-gwQ">
-                                <rect key="frame" x="0.0" y="534" width="320" height="34"/>
+                                <rect key="frame" x="0.0" y="470" width="320" height="34"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hdi-Gn-e6w">
                                         <rect key="frame" x="8" y="2" width="151" height="30"/>
@@ -143,10 +143,17 @@
                                     <constraint firstItem="hdi-Gn-e6w" firstAttribute="leading" secondItem="Gke-XJ-gwQ" secondAttribute="leading" constant="8" id="DBL-Xh-nH4"/>
                                     <constraint firstItem="hdi-Gn-e6w" firstAttribute="top" secondItem="NBC-HW-P8g" secondAttribute="top" id="LFy-Kl-H8B"/>
                                     <constraint firstAttribute="bottom" secondItem="hdi-Gn-e6w" secondAttribute="bottom" constant="2" id="OoW-Yo-5xD"/>
+                                    <constraint firstAttribute="height" constant="34" id="VpP-S5-ylL"/>
+                                    <constraint firstAttribute="height" constant="34" id="ioC-t8-yXR"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="ioC-t8-yXR"/>
+                                    </mask>
+                                </variation>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gHh-ZX-0Ct">
-                                <rect key="frame" x="0.0" y="64" width="320" height="45"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="45"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person" translatesAutoresizingMaskIntoConstraints="NO" id="1if-YC-Vs3">
                                         <rect key="frame" x="8" y="8" width="32" height="32"/>
@@ -161,7 +168,7 @@
                                             <constraint firstAttribute="width" constant="116" id="ckX-Ly-Qkx"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                         <variation key="default">
                                             <mask key="constraints">
@@ -180,14 +187,14 @@
                                             <action selector="playAutomaticPhotoImages:" destination="o0t-fy-QbQ" eventType="touchUpInside" id="Wee-Yc-TIe"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Friday 29th-Dec-2015" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wm9-Gp-qGl">
-                                        <rect key="frame" x="178" y="13" width="125" height="16"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Friday 29th-Dec-2015" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wm9-Gp-qGl">
+                                        <rect key="frame" x="166" y="13" width="150" height="17"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="125" id="iiY-iP-eK7"/>
+                                            <constraint firstAttribute="width" constant="150" id="iiY-iP-eK7"/>
                                             <constraint firstAttribute="width" constant="131" id="xSd-76-baG"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                         <variation key="default">
                                             <mask key="constraints">
@@ -205,7 +212,8 @@
                                     <constraint firstItem="Wm9-Gp-qGl" firstAttribute="top" secondItem="yoP-di-qjG" secondAttribute="top" id="NPl-6m-clw"/>
                                     <constraint firstItem="Hzc-Dg-kD8" firstAttribute="top" secondItem="yoP-di-qjG" secondAttribute="top" id="RuH-91-hxZ"/>
                                     <constraint firstItem="Wm9-Gp-qGl" firstAttribute="leading" secondItem="Hzc-Dg-kD8" secondAttribute="trailing" constant="5" id="Td0-hw-7Ky"/>
-                                    <constraint firstAttribute="trailing" secondItem="Wm9-Gp-qGl" secondAttribute="trailing" constant="17" id="U28-Xz-tsq"/>
+                                    <constraint firstAttribute="trailing" secondItem="Wm9-Gp-qGl" secondAttribute="trailing" constant="4" id="U28-Xz-tsq"/>
+                                    <constraint firstAttribute="height" constant="45" id="UbZ-xX-myN"/>
                                     <constraint firstItem="Hzc-Dg-kD8" firstAttribute="centerY" secondItem="gHh-ZX-0Ct" secondAttribute="centerY" id="Vxm-Kc-dGY"/>
                                     <constraint firstAttribute="height" constant="45" id="Zp8-BC-yYb"/>
                                     <constraint firstItem="Hzc-Dg-kD8" firstAttribute="leading" secondItem="yoP-di-qjG" secondAttribute="trailing" constant="12" id="ZtK-D3-CMC"/>
@@ -216,19 +224,41 @@
                                 </constraints>
                                 <variation key="default">
                                     <mask key="constraints">
+                                        <exclude reference="Zp8-BC-yYb"/>
                                         <exclude reference="1m6-EC-z8l"/>
                                         <exclude reference="RuH-91-hxZ"/>
                                         <exclude reference="ZtK-D3-CMC"/>
                                         <exclude reference="2mX-MC-0n5"/>
+                                        <exclude reference="Td0-hw-7Ky"/>
                                         <exclude reference="ef9-Gl-3EY"/>
                                     </mask>
                                 </variation>
                             </view>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qte-pg-apK">
+                                <rect key="frame" x="0.0" y="45" width="320" height="425"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="425" id="G5v-qq-zne"/>
+                                    <constraint firstAttribute="height" constant="430" id="Jqh-gA-ROP"/>
+                                    <constraint firstAttribute="height" constant="425" id="NvS-Gw-Wz1"/>
+                                    <constraint firstAttribute="width" constant="320" id="b2s-bu-XRW"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="G5v-qq-zne"/>
+                                        <exclude reference="Jqh-gA-ROP"/>
+                                        <exclude reference="NvS-Gw-Wz1"/>
+                                        <exclude reference="b2s-bu-XRW"/>
+                                    </mask>
+                                </variation>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="qte-pg-apK" secondAttribute="trailing" id="2Zf-2w-4kW"/>
                             <constraint firstAttribute="trailing" secondItem="gHh-ZX-0Ct" secondAttribute="trailing" id="5qs-hl-ZGo"/>
                             <constraint firstAttribute="trailing" secondItem="Gke-XJ-gwQ" secondAttribute="trailing" id="7Yr-Zn-eeF"/>
+                            <constraint firstItem="Gke-XJ-gwQ" firstAttribute="top" secondItem="qte-pg-apK" secondAttribute="bottom" id="Ami-tC-4SL"/>
+                            <constraint firstItem="qte-pg-apK" firstAttribute="leading" secondItem="IbZ-9n-XmQ" secondAttribute="leading" id="D8B-tW-dtq"/>
                             <constraint firstItem="gHh-ZX-0Ct" firstAttribute="leading" secondItem="IbZ-9n-XmQ" secondAttribute="leading" id="IrM-rG-x8c"/>
                             <constraint firstAttribute="trailing" secondItem="E76-1J-ngI" secondAttribute="trailing" id="KcW-oT-S9X"/>
                             <constraint firstAttribute="trailing" secondItem="gHh-ZX-0Ct" secondAttribute="trailing" id="L1D-qE-6uV"/>
@@ -237,8 +267,11 @@
                             <constraint firstItem="klN-su-vLs" firstAttribute="top" secondItem="gHh-ZX-0Ct" secondAttribute="bottom" constant="456" id="bLU-sD-lCp"/>
                             <constraint firstItem="gHh-ZX-0Ct" firstAttribute="top" secondItem="t4k-it-ppc" secondAttribute="bottom" id="bsO-S6-Rd6"/>
                             <constraint firstItem="E76-1J-ngI" firstAttribute="top" secondItem="gHh-ZX-0Ct" secondAttribute="bottom" constant="-177" id="df7-j5-0JI"/>
+                            <constraint firstItem="qte-pg-apK" firstAttribute="top" secondItem="E76-1J-ngI" secondAttribute="top" id="eA9-oi-hCo"/>
                             <constraint firstItem="Gke-XJ-gwQ" firstAttribute="leading" secondItem="IbZ-9n-XmQ" secondAttribute="leading" id="j4S-rk-O2R"/>
+                            <constraint firstItem="qte-pg-apK" firstAttribute="top" secondItem="gHh-ZX-0Ct" secondAttribute="bottom" id="l5k-ub-Zti"/>
                             <constraint firstItem="klN-su-vLs" firstAttribute="top" secondItem="Gke-XJ-gwQ" secondAttribute="bottom" id="nUs-U4-TXp"/>
+                            <constraint firstItem="qte-pg-apK" firstAttribute="top" secondItem="gHh-ZX-0Ct" secondAttribute="bottom" id="qCB-LN-GAX"/>
                             <constraint firstItem="Gke-XJ-gwQ" firstAttribute="top" secondItem="E76-1J-ngI" secondAttribute="bottom" id="yZJ-qX-YuI"/>
                         </constraints>
                         <variation key="default">
@@ -246,10 +279,13 @@
                                 <exclude reference="IrM-rG-x8c"/>
                                 <exclude reference="L1D-qE-6uV"/>
                                 <exclude reference="df7-j5-0JI"/>
+                                <exclude reference="eA9-oi-hCo"/>
+                                <exclude reference="l5k-ub-Zti"/>
                                 <exclude reference="bLU-sD-lCp"/>
                             </mask>
                         </variation>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" title="Photo Detail" id="Vts-yU-tjD">
                         <barButtonItem key="leftBarButtonItem" image="back" id="Qdn-DW-VMo">
                             <connections>
@@ -269,6 +305,7 @@
                     <connections>
                         <outlet property="bottomView" destination="Gke-XJ-gwQ" id="44p-OA-Gif"/>
                         <outlet property="photoImageView" destination="E76-1J-ngI" id="N0f-rS-Cvl"/>
+                        <outlet property="scrollView" destination="qte-pg-apK" id="0jh-Po-OyQ"/>
                         <outlet property="topView" destination="gHh-ZX-0Ct" id="AV3-VW-RrD"/>
                     </connections>
                 </viewController>
@@ -300,7 +337,7 @@
                                         <rect key="frame" x="154" y="232" width="252" height="24"/>
                                         <animations/>
                                         <fontDescription key="fontDescription" type="system" weight="thin" pointSize="20"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
