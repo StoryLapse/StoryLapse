@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5890ABAA1C1A4CE0004A74DC /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5890ABA91C1A4CE0004A74DC /* User.swift */; };
 		589ACA471C16DD5B0030A54D /* StoryIndexViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 589ACA461C16DD5B0030A54D /* StoryIndexViewController.swift */; };
 		589ACA491C16E1200030A54D /* SLTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 589ACA481C16E1200030A54D /* SLTabBarController.swift */; };
 		589ACA4B1C16E3F80030A54D /* SLNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 589ACA4A1C16E3F80030A54D /* SLNavigationController.swift */; };
@@ -15,6 +16,7 @@
 		58C42B651C1430BD00D4CCB8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 58C42B631C1430BD00D4CCB8 /* Main.storyboard */; };
 		58C42B671C1430BD00D4CCB8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 58C42B661C1430BD00D4CCB8 /* Assets.xcassets */; };
 		58C42B6A1C1430BD00D4CCB8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 58C42B681C1430BD00D4CCB8 /* LaunchScreen.storyboard */; };
+		58E4A9471C19A93F0008592E /* Story.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E4A9461C19A93F0008592E /* Story.swift */; };
 		8E48828F6850D502868522EF /* Pods_storylapse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D6BE209FD67D57ABFBE7798 /* Pods_storylapse.framework */; };
 		994832A71C19616600DBB136 /* PhotoDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 994832A61C19616600DBB136 /* PhotoDetailViewController.swift */; };
 		99EECC691C16D1A000C6B792 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99EECC681C16D1A000C6B792 /* Photo.swift */; };
@@ -25,6 +27,7 @@
 
 /* Begin PBXFileReference section */
 		1A1FE3561D03CAB96D0AA04A /* Pods-storylapse.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-storylapse.release.xcconfig"; path = "Pods/Target Support Files/Pods-storylapse/Pods-storylapse.release.xcconfig"; sourceTree = "<group>"; };
+		5890ABA91C1A4CE0004A74DC /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		589ACA461C16DD5B0030A54D /* StoryIndexViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryIndexViewController.swift; sourceTree = "<group>"; };
 		589ACA481C16E1200030A54D /* SLTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SLTabBarController.swift; sourceTree = "<group>"; };
 		589ACA4A1C16E3F80030A54D /* SLNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SLNavigationController.swift; sourceTree = "<group>"; };
@@ -35,6 +38,7 @@
 		58C42B661C1430BD00D4CCB8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		58C42B691C1430BD00D4CCB8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		58C42B6B1C1430BD00D4CCB8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		58E4A9461C19A93F0008592E /* Story.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Story.swift; sourceTree = "<group>"; };
 		994832A61C19616600DBB136 /* PhotoDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoDetailViewController.swift; sourceTree = "<group>"; };
 		99EECC681C16D1A000C6B792 /* Photo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 		99EECC6A1C16D1F300C6B792 /* PhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
@@ -122,6 +126,8 @@
 			isa = PBXGroup;
 			children = (
 				99EECC681C16D1A000C6B792 /* Photo.swift */,
+				58E4A9461C19A93F0008592E /* Story.swift */,
+				5890ABA91C1A4CE0004A74DC /* User.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -274,8 +280,10 @@
 				58C42B601C1430BD00D4CCB8 /* AppDelegate.swift in Sources */,
 				589ACA491C16E1200030A54D /* SLTabBarController.swift in Sources */,
 				589ACA4B1C16E3F80030A54D /* SLNavigationController.swift in Sources */,
+				5890ABAA1C1A4CE0004A74DC /* User.swift in Sources */,
 				994832A71C19616600DBB136 /* PhotoDetailViewController.swift in Sources */,
 				99EECC6D1C16D21700C6B792 /* PhotoView.swift in Sources */,
+				58E4A9471C19A93F0008592E /* Story.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
