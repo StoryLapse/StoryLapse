@@ -13,15 +13,6 @@ class PhotoDetailViewController: UIViewController {
 
     
     @IBOutlet var photoImageView: UIImageView!
-    @IBOutlet var numberOfLoveFace: UILabel!
-    @IBOutlet var numberOfLove: UILabel!
-    @IBOutlet var numberOfKiss: UILabel!
-    @IBOutlet var loveImageView: UIImageView!
-    @IBOutlet var kissImageView: UIImageView!
-    @IBOutlet var loveFaceImageView: UIImageView!
-    @IBOutlet var numberOfPunch: UILabel!
-    @IBOutlet var punchImageView: UIImageView!
-    @IBOutlet var timeTakenLabel: UILabel!
     var photoImage = UIImage()
 
     override func viewDidLoad() {

@@ -66,15 +66,6 @@ class PhotoViewController: UIViewController, UICollectionViewDataSource, UIColle
         self.performSegueWithIdentifier("Detail", sender: self)
     }
 
-//    func collectionView(collectionView: UICollectionView, didDeselectItemAtIndexPath indexPath: NSIndexPath) {
-//        let selectedCell = collectionView.cellForItemAtIndexPath(indexPath) as! PhotoCollectionViewCell
-//        var imageInCell = selectedCell.photoImageView.image
-//
-//        //whatever else you need to do
-//        self.dismissViewControllerAnimated(true, completion: nil)
-//
-//    }
-
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
 
         if segue.identifier == "Detail" {
