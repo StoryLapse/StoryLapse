@@ -11,8 +11,7 @@ import UIKit
 
 class PhotoDetailViewController: UIViewController {
 
-    var selectedImage : UIImage!
-
+    
     @IBOutlet var photoImageView: UIImageView!
     @IBOutlet var numberOfLoveFace: UILabel!
     @IBOutlet var numberOfLove: UILabel!
@@ -23,12 +22,13 @@ class PhotoDetailViewController: UIViewController {
     @IBOutlet var numberOfPunch: UILabel!
     @IBOutlet var punchImageView: UIImageView!
     @IBOutlet var timeTakenLabel: UILabel!
+    var photoImage = UIImage()
 
     override func viewDidLoad() {
+        
         title = "Photo Detail"
         super.viewDidLoad()
-        //photoImageView.image = selectedImage
-        photoImageView.image = UIImage(named: "16")
+        photoImageView.image = photoImage
     }
 
     @IBAction func onBackClicked(sender: AnyObject) {
