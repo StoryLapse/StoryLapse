@@ -10,6 +10,7 @@ pod 'Alamofire', '~> 3.1.3'
 pod 'AlamofireImage', '~> 2.1.1'
 pod 'AAShareBubbles'
 pod 'SwipeView', '~> 1.3'
+pod 'couchbase-lite-ios'
 
 end
 

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		582048AE1C1BEEC700D76B1D /* fixtures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582048AD1C1BEEC700D76B1D /* fixtures.swift */; };
 		5890ABAA1C1A4CE0004A74DC /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5890ABA91C1A4CE0004A74DC /* User.swift */; };
 		5890ABAC1C1A8906004A74DC /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5890ABAB1C1A8906004A74DC /* Comment.swift */; };
 		5890ABAE1C1A8D17004A74DC /* Interaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5890ABAD1C1A8D17004A74DC /* Interaction.swift */; };
@@ -30,9 +31,11 @@
 
 /* Begin PBXFileReference section */
 		1A1FE3561D03CAB96D0AA04A /* Pods-storylapse.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-storylapse.release.xcconfig"; path = "Pods/Target Support Files/Pods-storylapse/Pods-storylapse.release.xcconfig"; sourceTree = "<group>"; };
+		582048AD1C1BEEC700D76B1D /* fixtures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = fixtures.swift; sourceTree = "<group>"; };
 		5890ABA91C1A4CE0004A74DC /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		5890ABAB1C1A8906004A74DC /* Comment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		5890ABAD1C1A8D17004A74DC /* Interaction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Interaction.swift; sourceTree = "<group>"; };
+		5890ABB41C1AE7D1004A74DC /* storylapse-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "storylapse-Bridging-Header.h"; sourceTree = "<group>"; };
 		589ACA461C16DD5B0030A54D /* StoryIndexViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryIndexViewController.swift; sourceTree = "<group>"; };
 		589ACA481C16E1200030A54D /* SLTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SLTabBarController.swift; sourceTree = "<group>"; };
 		589ACA4A1C16E3F80030A54D /* SLNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SLNavigationController.swift; sourceTree = "<group>"; };
@@ -112,6 +115,8 @@
 				58C42B661C1430BD00D4CCB8 /* Assets.xcassets */,
 				58C42B681C1430BD00D4CCB8 /* LaunchScreen.storyboard */,
 				58C42B6B1C1430BD00D4CCB8 /* Info.plist */,
+				5890ABB41C1AE7D1004A74DC /* storylapse-Bridging-Header.h */,
+				582048AD1C1BEEC700D76B1D /* fixtures.swift */,
 			);
 			path = storylapse;
 			sourceTree = "<group>";
@@ -295,6 +300,7 @@
 				5890ABAA1C1A4CE0004A74DC /* User.swift in Sources */,
 				994832A71C19616600DBB136 /* PhotoDetailViewController.swift in Sources */,
 				99EECC6D1C16D21700C6B792 /* PhotoView.swift in Sources */,
+				582048AE1C1BEEC700D76B1D /* fixtures.swift in Sources */,
 				58E4A9471C19A93F0008592E /* Story.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -407,10 +413,16 @@
 			baseConfigurationReference = E5D872D0D4C336A457BF5341 /* Pods-storylapse.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = storylapse/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.storylapse;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "storylapse/storylapse-Bridging-Header.h";
 			};
 			name = Debug;
 		};
@@ -419,10 +431,16 @@
 			baseConfigurationReference = 1A1FE3561D03CAB96D0AA04A /* Pods-storylapse.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = storylapse/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.storylapse;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "storylapse/storylapse-Bridging-Header.h";
 			};
 			name = Release;
 		};

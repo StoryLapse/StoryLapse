@@ -8,7 +8,16 @@
 
 import Foundation
 
-struct User {
-  var username: String
-  var email: String?
+class User: CBLModel {
+  
+  static let type = "User"
+  
+  @NSManaged var username: String
+  @NSManaged var email: String
+  
+  static let currentUserId = "really-unique-user-id"
+  
+  override func willSave(changedPropertyNames: Set<NSObject>?) {
+    self.type = User.type
+  }
 }

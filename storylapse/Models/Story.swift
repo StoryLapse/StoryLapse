@@ -1,3 +1,4 @@
+
 //
 //  Story.swift
 //  storylapse
@@ -8,24 +9,71 @@
 
 import Foundation
 
-struct Story {
+class Story: CBLModel {
   
-  enum RemindType {
-    case Daily(hour: Int, minute: Int)
-    case Weekly(weekday: Int, hour: Int, minute: Int)
-    case Monthly(day: Int, hour: Int, minute: Int)
+  static let type = "Story"
+  
+  @NSManaged var title: String
+  @NSManaged var desc: String?
+  @NSManaged var photoIds: [String]
+  @NSManaged var hashtags: [String]
+  @NSManaged var reminder: [String: AnyObject]?
+  
+  @NSManaged var interactionCount: Int
+  @NSManaged var commentCount: Int
+  
+  @NSManaged var creatorId: String
+  
+  @NSManaged var createdAt: NSDate
+  @NSManaged var updatedAt: NSDate?
+  
+  var photoCount: Int {
+    get {
+      return photoIds.count
+    }
   }
   
-  var title: String
-  var description: String
-  var photos: [Photo] = []
-  var hashtags: [String] = []
-  var remindType: RemindType? // It could be nil when user didn't set
+  static func create(db: CBLDatabase) -> Story {
+    let story = Story(forDocument: db.documentWithID(NSUUID().UUIDString)!)
+    
+    story.title = ""
+    story.photoIds = []
+    story.hashtags = []
+    
+    story.interactionCount = 0
+    story.commentCount = 0
+    
+    story.creatorId = User.currentUserId
+    story.createdAt = NSDate()
+    
+    return story
+  }
   
-  var interactionCount: Int
-  var commentCount: Int
-  
-  var createdAt: NSDate
-  var updatedAt: NSDate
-  var createdBy: User
+  override func willSave(changedPropertyNames: Set<NSObject>?) {
+    self.type = Story.type
+  }
+}
+
+// MARK: Indexes
+extension Story {
+  static func createViews(db: CBLDatabase) {
+    let currentUserStoriesView = db.viewNamed("currentUserStories")
+    currentUserStoriesView.setMapBlock({ (doc, emit) -> Void in
+      if let
+        type = doc["type"] as? String,
+        creatorId = doc["creatorId"] as? String where
+        type == Story.type && creatorId == User.currentUserId {
+          emit(doc["createdAt"]!, doc)
+      }
+      }, version: "1")
+  }
+}
+
+// MARK: Queries
+extension Story {
+  func getCurrentUserStories(db: CBLDatabase) -> [Story] {
+    //    let query =
+    
+    return []
+  }
 }

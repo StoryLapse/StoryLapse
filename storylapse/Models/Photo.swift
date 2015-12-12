@@ -8,10 +8,29 @@
 
 import Foundation
 
-struct Photo {
-  var caption: String? = nil
-  var remoteURLStr: String? = nil
-  var interactionCount: Int = 0
-  var createdAt: NSDate
-  var createdBy: User
+class Photo: CBLModel {
+  static let type = "Photo"
+  
+  @NSManaged var caption: String?
+  @NSManaged var interactionCount: Int
+  
+  @NSManaged var storyId: String
+  
+  @NSManaged var createdAt: NSDate
+  @NSManaged var creatorId: String
+  
+  override func willSave(changedPropertyNames: Set<NSObject>?) {
+    self.type = Photo.type
+  }
+  
+  static func create(db: CBLDatabase) -> Photo {
+    let photo = Photo(forDocument: db.documentWithID(NSUUID().UUIDString)!)
+    
+    photo.interactionCount = 0
+    
+    photo.creatorId = User.currentUserId
+    photo.createdAt = NSDate()
+    
+    return photo
+  }
 }

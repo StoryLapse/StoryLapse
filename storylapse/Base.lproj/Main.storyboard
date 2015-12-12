@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="14F1505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="RWk-cg-SBn">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="1TA-fu-iqj">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
     </dependencies>
@@ -21,7 +21,6 @@
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="aNf-TI-lUo">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
-                                <animations/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="102-hH-1sl">
                                     <size key="itemSize" width="154" height="154"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -36,15 +35,12 @@
                                             <rect key="frame" x="0.0" y="0.0" width="154" height="154"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="m4H-1o-MU4">
-                                                    <rect key="frame" x="0.0" y="0.0" width="154" height="154"/>
-                                                    <animations/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="m4H-1o-MU4">
+                                                    <rect key="frame" x="0.0" y="0.0" width="147" height="154"/>
                                                 </imageView>
                                             </subviews>
-                                            <animations/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
-                                        <animations/>
                                         <constraints>
                                             <constraint firstItem="m4H-1o-MU4" firstAttribute="top" secondItem="hV7-jB-uh2" secondAttribute="top" id="6JS-vA-ehm"/>
                                             <constraint firstAttribute="bottom" secondItem="m4H-1o-MU4" secondAttribute="bottom" id="Aml-TF-4BF"/>
@@ -63,7 +59,6 @@
                                 </connections>
                             </collectionView>
                         </subviews>
-                        <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="aNf-TI-lUo" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="FUW-qf-ovr"/>
@@ -230,7 +225,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" reuseIdentifier="DetailCell" id="7Gb-sW-vcj" customClass="PhotoCollectionDetailViewCell" customModule="storylapse" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="-2" width="320" height="428"/>
+                                        <rect key="frame" x="0.0" y="-1.5" width="320" height="428"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="428"/>
@@ -328,13 +323,15 @@
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Start memorize your first story" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KTs-fe-8xD">
                                         <rect key="frame" x="154" y="232" width="252" height="24"/>
-                                        <animations/>
                                         <fontDescription key="fontDescription" type="system" weight="thin" pointSize="20"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AJi-ha-ywF">
+                                        <rect key="frame" x="154" y="180" width="240" height="128"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
                                 </subviews>
-                                <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="KTs-fe-8xD" secondAttribute="trailing" id="8Ap-lz-jZm"/>
@@ -343,17 +340,28 @@
                                     <constraint firstItem="KTs-fe-8xD" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="gmZ-Nq-ePQ" secondAttribute="leadingMargin" id="M8r-fQ-wkf"/>
                                 </constraints>
                             </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="RdC-cH-kAw">
+                                <rect key="frame" x="0.0" y="64" width="600" height="487"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
                         </subviews>
-                        <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="gmZ-Nq-ePQ" secondAttribute="trailing" id="7A9-ef-TLY"/>
                             <constraint firstItem="gmZ-Nq-ePQ" firstAttribute="leading" secondItem="5pg-8f-eLS" secondAttribute="leadingMargin" id="BYH-S6-dzV"/>
                             <constraint firstItem="E1Q-SX-Ows" firstAttribute="top" secondItem="gmZ-Nq-ePQ" secondAttribute="bottom" id="CKB-Yu-hMG"/>
+                            <constraint firstAttribute="trailing" secondItem="RdC-cH-kAw" secondAttribute="trailing" id="EbT-IE-6hD"/>
+                            <constraint firstItem="RdC-cH-kAw" firstAttribute="top" secondItem="Pq5-31-qiY" secondAttribute="bottom" id="KUR-HE-Ad6"/>
+                            <constraint firstItem="RdC-cH-kAw" firstAttribute="leading" secondItem="5pg-8f-eLS" secondAttribute="leading" id="KcI-dr-7ha"/>
                             <constraint firstItem="gmZ-Nq-ePQ" firstAttribute="top" secondItem="Pq5-31-qiY" secondAttribute="bottom" id="cE6-bf-QTX"/>
+                            <constraint firstItem="E1Q-SX-Ows" firstAttribute="top" secondItem="RdC-cH-kAw" secondAttribute="bottom" id="pmv-pU-64p"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="FSN-DB-fV3"/>
+                    <connections>
+                        <outlet property="noStoryIndicatorView" destination="gmZ-Nq-ePQ" id="zKj-Tv-wmT"/>
+                        <outlet property="storyTableView" destination="RdC-cH-kAw" id="zwF-Hh-hhg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tiR-aX-zaI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -368,7 +376,6 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="n2a-33-Gfw">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <animations/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -386,7 +393,6 @@
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="Agh-rf-P32">
                         <autoresizingMask key="autoresizingMask"/>
-                        <animations/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
@@ -406,7 +412,6 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="AQH-Vo-Ggr">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <animations/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>

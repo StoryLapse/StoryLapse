@@ -9,6 +9,7 @@
 import Foundation
 
 struct Interaction {
+  
   enum Type {
     case SimpleSmile
     case ThumbUp
