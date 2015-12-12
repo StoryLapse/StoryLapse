@@ -11,42 +11,65 @@ import UIKit
 import AAShareBubbles
 import SwipeView
 
-class PhotoDetailViewController: UIViewController, AAShareBubblesDelegate {
+class PhotoDetailViewController: UIViewController, AAShareBubblesDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
-
-  @IBOutlet var scrollView: UIScrollView!
+  @IBOutlet var collectionView: UICollectionView!
   @IBOutlet var topView: UIView!
   @IBOutlet var bottomView: UIView!
-  @IBOutlet var photoImageView: UIImageView!
-  var photoImage = UIImage()
   var checkTapGestureRecognize = true
+  var selectedIndexPath: NSIndexPath?
 
   override func viewDidLoad() {
 
     title = "Photo Detail"
     super.viewDidLoad()
-    photoImageView.image = photoImage
-    scrollPhotoView()
+    collectionView.delegate = self
+    collectionView.dataSource = self
+    
   }
 
-  func scrollPhotoView() {
+  override func viewDidAppear(animated: Bool) {
+    super.viewDidAppear(animated)
 
-    scrollView.frame = CGRectMake(0, 0, UIScreen.mainScreen().bounds.size.width, self.scrollView.frame.height)
-    //    let scrollViewHeight = self.scrollView.frame.height
-    let scrollViewWidth = self.scrollView.frame.width
-    let scrollViewHeight = UIScreen.mainScreen().bounds.size.height
-
-    for position in 0...images.count - 1 {
-      let imageScroll = UIImageView(frame: CGRectMake(scrollViewWidth * CGFloat(position), 0, scrollViewWidth, scrollViewHeight))
-      imageScroll.image = UIImage(named: images[position])
-      self.scrollView.addSubview(imageScroll)
+    if let selectedIndexPath = selectedIndexPath {
+      collectionView.scrollToItemAtIndexPath(selectedIndexPath, atScrollPosition: UICollectionViewScrollPosition.CenteredHorizontally, animated: true)
     }
-
-    let imagesCount: CGFloat = CGFloat(images.count)
-
-    self.scrollView.contentSize = CGSizeMake(self.scrollView.frame.width * imagesCount, self.scrollView.frame.height)
-
   }
+
+  // MARK: Collection
+  func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+    return 1
+  }
+
+  func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    return images.count
+  }
+
+  func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+    
+    let cell = collectionView.dequeueReusableCellWithReuseIdentifier("DetailCell", forIndexPath: indexPath) as! PhotoCollectionDetailViewCell
+    cell.photoDetailImageView.image = UIImage(named: images[indexPath.row])
+    cell.photoDetailImageView.alpha = 0
+
+    let millisecondDelay = UInt64(arc4random() % 600) / 1000
+
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(millisecondDelay * NSEC_PER_SEC)), dispatch_get_main_queue(),({ () -> Void in
+
+      UIView.animateWithDuration(0.5, animations: ({
+        cell.photoDetailImageView.alpha = 1.0
+      }))
+    }))
+    
+    return cell
+  }
+
+  func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+    let screenSize: CGRect = UIScreen.mainScreen().bounds
+    return CGSizeMake(screenSize.width, screenSize.height - topView.frame.height - bottomView.frame.height)
+  }
+
+  // Mark: Other
+
 
   @IBAction func onBackClicked(sender: AnyObject) {
     self.navigationController?.popViewControllerAnimated(true)
@@ -62,7 +85,7 @@ class PhotoDetailViewController: UIViewController, AAShareBubblesDelegate {
       let screenSize: CGRect = UIScreen.mainScreen().bounds
       let screenWidth = screenSize.width
       let screenHeight = screenSize.height
-      photoImageView.frame = CGRect(x: 0, y: 0, width: screenWidth, height: screenHeight)
+      collectionView.frame = CGRect(x: 0, y: 0, width: screenWidth, height: screenHeight)
       checkTapGestureRecognize = false
       showAminationOnAdvert()
     }
@@ -81,7 +104,7 @@ class PhotoDetailViewController: UIViewController, AAShareBubblesDelegate {
     transitionAnimation.duration = 2.5
     transitionAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
     transitionAnimation.fillMode = kCAFillModeBoth
-    photoImageView.layer.addAnimation(transitionAnimation, forKey: "fadeAnimation")
+    collectionView.layer.addAnimation(transitionAnimation, forKey: "fadeAnimation")
 
   }
 
@@ -116,12 +139,12 @@ class PhotoDetailViewController: UIViewController, AAShareBubblesDelegate {
       number = 0
     }
     let name: String = images[number]
-    self.photoImageView!.alpha = 0.5
-    self.photoImageView!.image = UIImage(named: name)
+    self.collectionView!.alpha = 0.5
+    //self.collectionView.cellForItemAtIndexPath(NSIndexPath(index: number)) = UIImage(named: name)
 
     //code to animate bg with delay 2 and after completion it recursively calling animateImage method
     UIView.animateWithDuration(2.0, delay: 0.8, options:UIViewAnimationOptions.CurveEaseInOut, animations: {() in
-      self.photoImageView!.alpha = 1.0;
+      self.collectionView!.alpha = 1.0;
       },
       completion: {(Bool) in
         number++;

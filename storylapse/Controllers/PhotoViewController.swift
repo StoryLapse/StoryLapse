@@ -61,7 +61,7 @@ class PhotoViewController: UIViewController, UICollectionViewDataSource, UIColle
   }
 
   func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-    return CGSize(width: collectionView.frame.width/3 - 1.5, height: collectionView.frame.width/3 - 1)
+    return CGSize(width: collectionView.frame.width/3 , height: collectionView.frame.width/3 )
   }
 
   func collectionView(collection: UICollectionView, selectedItemIndex: NSIndexPath) {
@@ -70,12 +70,12 @@ class PhotoViewController: UIViewController, UICollectionViewDataSource, UIColle
 
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
 
-    if segue.identifier == "Detail" {
-      let indexPaths = self.collectionView.indexPathsForSelectedItems()!
-      let indexPath = indexPaths[0] as NSIndexPath
-      let photoDetailVC = segue.destinationViewController as! PhotoDetailViewController
+    if segue.identifier == "Detail",
+      let cell = sender as? UICollectionViewCell,
+      let indexPath = collectionView.indexPathForCell(cell),
+      photoDetailVC = segue.destinationViewController as? PhotoDetailViewController  {
 
-      photoDetailVC.photoImage = UIImage(named: images[indexPath.row])!
+      photoDetailVC.selectedIndexPath = indexPath
     }
   }
 
