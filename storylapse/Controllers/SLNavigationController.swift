@@ -13,7 +13,11 @@ class SLNavigationController: UINavigationController {
   override func awakeFromNib() {
     super.awakeFromNib()
     
-    navigationBar.barTintColor = Colors.venice
+    navigationBar.barTintColor = Colors.ebony
     navigationBar.barStyle = .Black
+    
+    navigationBar.titleTextAttributes = [
+      NSFontAttributeName: UIFont(name: "Helvetica-Light", size: 20)!
+    ]
   }
 }

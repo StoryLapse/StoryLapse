@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     resetFixtures()
     initializeDatabase()
     
-    window?.tintColor = Colors.venice
+    window?.tintColor = Colors.tintColor
     return true
   }
   

@@ -15,7 +15,9 @@ class StoryTableView: UITableView {
     
     separatorStyle = .SingleLine
     separatorInset = UIEdgeInsetsZero
+    separatorColor = UIColor.darkGrayColor()
     rowHeight = UITableViewAutomaticDimension
+    backgroundColor = Colors.ebony
     estimatedRowHeight = 100
   }
 }

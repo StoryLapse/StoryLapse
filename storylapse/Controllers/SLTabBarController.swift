@@ -15,6 +15,9 @@ class SLTabBarController: UITabBarController {
   override func awakeFromNib() {
     super.awakeFromNib()
     
+    tabBar.barTintColor = Colors.ebony
+    tabBar.barStyle = .Black
+    
     // Story index view controller
     let storyIndexNavController = storyboard!.instantiateViewControllerWithIdentifier("storyIndexNavController")
     let storyIndexTabBarItem = UITabBarItem(title: nil, image: UIImage(named: "person-icon"), tag: 0)
@@ -29,7 +32,7 @@ class SLTabBarController: UITabBarController {
     cameraButton.tintColor = UIColor.whiteColor()
     cameraButton.center = tabBar.center
     cameraButton.titleLabel?.text = "asd"
-    cameraButton.backgroundColor = Colors.venice
+    cameraButton.backgroundColor = Colors.tintColor
     cameraButton.addTarget(self, action: "add:", forControlEvents: .TouchUpInside)
     
     view.addSubview(cameraButton)

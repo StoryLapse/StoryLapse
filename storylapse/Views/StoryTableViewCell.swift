@@ -20,4 +20,13 @@ class StoryTableViewCell: UITableViewCell {
       photoCountLabel.text = String(format: "%d photos", arguments: [story.photoCount])
     }
   }
+  
+  override func awakeFromNib() {
+    selectionStyle = .None
+    backgroundColor = Colors.ebony
+    
+    titleLabel.textColor = Colors.primaryTextColor
+    photoCountLabel.textColor = Colors.secondaryTextColor
+    thumbImageView.backgroundColor = UIColor.darkGrayColor()
+  }
 }

@@ -18,7 +18,7 @@ class StoryIndexViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    title = "YOUR STORIES"
+    title = "Stories"
     navigationController?.title = nil
     
     storyTableView.dataSource = self
