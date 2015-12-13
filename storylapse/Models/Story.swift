@@ -71,9 +71,15 @@ extension Story {
 
 // MARK: Queries
 extension Story {
-  func getCurrentUserStories(db: CBLDatabase) -> [Story] {
-    //    let query =
+  static func getCurrentUserStories(db: CBLDatabase) -> [Story] {
+    let query = db.viewNamed("currentUserStories").createQuery()
+    let results = try! query.run()
+    let stories = results.map { Story(forDocument: $0.document!!) }
     
-    return []
+    stories.forEach {
+      let photo = getDatabase()[$0.photoIds[0]]
+    }
+    
+    return stories
   }
 }

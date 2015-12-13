@@ -9,5 +9,5 @@
 import UIKit
 
 struct Colors {
-  static let venice = UIColor(red:0.02, green:0.30, blue:0.54, alpha:1.0)
+  static let venice = UIColor(red:0.12, green:0.40, blue:0.54, alpha:1.0)
 }

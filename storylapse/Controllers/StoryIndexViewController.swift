@@ -13,7 +13,7 @@ class StoryIndexViewController: UIViewController {
   @IBOutlet var noStoryIndicatorView: UIView!
   @IBOutlet var storyTableView: UITableView!
   
-  var stories: [Story]?
+  var stories: [Story]!
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -21,19 +21,26 @@ class StoryIndexViewController: UIViewController {
     title = "YOUR STORIES"
     navigationController?.title = nil
     
-    initializeObservation()
+    storyTableView.dataSource = self
+  }
+  
+  override func viewWillAppear(animated: Bool) {
+    super.viewWillAppear(animated)
+    
+    stories = Story.getCurrentUserStories(getDatabase())
+    storyTableView.reloadData()
   }
 }
 
-extension StoryIndexViewController {
+extension StoryIndexViewController: UITableViewDataSource {
+  func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    return stories.count
+  }
   
-  func initializeObservation() {
-    let query = getDatabase().viewNamed("currentUserStories").createQuery()
-    let results = try! query.run()
-    let stories = results.map { row in
-      Story(forDocument: row.document!!)
-    }
+  func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    let cell = storyTableView.dequeueReusableCellWithIdentifier("storyTableViewCell") as! StoryTableViewCell
     
-    print(stories.map { $0.title })
+    cell.story = stories[indexPath.row]
+    return cell
   }
 }
