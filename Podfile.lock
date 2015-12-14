@@ -3,23 +3,26 @@ PODS:
   - Alamofire (3.1.3)
   - AlamofireImage (2.1.1):
     - Alamofire (~> 3.1)
-  - SwipeView (1.3.2)
+  - CameraManager (2.1.1)
   - couchbase-lite-ios (1.1.1):
     - couchbase-lite-ios/Core (= 1.1.1)
   - couchbase-lite-ios/Core (1.1.1)
+  - SwipeView (1.3.2)
 
 DEPENDENCIES:
   - AAShareBubbles
   - Alamofire (~> 3.1.3)
   - AlamofireImage (~> 2.1.1)
-  - SwipeView (~> 1.3)
+  - CameraManager (~> 2.1)
   - couchbase-lite-ios
+  - SwipeView (~> 1.3)
 
 SPEC CHECKSUMS:
   AAShareBubbles: 960610d6a3c4da57d7cd295f4bec68790307bce8
   Alamofire: 9f93b56389e48def9220dd57d1f44b1927229a5a
   AlamofireImage: 31f7c4e9f516183e0ef2d2da18318de28a4628b8
-  SwipeView: bd67cfaf7760c036438446b3ccb28a3b84fce009
+  CameraManager: df3540f8342b86559a7bbfff408e41fd60ad1ed3
   couchbase-lite-ios: 4ada0c645e1c72ded94296f732e6cdf58e8a7811
+  SwipeView: bd67cfaf7760c036438446b3ccb28a3b84fce009
 
 COCOAPODS: 0.39.0

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1FD204501C1F2BB6001A99ED /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD2044F1C1F2BB6001A99ED /* CameraViewController.swift */; };
+		1FD204541C1F34DE001A99ED /* ImageConfirmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD204531C1F34DE001A99ED /* ImageConfirmViewController.swift */; };
 		580BBDF61C1D10D4009178B5 /* StoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 580BBDF51C1D10D4009178B5 /* StoryTableViewCell.swift */; };
 		580BBDF81C1D1D85009178B5 /* StoryTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 580BBDF71C1D1D85009178B5 /* StoryTableView.swift */; };
 		582048AE1C1BEEC700D76B1D /* fixtures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582048AD1C1BEEC700D76B1D /* fixtures.swift */; };
@@ -33,6 +35,8 @@
 
 /* Begin PBXFileReference section */
 		1A1FE3561D03CAB96D0AA04A /* Pods-storylapse.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-storylapse.release.xcconfig"; path = "Pods/Target Support Files/Pods-storylapse/Pods-storylapse.release.xcconfig"; sourceTree = "<group>"; };
+		1FD2044F1C1F2BB6001A99ED /* CameraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
+		1FD204531C1F34DE001A99ED /* ImageConfirmViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageConfirmViewController.swift; sourceTree = "<group>"; };
 		580BBDF51C1D10D4009178B5 /* StoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryTableViewCell.swift; sourceTree = "<group>"; };
 		580BBDF71C1D1D85009178B5 /* StoryTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryTableView.swift; sourceTree = "<group>"; };
 		582048AD1C1BEEC700D76B1D /* fixtures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = fixtures.swift; sourceTree = "<group>"; };
@@ -157,6 +161,8 @@
 				99F85C0C1C1BF3D500E13642 /* PhotoCollectionDetailViewCell.swift */,
 				580BBDF51C1D10D4009178B5 /* StoryTableViewCell.swift */,
 				580BBDF71C1D1D85009178B5 /* StoryTableView.swift */,
+				1FD2044F1C1F2BB6001A99ED /* CameraViewController.swift */,
+				1FD204531C1F34DE001A99ED /* ImageConfirmViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -205,7 +211,7 @@
 				TargetAttributes = {
 					58C42B5B1C1430BC00D4CCB8 = {
 						CreatedOnToolsVersion = 7.1;
-						DevelopmentTeam = NENL5G4Q5P;
+						DevelopmentTeam = A8323HJ86U;
 					};
 				};
 			};
@@ -309,7 +315,9 @@
 				5890ABAA1C1A4CE0004A74DC /* User.swift in Sources */,
 				994832A71C19616600DBB136 /* PhotoDetailViewController.swift in Sources */,
 				99EECC6D1C16D21700C6B792 /* PhotoView.swift in Sources */,
+				1FD204501C1F2BB6001A99ED /* CameraViewController.swift in Sources */,
 				582048AE1C1BEEC700D76B1D /* fixtures.swift in Sources */,
+				1FD204541C1F34DE001A99ED /* ImageConfirmViewController.swift in Sources */,
 				58E4A9471C19A93F0008592E /* Story.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -432,7 +440,7 @@
 				);
 				INFOPLIST_FILE = storylapse/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.example.storylapse;
+				PRODUCT_BUNDLE_IDENTIFIER = com.HuyNgo.storylapse;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "storylapse/storylapse-Bridging-Header.h";
@@ -454,7 +462,7 @@
 				);
 				INFOPLIST_FILE = storylapse/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.example.storylapse;
+				PRODUCT_BUNDLE_IDENTIFIER = com.HuyNgo.storylapse;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "storylapse/storylapse-Bridging-Header.h";
