@@ -21,6 +21,7 @@ func getDocumentsURL() -> NSURL {
 
 func fileInDocumentsDirectory(filename: String) -> String {
     let fileURL = getDocumentsURL().URLByAppendingPathComponent(filename)
+    print(fileURL)
     return fileURL.path!
     
 }

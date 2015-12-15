@@ -28,11 +28,11 @@ class PhotoDetailViewController: UIViewController, AAShareBubblesDelegate, UICol
     
   }
 
-  override func viewDidAppear(animated: Bool) {
-    super.viewDidAppear(animated)
+  override func viewDidLayoutSubviews() {
+    super.viewDidLayoutSubviews()
 
     if let selectedIndexPath = selectedIndexPath {
-      collectionView.scrollToItemAtIndexPath(selectedIndexPath, atScrollPosition: UICollectionViewScrollPosition.CenteredHorizontally, animated: true)
+      collectionView.scrollToItemAtIndexPath(selectedIndexPath, atScrollPosition: UICollectionViewScrollPosition.CenteredHorizontally, animated: false)
     }
   }
 
