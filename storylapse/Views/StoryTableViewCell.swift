@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AlamofireImage
 
 class StoryTableViewCell: UITableViewCell {
   
@@ -18,6 +19,7 @@ class StoryTableViewCell: UITableViewCell {
     didSet {
       titleLabel.text = story.title
       photoCountLabel.text = String(format: "%d photos", arguments: [story.photoCount])
+      thumbImageView.af_setImageWithURL(NSURL(string: "http://lorempixel.com/160/160/sports/")!)
     }
   }
   

@@ -31,9 +31,8 @@ class SLTabBarController: UITabBarController {
     cameraButton.setImage(UIImage(named: "camera-icon"), forState: .Normal)
     cameraButton.tintColor = UIColor.whiteColor()
     cameraButton.center = tabBar.center
-    cameraButton.titleLabel?.text = "asd"
     cameraButton.backgroundColor = Colors.tintColor
-    cameraButton.addTarget(self, action: "add:", forControlEvents: .TouchUpInside)
+    cameraButton.addTarget(self, action: "handleCameraButtonTap:", forControlEvents: .TouchUpInside)
     
     view.addSubview(cameraButton)
     
@@ -52,7 +51,9 @@ class SLTabBarController: UITabBarController {
     cameraButton.center = tabBar.center
   }
   
-  func add(sender: UIButton) {
-    print(sender)
+  func handleCameraButtonTap(sender: UIButton!) {
+    if let navViewController = viewControllers?[selectedIndex] as? SLNavigationController {
+      navViewController.handleCameraButtonTap(sender)
+    }
   }
 }

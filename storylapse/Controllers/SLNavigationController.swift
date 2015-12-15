@@ -20,4 +20,8 @@ class SLNavigationController: UINavigationController {
       NSFontAttributeName: UIFont(name: "Helvetica-Light", size: 20)!
     ]
   }
+  
+  func handleCameraButtonTap(sender: AnyObject?) {
+    performSegueWithIdentifier("showPhotoSettingsSegue", sender: nil)
+  }
 }

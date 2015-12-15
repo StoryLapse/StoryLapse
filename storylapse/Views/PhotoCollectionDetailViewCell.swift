@@ -10,7 +10,5 @@ import UIKit
 
 class PhotoCollectionDetailViewCell: UICollectionViewCell {
 
-  
   @IBOutlet var photoDetailImageView: UIImageView!
-    
 }

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AlamofireImage
 
 class StoryTableView: UITableView {
   
@@ -19,5 +20,9 @@ class StoryTableView: UITableView {
     rowHeight = UITableViewAutomaticDimension
     backgroundColor = Colors.ebony
     estimatedRowHeight = 100
+    
+    tableFooterView = UIView()
+    backgroundColor = UIColor(red: 0.11, green: 0.11, blue: 0.11, alpha: 1)
+    backgroundView?.backgroundColor = UIColor(patternImage: UIImage(named: "camera-icon")!)
   }
 }
