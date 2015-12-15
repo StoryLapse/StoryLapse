@@ -128,7 +128,7 @@ class CameraViewController: UIViewController,UIImagePickerControllerDelegate, UI
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let nextVC = segue.destinationViewController as! ImageConfirmViewController
+        let nextVC = segue.destinationViewController as! PhotoEditViewController
         nextVC.image = sender as? UIImage
     }
 }

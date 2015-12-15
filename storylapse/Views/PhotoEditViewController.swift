@@ -26,7 +26,7 @@ func fileInDocumentsDirectory(filename: String) -> String {
     
 }
 
-class ImageConfirmViewController: UIViewController {
+class PhotoEditViewController: UIViewController {
     
     var image: UIImage?
     @IBOutlet var imagePreviewView: UIImageView!

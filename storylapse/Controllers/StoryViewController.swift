@@ -8,19 +8,15 @@
 
 import UIKit
 
-//public var images = ["11", "12", "13", "14", "15", "16", "17", "18", "11", "12", "13", "14", "15", "16", "17", "18", "11", "12", "13", "14", "15", "16", "17", "18"]
-//public var imagePath = "/Users/entropy/Library/Developer/CoreSimulator/Devices/FCF08D6E-B837-4F3B-AC99-758936769A5A/data/Containers/Data/Application/CF4CA6CB-CADA-4E6E-8E31-FF0FD464EA7B/Documents/photos/m1.jpeg"
-//public var images = [fileInDocumentsDirectory("m1.jpeg"), fileInDocumentsDirectory("m2.jpeg"), fileInDocumentsDirectory("m3.jpeg")]
 public var images = [fileInDocumentsDirectory("D8B07964-E499-465F-8221-AAB24659430E.png"), fileInDocumentsDirectory("m1.jpeg"), fileInDocumentsDirectory("m2.jpeg"), fileInDocumentsDirectory("m3.jpeg")]
 
-class PhotoViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+class StoryViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
 
   @IBOutlet var navigationBar: UIBarButtonItem!
   @IBOutlet var collectionView: UICollectionView!
 
   var imagesStringArray = [String]()
-  //    var images = [String]()
 
   override func viewDidLoad() {
 
@@ -31,7 +27,6 @@ class PhotoViewController: UIViewController, UICollectionViewDataSource, UIColle
 
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
-    // Dispose of any resources that can be recreated.
   }
 
   // MARK: Collection
@@ -46,7 +41,6 @@ class PhotoViewController: UIViewController, UICollectionViewDataSource, UIColle
   func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
     let cell = collectionView.dequeueReusableCellWithReuseIdentifier("Cell", forIndexPath: indexPath) as! PhotoCollectionViewCell
     cell.photoImageView.image = UIImage(named: images[indexPath.row])
-    //cell.photoImageView.image = images[indexPath.row]
     cell.photoImageView.alpha = 0
 
     let millisecondDelay = UInt64(arc4random() % 600) / 1000
@@ -62,6 +56,12 @@ class PhotoViewController: UIViewController, UICollectionViewDataSource, UIColle
 
   func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
     return CGSize(width: collectionView.frame.width/3 , height: collectionView.frame.width/3 )
+  }
+
+  override func traitCollectionDidChange(previousTraitCollection: UITraitCollection?) {
+    super.traitCollectionDidChange(previousTraitCollection)
+
+    collectionView.reloadData()
   }
 
   func collectionView(collection: UICollectionView, selectedItemIndex: NSIndexPath) {
@@ -80,21 +80,6 @@ class PhotoViewController: UIViewController, UICollectionViewDataSource, UIColle
   }
 
   @IBAction func onShareTouched(sender: AnyObject) {
-
-  }
-
-  // MARK: load image from path file
-
-  func loadImageFromPath(path: String) -> UIImage? {
-
-    let image = UIImage(contentsOfFile: path)
-
-    if image == nil {
-
-      print("missing image at: \(path)")
-    }
-    print("Loading image from path: \(path)") // this is just for you to see the path in case you want to go to the directory, using Finder.
-    return image
 
   }
 
