@@ -16,11 +16,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   
   func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
     
+    initializePhotoDir()
     resetFixtures()
     initializeDatabase()
     
     window?.tintColor = Colors.tintColor
     return true
+  }
+  
+  func initializePhotoDir() {
+    let photoDirURL = Photo.getPhotoDirURL()
+    
+    do {
+      try NSFileManager.defaultManager().createDirectoryAtPath(photoDirURL.path!, withIntermediateDirectories: true, attributes: nil)
+      
+    } catch let error as NSError {
+      NSLog("Unable to create directory \(error.debugDescription)")
+    }
   }
   
   func initializeDatabase() {

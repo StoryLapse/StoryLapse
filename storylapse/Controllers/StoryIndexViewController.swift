@@ -32,6 +32,7 @@ class StoryIndexViewController: UIViewController {
   }
 }
 
+// MARK: TableView
 extension StoryIndexViewController: UITableViewDataSource {
   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return stories.count
@@ -42,5 +43,17 @@ extension StoryIndexViewController: UITableViewDataSource {
     
     cell.story = stories[indexPath.row]
     return cell
+  }
+}
+
+// MARK: Navigations
+extension StoryIndexViewController {
+  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    if segue.identifier == "showStorySegue" {
+      let storyViewController = segue.destinationViewController as! StoryViewController
+      let story = (sender as! StoryTableViewCell).story
+      
+      storyViewController.story = story
+    }
   }
 }

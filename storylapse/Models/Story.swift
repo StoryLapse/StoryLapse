@@ -76,10 +76,6 @@ extension Story {
     let results = try! query.run()
     let stories = results.map { Story(forDocument: $0.document!!) }
     
-    stories.forEach {
-      let photo = getDatabase()[$0.photoIds[0]]
-    }
-    
     return stories
   }
 }

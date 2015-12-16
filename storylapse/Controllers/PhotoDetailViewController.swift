@@ -16,13 +16,13 @@ class PhotoDetailViewController: UIViewController, AAShareBubblesDelegate, UICol
   @IBOutlet var collectionView: UICollectionView!
   @IBOutlet var topView: UIView!
   @IBOutlet var bottomView: UIView!
-  var checkTapGestureRecognize = true
+  var isFullscreen = false
   var selectedIndexPath: NSIndexPath?
 
   override func viewDidLoad() {
-
-    title = "Photo Detail"
     super.viewDidLoad()
+    
+    title = "Photo Detail"
     collectionView.delegate = self
     collectionView.dataSource = self
     
@@ -85,26 +85,26 @@ class PhotoDetailViewController: UIViewController, AAShareBubblesDelegate, UICol
   // MARK: onTabGesture ImageView
 
 
-  @IBAction func onTabGestureRecognize(sender: UITapGestureRecognizer) {
-    print("on tap")
-    if checkTapGestureRecognize == true {
+  @IBAction func handlePhotoTap(sender: UITapGestureRecognizer) {
+    if !isFullscreen {
       bottomView.hidden = true
       topView.hidden = true
       self.tabBarController?.tabBar.hidden = true
       self.navigationController?.navigationBarHidden = true
+      
       let screenSize: CGRect = UIScreen.mainScreen().bounds
       let screenWidth = screenSize.width
       let screenHeight = screenSize.height
       collectionView.frame = CGRect(x: 0, y: 0, width: screenWidth, height: screenHeight)
-      checkTapGestureRecognize = false
-    }
-    else if checkTapGestureRecognize == false {
+      
+    } else {
       bottomView.hidden = false
       topView.hidden = false
       self.tabBarController?.tabBar.hidden = false
       self.navigationController?.navigationBarHidden = false
-      checkTapGestureRecognize = true
     }
+    
+    isFullscreen = !isFullscreen
   }
 
   // MARK: Share
@@ -131,7 +131,7 @@ class PhotoDetailViewController: UIViewController, AAShareBubblesDelegate, UICol
 
   func update() {
     collectionView.scrollToItemAtIndexPath(selectedIndexPath!, atScrollPosition: UICollectionViewScrollPosition.CenteredHorizontally, animated: true)
-    selectedIndexPath = NSIndexPath(forRow: (selectedIndexPath?.row)!+1, inSection: 0)
+    selectedIndexPath = NSIndexPath(forRow: (selectedIndexPath!.row + 1) % images.count, inSection: 0)
   }
 
 }

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="14F1505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="1TA-fu-iqj">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="1TA-fu-iqj">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
     </dependencies>
@@ -320,7 +320,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rUX-UO-BKk" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="nHe-ZS-vfu">
                     <connections>
-                        <action selector="onTabGestureRecognize:" destination="o0t-fy-QbQ" id="bBd-7b-m4B"/>
+                        <action selector="handlePhotoTap:" destination="o0t-fy-QbQ" id="Tap-UW-Lm7"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
@@ -346,7 +346,7 @@
                                         <rect key="frame" x="0.0" y="92" width="600" height="126"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Px2-P9-hZZ" id="ABl-E0-Zxb">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="125"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="125.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="KBG-9O-Aks">
@@ -363,7 +363,7 @@
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GlI-GL-oyZ">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GlI-GL-oyZ">
                                                     <rect key="frame" x="96" y="28" width="36" height="17"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -385,7 +385,7 @@
                                             <outlet property="photoCountLabel" destination="GlI-GL-oyZ" id="970-D5-XCU"/>
                                             <outlet property="thumbImageView" destination="KBG-9O-Aks" id="5Vi-O7-Nf6"/>
                                             <outlet property="titleLabel" destination="bpB-Dj-zcI" id="IyZ-ih-JHX"/>
-                                            <segue destination="BYZ-38-t0r" kind="show" id="Rfi-wd-vtV"/>
+                                            <segue destination="BYZ-38-t0r" kind="show" identifier="showStorySegue" id="Rfi-wd-vtV"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -761,7 +761,7 @@
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Story title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8FG-Qz-Bqt" customClass="ContentSettingsTextField" customModule="storylapse" customModuleProvider="target">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Story title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8FG-Qz-Bqt" customClass="ContentSettingsTextField" customModule="storylapse" customModuleProvider="target">
                                         <rect key="frame" x="8" y="30" width="584" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="rfX-nV-46E"/>
@@ -769,7 +769,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Hashtags: #gym, #children, #sweetheart" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mFU-Ce-QPU" customClass="ContentSettingsTextField" customModule="storylapse" customModuleProvider="target">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Hashtags: #gym, #children, #sweetheart" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mFU-Ce-QPU" customClass="ContentSettingsTextField" customModule="storylapse" customModuleProvider="target">
                                         <rect key="frame" x="8" y="78" width="584" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="DO7-RE-2WF"/>
