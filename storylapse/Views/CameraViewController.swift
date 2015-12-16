@@ -29,6 +29,10 @@ class CameraViewController: UIViewController,UIImagePickerControllerDelegate, UI
     
     addCameraToView()
   }
+    
+    override func prefersStatusBarHidden() -> Bool {
+        return true
+    }
   
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
@@ -47,7 +51,7 @@ class CameraViewController: UIViewController,UIImagePickerControllerDelegate, UI
     // Dispose of any resources that can be recreated.
   }
   
-  @IBAction func onCaptureButton(sender: UIButton) {
+  @IBAction func handleCaptureButtonTap(sender: UIButton) {
     cameraManager.cameraOutputQuality = .High
     cameraManager.cameraOutputMode = .StillImage
     switch (cameraManager.cameraOutputMode) {
@@ -69,10 +73,9 @@ class CameraViewController: UIViewController,UIImagePickerControllerDelegate, UI
         })
       }
     }
-    
   }
   
-  @IBAction func onSwitchCameraButton(sender: UIButton) {
+  @IBAction func handleSwitchCameraButtonTap(sender: UIButton) {
     
     cameraManager.cameraDevice = cameraManager.cameraDevice == CameraDevice.Front ? CameraDevice.Back : CameraDevice.Front
     switch (cameraManager.cameraDevice) {
@@ -84,7 +87,7 @@ class CameraViewController: UIViewController,UIImagePickerControllerDelegate, UI
     }
   }
   
-  @IBAction func onFlashButton(sender: UIButton) {
+  @IBAction func handleFlashButtonTap(sender: UIButton) {
     switch (cameraManager.changeFlashMode()) {
     case .Off:
       sender.setImage(UIImage(named: "flashOffIcon"), forState: .Normal)
@@ -103,7 +106,11 @@ class CameraViewController: UIViewController,UIImagePickerControllerDelegate, UI
     }
   }
   
-  @IBAction func onGalleryButton(sender: AnyObject) {
+    @IBAction func handleCancelButtonTap(sender: AnyObject) {
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+  @IBAction func handleGalleryButtonTap(sender: AnyObject) {
     let imagePicker = UIImagePickerController()
     
     imagePicker.delegate = self
@@ -126,7 +133,7 @@ class CameraViewController: UIViewController,UIImagePickerControllerDelegate, UI
       let image = info[UIImagePickerControllerOriginalImage] as! UIImage
       
       dispatch_async(dispatch_get_main_queue(), {
-        self.performSegueWithIdentifier("imageView", sender: image)
+        self.performSegueWithIdentifier("photoEdit", sender: image)
       })
       
     } else if mediaType.isEqualToString(kUTTypeMovie as String) {
@@ -138,8 +145,9 @@ class CameraViewController: UIViewController,UIImagePickerControllerDelegate, UI
   }
   
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    // TODO: Check segue.identifier to prevent futhur error
-    let nextVC = segue.destinationViewController as! PhotoEditViewController
-    nextVC.image = sender as? UIImage
+    if segue.identifier == "photoEdit" {
+        let nextVC = segue.destinationViewController as? PhotoEditViewController
+        nextVC!.image = sender as? UIImage
+    }
   }
 }

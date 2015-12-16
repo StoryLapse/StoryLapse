@@ -40,4 +40,11 @@ class PhotoEditViewController: UIViewController {
     let result = pngImageData!.writeToFile(path, atomically: true)
     return result
   }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "settingStory" {
+            let nextVC = segue.destinationViewController as! ContentSettingsViewController
+            
+        }
+    }
 }
