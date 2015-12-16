@@ -146,8 +146,8 @@ class CameraViewController: UIViewController,UIImagePickerControllerDelegate, UI
   
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
     if segue.identifier == "photoEdit" {
-        let nextVC = segue.destinationViewController as? PhotoEditViewController
-        nextVC!.image = sender as? UIImage
+        let nextVC = segue.destinationViewController as! PhotoEditViewController
+        nextVC.image = sender as? UIImage
     }
   }
 }
