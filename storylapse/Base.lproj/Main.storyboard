@@ -451,7 +451,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xEe-qF-8vo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2189" y="1882"/>
+            <point key="canvasLocation" x="3001" y="1882"/>
         </scene>
         <!--Item-->
         <scene sceneID="o0N-8I-5nJ">
@@ -466,7 +466,7 @@
                     <nil name="viewControllers"/>
                     <connections>
                         <segue destination="yXI-0c-5R2" kind="relationship" relationship="rootViewController" id="jhl-lI-xU0"/>
-                        <segue destination="WeL-fg-sM9" kind="presentation" identifier="showPhotoSettingsSegue" id="66a-aP-u3c"/>
+                        <segue destination="zA3-Gi-Tvd" kind="presentation" identifier="showPhotoSettingsSegue" id="66a-aP-u3c"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rFS-Oa-TzK" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -502,14 +502,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ttX-Bh-6Ds">
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ttX-Bh-6Ds">
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <subviews>
-                                    <view contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="sdy-DF-ReA">
+                                    <view contentMode="scaleAspectFit" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sdy-DF-ReA">
                                         <rect key="frame" x="0.0" y="45" width="375" height="540"/>
                                         <color key="backgroundColor" red="0.90884718498659511" green="0.90884718498659511" blue="0.90884718498659511" alpha="1" colorSpace="calibratedRGB"/>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5He-UW-I4u">
+                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5He-UW-I4u">
                                         <rect key="frame" x="0.0" y="585" width="375" height="62"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Jd-Vb-ZXV">
@@ -653,18 +653,19 @@
                             <constraint firstAttribute="trailing" secondItem="ttX-Bh-6Ds" secondAttribute="trailing" id="mex-O0-X7R"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="ey0-dg-6ic"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="cameraView" destination="sdy-DF-ReA" id="y4W-FG-ESf"/>
                         <outlet property="captureButton" destination="TKW-we-vdg" id="l77-Ki-P4s"/>
                         <outlet property="flashButton" destination="CO7-ey-Xgz" id="YFI-y8-3hW"/>
                         <outlet property="switchCameraButton" destination="B4S-h5-uWJ" id="Kum-Gk-vso"/>
-                        <segue destination="DHD-Tn-iAx" kind="modal" identifier="photoEdit" id="bYP-8T-5Bf"/>
+                        <segue destination="DHD-Tn-iAx" kind="push" identifier="photoEdit" id="bYP-8T-5Bf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="48g-Qq-CuI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="234.5" y="2000.5"/>
+            <point key="canvasLocation" x="1046.5" y="2000.5"/>
         </scene>
         <!--Photo Edit View Controller-->
         <scene sceneID="v6t-Yc-kVP">
@@ -753,7 +754,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BOZ-7l-Dpz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="677.5" y="2000.5"/>
+            <point key="canvasLocation" x="1489.5" y="2000.5"/>
         </scene>
         <!--Content Settings View Controller-->
         <scene sceneID="5jy-hy-cNo">
@@ -869,7 +870,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VJ9-g4-y3H" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1197.5" y="2000.5"/>
+            <point key="canvasLocation" x="2009.5" y="2000.5"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="0HR-qD-mHI">
@@ -887,6 +888,24 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bfl-XJ-whj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="GwX-2R-Ymq">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="zA3-Gi-Tvd" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="xLQ-FT-uqI">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="WeL-fg-sM9" kind="relationship" relationship="rootViewController" id="DEl-XB-PRZ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lUI-XU-5Po" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="234" y="2000"/>
         </scene>
     </scenes>
     <resources>

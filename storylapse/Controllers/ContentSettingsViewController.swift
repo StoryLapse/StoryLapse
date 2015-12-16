@@ -12,6 +12,7 @@ class ContentSettingsViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    self.navigationController?.navigationBar.hidden = false
     title = "Settings"
   }
 }

@@ -23,7 +23,7 @@ class CameraViewController: UIViewController,UIImagePickerControllerDelegate, UI
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    
+    self.navigationController?.navigationBar.hidden = true
     cameraManager.showAccessPermissionPopupAutomatically = true
     flashButton.enabled = cameraManager.hasFlash
     

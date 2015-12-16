@@ -17,7 +17,7 @@ class PhotoEditViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    self.navigationController?.navigationBar.hidden = false
+    self.navigationController?.navigationBar.hidden = true
     if let validImage = self.image {
       self.imagePreviewView.image = validImage
     }
@@ -29,7 +29,6 @@ class PhotoEditViewController: UIViewController {
   
   @IBAction func onDoneButton(sender: AnyObject) {
     let photo = Photo.create(getDatabase())
-    
     if let image = imagePreviewView.image {
       saveImage(image, path: photo.localPath)
     }
