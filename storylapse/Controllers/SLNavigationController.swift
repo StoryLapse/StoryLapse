@@ -25,3 +25,11 @@ class SLNavigationController: UINavigationController {
     performSegueWithIdentifier("showPhotoSettingsSegue", sender: nil)
   }
 }
+extension UINavigationController {
+    public override func shouldAutorotate() -> Bool {
+        if visibleViewController is CameraViewController {
+            return false
+        }
+        return true
+    }
+}

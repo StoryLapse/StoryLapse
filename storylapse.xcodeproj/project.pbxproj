@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F044DDA1C22A5AA0006E596 /* ImageStoryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F044DD91C22A5AA0006E596 /* ImageStoryView.xib */; };
+		1F044DDC1C22A5C40006E596 /* ImageStoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F044DDB1C22A5C40006E596 /* ImageStoryView.swift */; };
+		1F044DDE1C22A8910006E596 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F044DDD1C22A8910006E596 /* TestViewController.swift */; };
 		1FD204501C1F2BB6001A99ED /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD2044F1C1F2BB6001A99ED /* CameraViewController.swift */; };
 		1FD204541C1F34DE001A99ED /* PhotoEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD204531C1F34DE001A99ED /* PhotoEditViewController.swift */; };
 		580BBDF61C1D10D4009178B5 /* StoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 580BBDF51C1D10D4009178B5 /* StoryTableViewCell.swift */; };
@@ -41,6 +44,9 @@
 
 /* Begin PBXFileReference section */
 		1A1FE3561D03CAB96D0AA04A /* Pods-storylapse.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-storylapse.release.xcconfig"; path = "Pods/Target Support Files/Pods-storylapse/Pods-storylapse.release.xcconfig"; sourceTree = "<group>"; };
+		1F044DD91C22A5AA0006E596 /* ImageStoryView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImageStoryView.xib; sourceTree = "<group>"; };
+		1F044DDB1C22A5C40006E596 /* ImageStoryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageStoryView.swift; sourceTree = "<group>"; };
+		1F044DDD1C22A8910006E596 /* TestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		1FD2044F1C1F2BB6001A99ED /* CameraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CameraViewController.swift; path = ../Views/CameraViewController.swift; sourceTree = "<group>"; };
 		1FD204531C1F34DE001A99ED /* PhotoEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PhotoEditViewController.swift; path = ../Views/PhotoEditViewController.swift; sourceTree = "<group>"; };
 		580BBDF51C1D10D4009178B5 /* StoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryTableViewCell.swift; sourceTree = "<group>"; };
@@ -154,6 +160,8 @@
 				589ACA4A1C16E3F80030A54D /* SLNavigationController.swift */,
 				994832A61C19616600DBB136 /* PhotoDetailViewController.swift */,
 				580BBDFF1C222870009178B5 /* PhotoAddViewController.swift */,
+				580BBDF91C1F9396009178B5 /* ContentSettingsViewController.swift */,
+				1F044DDD1C22A8910006E596 /* TestViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -181,6 +189,9 @@
 				580BBDFB1C1F947D009178B5 /* ContentSettingsView.swift */,
 				580BBE011C222E48009178B5 /* RecentStoryTableViewCell.swift */,
 				580BBE031C223A42009178B5 /* RecentStoryTabieViewAddStoryCell.swift */,
+				1FE0BDFF1C21540900F1F085 /* SettingPhotoTableViewCell.swift */,
+				1F044DD91C22A5AA0006E596 /* ImageStoryView.xib */,
+				1F044DDB1C22A5C40006E596 /* ImageStoryView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -259,6 +270,7 @@
 				99AAA1801C2297DE00B4EA69 /* MenuOptionsView.xib in Resources */,
 				58C42B6A1C1430BD00D4CCB8 /* LaunchScreen.storyboard in Resources */,
 				58C42B671C1430BD00D4CCB8 /* Assets.xcassets in Resources */,
+				1F044DDA1C22A5AA0006E596 /* ImageStoryView.xib in Resources */,
 				58C42B651C1430BD00D4CCB8 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -330,6 +342,7 @@
 				580BBDF81C1D1D85009178B5 /* StoryTableView.swift in Sources */,
 				99F85C0D1C1BF3D500E13642 /* PhotoCollectionDetailViewCell.swift in Sources */,
 				589ACA491C16E1200030A54D /* SLTabBarController.swift in Sources */,
+				1F044DDE1C22A8910006E596 /* TestViewController.swift in Sources */,
 				589ACA4B1C16E3F80030A54D /* SLNavigationController.swift in Sources */,
 				5890ABAE1C1A8D17004A74DC /* Interaction.swift in Sources */,
 				580BBE041C223A42009178B5 /* RecentStoryTabieViewAddStoryCell.swift in Sources */,
@@ -342,6 +355,7 @@
 				1FD204501C1F2BB6001A99ED /* CameraViewController.swift in Sources */,
 				582048AE1C1BEEC700D76B1D /* fixtures.swift in Sources */,
 				1FD204541C1F34DE001A99ED /* PhotoEditViewController.swift in Sources */,
+				1F044DDC1C22A5C40006E596 /* ImageStoryView.swift in Sources */,
 				58E4A9471C19A93F0008592E /* Story.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

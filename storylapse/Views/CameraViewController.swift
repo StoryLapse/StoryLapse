@@ -12,7 +12,7 @@ import AVFoundation
 import MobileCoreServices
 
 class CameraViewController: UIViewController,UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-  
+    
   @IBOutlet var cameraView: UIView!
   @IBOutlet var captureButton: UIButton!
   @IBOutlet var switchCameraButton: UIButton!
@@ -26,7 +26,6 @@ class CameraViewController: UIViewController,UIImagePickerControllerDelegate, UI
     self.navigationController?.navigationBar.hidden = true
     cameraManager.showAccessPermissionPopupAutomatically = true
     flashButton.enabled = cameraManager.hasFlash
-    
     addCameraToView()
   }
     
@@ -53,11 +52,11 @@ class CameraViewController: UIViewController,UIImagePickerControllerDelegate, UI
   
   @IBAction func handleCaptureButtonTap(sender: UIButton) {
     cameraManager.cameraOutputQuality = .High
-    cameraManager.cameraOutputMode = .StillImage
+   // cameraManager.cameraOutputMode = .StillImage
     switch (cameraManager.cameraOutputMode) {
     case .StillImage:
       cameraManager.capturePictureWithCompletition({ (image, error) -> Void in
-        self.performSegueWithIdentifier("imageView", sender: image)
+        self.performSegueWithIdentifier("photoEdit", sender: image)
       })
     case .VideoWithMic, .VideoOnly:
       sender.selected = !sender.selected
@@ -101,7 +100,7 @@ class CameraViewController: UIViewController,UIImagePickerControllerDelegate, UI
   }
   
   private func addCameraToView() {
-    cameraManager.addPreviewLayerToView(cameraView, newCameraOutputMode: CameraOutputMode.VideoWithMic)
+    cameraManager.addPreviewLayerToView(cameraView, newCameraOutputMode: CameraOutputMode.StillImage)
     cameraManager.showErrorBlock = { (erTitle: String, erMessage: String) -> Void in
     }
   }
@@ -150,4 +149,6 @@ class CameraViewController: UIViewController,UIImagePickerControllerDelegate, UI
         nextVC.image = sender as? UIImage
     }
   }
+    
 }
+

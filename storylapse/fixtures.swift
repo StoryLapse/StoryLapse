@@ -36,6 +36,7 @@ func resetFixtures() {
       story.photoIds += [photo.document!.documentID]
       
       // Copy images
+        
       let samplePhotoPath = samplePhotoDirURL.URLByAppendingPathComponent(String(format: "sample-%d.jpg", idx % 5)).path!
       
       try! NSFileManager.defaultManager().copyItemAtPath(samplePhotoPath, toPath: photo.localPath)

@@ -16,8 +16,9 @@ class PhotoEditViewController: UIViewController {
   @IBOutlet var imagePreviewView: UIImageView!
   override func viewDidLoad() {
     super.viewDidLoad()
-    
-    self.navigationController?.navigationBar.hidden = true
+    self.view.backgroundColor = UIColor.blackColor()
+    self.navigationController?.navigationBar.hidden = false
+    title = "Preview"
     if let validImage = self.image {
       self.imagePreviewView.image = validImage
     }
