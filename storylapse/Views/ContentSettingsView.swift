@@ -11,8 +11,6 @@ import UIKit
 class ContentSettingsView: UIView {
   
   @IBOutlet var captionTextView: UITextView!
-  @IBOutlet var storyLabel: UILabel!
-  @IBOutlet var storyTitleTextField: ContentSettingsTextField!
   
   override func awakeFromNib() {
     backgroundColor = UIColor(red: 0.11, green: 0.11, blue: 0.11, alpha: 1)
@@ -23,8 +21,6 @@ class ContentSettingsView: UIView {
     captionTextView.layer.borderColor = Colors.borderColor.CGColor
     captionTextView.layer.borderWidth = 1
     captionTextView.textContainerInset = UIEdgeInsetsMake(8, 8, 8, 8)
-    
-    storyLabel.textColor = Colors.primaryTextColor
   }
 }
 

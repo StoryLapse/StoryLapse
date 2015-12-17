@@ -41,10 +41,9 @@ class PhotoEditViewController: UIViewController {
   }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "settingStory" {
-            let nextVC = segue.destinationViewController as! ContentSettingsViewController
+        if segue.identifier == "showPhotoAddSegue" {
+            let nextVC = segue.destinationViewController as! PhotoAddViewController
             nextVC.image = image
-            
         }
     }
 }

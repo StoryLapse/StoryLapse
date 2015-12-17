@@ -13,16 +13,16 @@ class StoryTableView: UITableView {
   
   override func awakeFromNib() {
     super.awakeFromNib()
+
+    rowHeight = UITableViewAutomaticDimension
+    estimatedRowHeight = 100
     
     separatorStyle = .SingleLine
     separatorInset = UIEdgeInsetsZero
     separatorColor = UIColor.darkGrayColor()
-    rowHeight = UITableViewAutomaticDimension
     backgroundColor = Colors.ebony
-    estimatedRowHeight = 100
     
     tableFooterView = UIView()
     backgroundColor = UIColor(red: 0.11, green: 0.11, blue: 0.11, alpha: 1)
-    backgroundView?.backgroundColor = UIColor(patternImage: UIImage(named: "camera-icon")!)
   }
 }

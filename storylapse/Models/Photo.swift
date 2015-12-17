@@ -9,6 +9,7 @@
 import Foundation
 
 class Photo: CBLModel {
+  
   static let type = "Photo"
   
   @NSManaged var caption: String?

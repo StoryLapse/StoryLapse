@@ -9,11 +9,12 @@
 /* Begin PBXBuildFile section */
 		1FD204501C1F2BB6001A99ED /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD2044F1C1F2BB6001A99ED /* CameraViewController.swift */; };
 		1FD204541C1F34DE001A99ED /* PhotoEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD204531C1F34DE001A99ED /* PhotoEditViewController.swift */; };
-		1FE0BE001C21540900F1F085 /* SettingPhotoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE0BDFF1C21540900F1F085 /* SettingPhotoTableViewCell.swift */; };
 		580BBDF61C1D10D4009178B5 /* StoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 580BBDF51C1D10D4009178B5 /* StoryTableViewCell.swift */; };
 		580BBDF81C1D1D85009178B5 /* StoryTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 580BBDF71C1D1D85009178B5 /* StoryTableView.swift */; };
-		580BBDFA1C1F9396009178B5 /* ContentSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 580BBDF91C1F9396009178B5 /* ContentSettingsViewController.swift */; };
 		580BBDFC1C1F947D009178B5 /* ContentSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 580BBDFB1C1F947D009178B5 /* ContentSettingsView.swift */; };
+		580BBE001C222870009178B5 /* PhotoAddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 580BBDFF1C222870009178B5 /* PhotoAddViewController.swift */; };
+		580BBE021C222E48009178B5 /* RecentStoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 580BBE011C222E48009178B5 /* RecentStoryTableViewCell.swift */; };
+		580BBE041C223A42009178B5 /* RecentStoryTabieViewAddStoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 580BBE031C223A42009178B5 /* RecentStoryTabieViewAddStoryCell.swift */; };
 		582048AE1C1BEEC700D76B1D /* fixtures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582048AD1C1BEEC700D76B1D /* fixtures.swift */; };
 		5890ABAA1C1A4CE0004A74DC /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5890ABA91C1A4CE0004A74DC /* User.swift */; };
 		5890ABAC1C1A8906004A74DC /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5890ABAB1C1A8906004A74DC /* Comment.swift */; };
@@ -40,11 +41,12 @@
 		1A1FE3561D03CAB96D0AA04A /* Pods-storylapse.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-storylapse.release.xcconfig"; path = "Pods/Target Support Files/Pods-storylapse/Pods-storylapse.release.xcconfig"; sourceTree = "<group>"; };
 		1FD2044F1C1F2BB6001A99ED /* CameraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CameraViewController.swift; path = ../Views/CameraViewController.swift; sourceTree = "<group>"; };
 		1FD204531C1F34DE001A99ED /* PhotoEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PhotoEditViewController.swift; path = ../Views/PhotoEditViewController.swift; sourceTree = "<group>"; };
-		1FE0BDFF1C21540900F1F085 /* SettingPhotoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingPhotoTableViewCell.swift; sourceTree = "<group>"; };
 		580BBDF51C1D10D4009178B5 /* StoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryTableViewCell.swift; sourceTree = "<group>"; };
 		580BBDF71C1D1D85009178B5 /* StoryTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryTableView.swift; sourceTree = "<group>"; };
-		580BBDF91C1F9396009178B5 /* ContentSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentSettingsViewController.swift; sourceTree = "<group>"; };
 		580BBDFB1C1F947D009178B5 /* ContentSettingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentSettingsView.swift; sourceTree = "<group>"; };
+		580BBDFF1C222870009178B5 /* PhotoAddViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoAddViewController.swift; sourceTree = "<group>"; };
+		580BBE011C222E48009178B5 /* RecentStoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecentStoryTableViewCell.swift; sourceTree = "<group>"; };
+		580BBE031C223A42009178B5 /* RecentStoryTabieViewAddStoryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecentStoryTabieViewAddStoryCell.swift; sourceTree = "<group>"; };
 		582048AD1C1BEEC700D76B1D /* fixtures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = fixtures.swift; sourceTree = "<group>"; };
 		5890ABA91C1A4CE0004A74DC /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		5890ABAB1C1A8906004A74DC /* Comment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
@@ -145,7 +147,7 @@
 				589ACA481C16E1200030A54D /* SLTabBarController.swift */,
 				589ACA4A1C16E3F80030A54D /* SLNavigationController.swift */,
 				994832A61C19616600DBB136 /* PhotoDetailViewController.swift */,
-				580BBDF91C1F9396009178B5 /* ContentSettingsViewController.swift */,
+				580BBDFF1C222870009178B5 /* PhotoAddViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -171,7 +173,8 @@
 				580BBDF51C1D10D4009178B5 /* StoryTableViewCell.swift */,
 				580BBDF71C1D1D85009178B5 /* StoryTableView.swift */,
 				580BBDFB1C1F947D009178B5 /* ContentSettingsView.swift */,
-				1FE0BDFF1C21540900F1F085 /* SettingPhotoTableViewCell.swift */,
+				580BBE011C222E48009178B5 /* RecentStoryTableViewCell.swift */,
+				580BBE031C223A42009178B5 /* RecentStoryTabieViewAddStoryCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -315,19 +318,20 @@
 				99EECC6B1C16D1F300C6B792 /* StoryViewController.swift in Sources */,
 				589ACA471C16DD5B0030A54D /* StoryIndexViewController.swift in Sources */,
 				58C42B601C1430BD00D4CCB8 /* AppDelegate.swift in Sources */,
+				580BBE001C222870009178B5 /* PhotoAddViewController.swift in Sources */,
 				580BBDF81C1D1D85009178B5 /* StoryTableView.swift in Sources */,
 				99F85C0D1C1BF3D500E13642 /* PhotoCollectionDetailViewCell.swift in Sources */,
 				589ACA491C16E1200030A54D /* SLTabBarController.swift in Sources */,
 				589ACA4B1C16E3F80030A54D /* SLNavigationController.swift in Sources */,
 				5890ABAE1C1A8D17004A74DC /* Interaction.swift in Sources */,
+				580BBE041C223A42009178B5 /* RecentStoryTabieViewAddStoryCell.swift in Sources */,
+				580BBE021C222E48009178B5 /* RecentStoryTableViewCell.swift in Sources */,
 				5890ABAC1C1A8906004A74DC /* Comment.swift in Sources */,
-				1FE0BE001C21540900F1F085 /* SettingPhotoTableViewCell.swift in Sources */,
 				5890ABAA1C1A4CE0004A74DC /* User.swift in Sources */,
 				994832A71C19616600DBB136 /* PhotoDetailViewController.swift in Sources */,
 				580BBDFC1C1F947D009178B5 /* ContentSettingsView.swift in Sources */,
 				99EECC6D1C16D21700C6B792 /* PhotoView.swift in Sources */,
 				1FD204501C1F2BB6001A99ED /* CameraViewController.swift in Sources */,
-				580BBDFA1C1F9396009178B5 /* ContentSettingsViewController.swift in Sources */,
 				582048AE1C1BEEC700D76B1D /* fixtures.swift in Sources */,
 				1FD204541C1F34DE001A99ED /* PhotoEditViewController.swift in Sources */,
 				58E4A9471C19A93F0008592E /* Story.swift in Sources */,
