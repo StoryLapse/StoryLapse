@@ -30,6 +30,8 @@
 		58E4A9471C19A93F0008592E /* Story.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E4A9461C19A93F0008592E /* Story.swift */; };
 		8E48828F6850D502868522EF /* Pods_storylapse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D6BE209FD67D57ABFBE7798 /* Pods_storylapse.framework */; };
 		994832A71C19616600DBB136 /* PhotoDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 994832A61C19616600DBB136 /* PhotoDetailViewController.swift */; };
+		99AAA1801C2297DE00B4EA69 /* MenuOptionsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99AAA17F1C2297DE00B4EA69 /* MenuOptionsView.xib */; };
+		99AAA1821C2298F100B4EA69 /* MenuOptionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99AAA1811C2298F100B4EA69 /* MenuOptionsView.swift */; };
 		99EECC691C16D1A000C6B792 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99EECC681C16D1A000C6B792 /* Photo.swift */; };
 		99EECC6B1C16D1F300C6B792 /* StoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99EECC6A1C16D1F300C6B792 /* StoryViewController.swift */; };
 		99EECC6D1C16D21700C6B792 /* PhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99EECC6C1C16D21700C6B792 /* PhotoView.swift */; };
@@ -64,6 +66,8 @@
 		58C42B6B1C1430BD00D4CCB8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		58E4A9461C19A93F0008592E /* Story.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Story.swift; sourceTree = "<group>"; };
 		994832A61C19616600DBB136 /* PhotoDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoDetailViewController.swift; sourceTree = "<group>"; };
+		99AAA17F1C2297DE00B4EA69 /* MenuOptionsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuOptionsView.xib; sourceTree = "<group>"; };
+		99AAA1811C2298F100B4EA69 /* MenuOptionsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuOptionsView.swift; sourceTree = "<group>"; };
 		99EECC681C16D1A000C6B792 /* Photo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 		99EECC6A1C16D1F300C6B792 /* StoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryViewController.swift; sourceTree = "<group>"; };
 		99EECC6C1C16D21700C6B792 /* PhotoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoView.swift; sourceTree = "<group>"; };
@@ -133,6 +137,8 @@
 				58C42B6B1C1430BD00D4CCB8 /* Info.plist */,
 				5890ABB41C1AE7D1004A74DC /* storylapse-Bridging-Header.h */,
 				582048AD1C1BEEC700D76B1D /* fixtures.swift */,
+				99AAA17F1C2297DE00B4EA69 /* MenuOptionsView.xib */,
+				99AAA1811C2298F100B4EA69 /* MenuOptionsView.swift */,
 			);
 			path = storylapse;
 			sourceTree = "<group>";
@@ -250,6 +256,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				99AAA1801C2297DE00B4EA69 /* MenuOptionsView.xib in Resources */,
 				58C42B6A1C1430BD00D4CCB8 /* LaunchScreen.storyboard in Resources */,
 				58C42B671C1430BD00D4CCB8 /* Assets.xcassets in Resources */,
 				58C42B651C1430BD00D4CCB8 /* Main.storyboard in Resources */,
@@ -311,6 +318,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				99AAA1821C2298F100B4EA69 /* MenuOptionsView.swift in Sources */,
 				99EECC691C16D1A000C6B792 /* Photo.swift in Sources */,
 				580BBDF61C1D10D4009178B5 /* StoryTableViewCell.swift in Sources */,
 				589ACA4E1C17F8880030A54D /* Colors.swift in Sources */,
