@@ -12,5 +12,6 @@ pod 'AAShareBubbles'
 pod 'SwipeView', '~> 1.3'
 pod 'couchbase-lite-ios'
 pod 'CameraManager', '~> 2.1'
+pod 'JBKenBurnsView', '~> 1.0'
 end
 

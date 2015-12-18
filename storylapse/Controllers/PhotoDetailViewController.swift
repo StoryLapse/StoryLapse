@@ -19,6 +19,13 @@ class PhotoDetailViewController: UIViewController, AAShareBubblesDelegate, UICol
   var isFullscreen = false
   var selectedIndexPath: NSIndexPath?
 
+  var photos: [Photo] = []
+  var story: Story! {
+    didSet {
+      photos = Photo.getPhotos(getDatabase(), story: story)
+    }
+  }
+
   override func viewDidLoad() {
     super.viewDidLoad()
     
@@ -42,13 +49,13 @@ class PhotoDetailViewController: UIViewController, AAShareBubblesDelegate, UICol
   }
 
   func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    return images.count
+    return photos.count
   }
 
   func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
     
     let cell = collectionView.dequeueReusableCellWithReuseIdentifier("DetailCell", forIndexPath: indexPath) as! PhotoCollectionDetailViewCell
-    cell.photoDetailImageView.image = UIImage(named: images[indexPath.row])
+    cell.photoDetailImageView.image = UIImage(named: photos[indexPath.row].localPath)
     cell.photoDetailImageView.alpha = 0
 
     let millisecondDelay = UInt64(arc4random() % 600) / 1000
@@ -124,14 +131,15 @@ class PhotoDetailViewController: UIViewController, AAShareBubblesDelegate, UICol
   // MARK: Play automatic
 
   @IBAction func playAutomaticPhotoImages(sender: AnyObject) {
-    if selectedIndexPath?.row < images.count - 1 {
-      NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: "update", userInfo: nil, repeats: true)
-    }
+
   }
 
-  func update() {
-    collectionView.scrollToItemAtIndexPath(selectedIndexPath!, atScrollPosition: UICollectionViewScrollPosition.CenteredHorizontally, animated: true)
-    selectedIndexPath = NSIndexPath(forRow: (selectedIndexPath!.row + 1) % images.count, inSection: 0)
+  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+
+    if segue.identifier == "Play" {
+      let playPhotoImageVC = segue.destinationViewController as! PlayPhotosImageViewController
+      playPhotoImageVC.story = story
+    }
   }
 
 }

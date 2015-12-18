@@ -35,10 +35,13 @@
 		994832A71C19616600DBB136 /* PhotoDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 994832A61C19616600DBB136 /* PhotoDetailViewController.swift */; };
 		99AAA1801C2297DE00B4EA69 /* MenuOptionsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99AAA17F1C2297DE00B4EA69 /* MenuOptionsView.xib */; };
 		99AAA1821C2298F100B4EA69 /* MenuOptionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99AAA1811C2298F100B4EA69 /* MenuOptionsView.swift */; };
+		99D39D8D1C22FBCF0091188D /* PlayPhotosImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D39D8C1C22FBCF0091188D /* PlayPhotosImageViewController.swift */; };
 		99EECC691C16D1A000C6B792 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99EECC681C16D1A000C6B792 /* Photo.swift */; };
 		99EECC6B1C16D1F300C6B792 /* StoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99EECC6A1C16D1F300C6B792 /* StoryViewController.swift */; };
 		99EECC6D1C16D21700C6B792 /* PhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99EECC6C1C16D21700C6B792 /* PhotoView.swift */; };
 		99EECC6F1C170EDC00C6B792 /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99EECC6E1C170EDC00C6B792 /* PhotoCollectionViewCell.swift */; };
+		99F1983E1C23D8E200DF28D3 /* KenBurnView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99F1983D1C23D8E200DF28D3 /* KenBurnView.xib */; };
+		99F198401C23D90200DF28D3 /* KenBurnView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F1983F1C23D90200DF28D3 /* KenBurnView.swift */; };
 		99F85C0D1C1BF3D500E13642 /* PhotoCollectionDetailViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F85C0C1C1BF3D500E13642 /* PhotoCollectionDetailViewCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -74,10 +77,13 @@
 		994832A61C19616600DBB136 /* PhotoDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoDetailViewController.swift; sourceTree = "<group>"; };
 		99AAA17F1C2297DE00B4EA69 /* MenuOptionsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuOptionsView.xib; sourceTree = "<group>"; };
 		99AAA1811C2298F100B4EA69 /* MenuOptionsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuOptionsView.swift; sourceTree = "<group>"; };
+		99D39D8C1C22FBCF0091188D /* PlayPhotosImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayPhotosImageViewController.swift; sourceTree = "<group>"; };
 		99EECC681C16D1A000C6B792 /* Photo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 		99EECC6A1C16D1F300C6B792 /* StoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryViewController.swift; sourceTree = "<group>"; };
 		99EECC6C1C16D21700C6B792 /* PhotoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoView.swift; sourceTree = "<group>"; };
 		99EECC6E1C170EDC00C6B792 /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
+		99F1983D1C23D8E200DF28D3 /* KenBurnView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KenBurnView.xib; sourceTree = "<group>"; };
+		99F1983F1C23D90200DF28D3 /* KenBurnView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KenBurnView.swift; sourceTree = "<group>"; };
 		99F85C0C1C1BF3D500E13642 /* PhotoCollectionDetailViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoCollectionDetailViewCell.swift; sourceTree = "<group>"; };
 		9D6BE209FD67D57ABFBE7798 /* Pods_storylapse.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_storylapse.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5D872D0D4C336A457BF5341 /* Pods-storylapse.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-storylapse.debug.xcconfig"; path = "Pods/Target Support Files/Pods-storylapse/Pods-storylapse.debug.xcconfig"; sourceTree = "<group>"; };
@@ -160,8 +166,8 @@
 				589ACA4A1C16E3F80030A54D /* SLNavigationController.swift */,
 				994832A61C19616600DBB136 /* PhotoDetailViewController.swift */,
 				580BBDFF1C222870009178B5 /* PhotoAddViewController.swift */,
-				580BBDF91C1F9396009178B5 /* ContentSettingsViewController.swift */,
 				1F044DDD1C22A8910006E596 /* TestViewController.swift */,
+				99D39D8C1C22FBCF0091188D /* PlayPhotosImageViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -189,9 +195,10 @@
 				580BBDFB1C1F947D009178B5 /* ContentSettingsView.swift */,
 				580BBE011C222E48009178B5 /* RecentStoryTableViewCell.swift */,
 				580BBE031C223A42009178B5 /* RecentStoryTabieViewAddStoryCell.swift */,
-				1FE0BDFF1C21540900F1F085 /* SettingPhotoTableViewCell.swift */,
 				1F044DD91C22A5AA0006E596 /* ImageStoryView.xib */,
 				1F044DDB1C22A5C40006E596 /* ImageStoryView.swift */,
+				99F1983D1C23D8E200DF28D3 /* KenBurnView.xib */,
+				99F1983F1C23D90200DF28D3 /* KenBurnView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -267,6 +274,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				99F1983E1C23D8E200DF28D3 /* KenBurnView.xib in Resources */,
 				99AAA1801C2297DE00B4EA69 /* MenuOptionsView.xib in Resources */,
 				58C42B6A1C1430BD00D4CCB8 /* LaunchScreen.storyboard in Resources */,
 				58C42B671C1430BD00D4CCB8 /* Assets.xcassets in Resources */,
@@ -331,6 +339,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				99AAA1821C2298F100B4EA69 /* MenuOptionsView.swift in Sources */,
+				99F198401C23D90200DF28D3 /* KenBurnView.swift in Sources */,
 				99EECC691C16D1A000C6B792 /* Photo.swift in Sources */,
 				580BBDF61C1D10D4009178B5 /* StoryTableViewCell.swift in Sources */,
 				589ACA4E1C17F8880030A54D /* Colors.swift in Sources */,
@@ -345,6 +354,7 @@
 				1F044DDE1C22A8910006E596 /* TestViewController.swift in Sources */,
 				589ACA4B1C16E3F80030A54D /* SLNavigationController.swift in Sources */,
 				5890ABAE1C1A8D17004A74DC /* Interaction.swift in Sources */,
+				99D39D8D1C22FBCF0091188D /* PlayPhotosImageViewController.swift in Sources */,
 				580BBE041C223A42009178B5 /* RecentStoryTabieViewAddStoryCell.swift in Sources */,
 				580BBE021C222E48009178B5 /* RecentStoryTableViewCell.swift in Sources */,
 				5890ABAC1C1A8906004A74DC /* Comment.swift in Sources */,

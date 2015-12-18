@@ -8,8 +8,6 @@
 
 import UIKit
 
-var images = [String]()
-
 class StoryViewController: UIViewController {
 
 
@@ -96,6 +94,7 @@ extension StoryViewController {
       photoDetailVC = segue.destinationViewController as? PhotoDetailViewController  {
         
         photoDetailVC.selectedIndexPath = indexPath
+        photoDetailVC.story = story
     }
   }
 
