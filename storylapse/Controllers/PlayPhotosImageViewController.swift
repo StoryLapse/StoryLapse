@@ -10,36 +10,29 @@ import UIKit
 import JBKenBurnsView
 
 class PlayPhotosImageViewController: UIViewController, KenBurnsViewDelegate {
-  
-  @IBOutlet var playView: JBKenBurnsView!
+
+  @IBOutlet var kenBurnView: KenBurnView!
+
   var photos: [Photo] = []
-  var story: Story! {
-    didSet {
-      photos = Photo.getPhotos(getDatabase(), story: story)
+    var story: Story! {
+      didSet {
+        photos = Photo.getPhotos(getDatabase(), story: story)
+      }
     }
-  }
 
   override func viewDidLoad() {
     super.viewDidLoad()
 
-    playView.layer.borderWidth = 1
-    playView.delegate = self
-    self.navigationController?.navigationBarHidden = true
-    self.tabBarController?.tabBar.hidden = true
-    playView.layer.borderWidth = 1
-    playView.layer.borderColor = UIColor.blackColor().CGColor
+    kenBurnView.delegate = self
   }
 
-  override func viewDidAppear(animated: Bool) {
-    super.viewDidAppear(animated)
+  override func viewDidLayoutSubviews() {
+    super.viewDidLayoutSubviews()
 
+    kenBurnView = KenBurnView.init(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height))
+    view.addSubview(kenBurnView)
     let images = photos.map { UIImage(named: $0.localPath)! }
-    playView.animateWithImages(images, transitionDuration: 6.0, initialDelay: 1.0, loop: true, isLandscape: true)
-    playView.center = CGPoint(x: view.center.x , y: view.center.y)
-  }
-
-  override func didReceiveMemoryWarning() {
-    super.didReceiveMemoryWarning()
+    kenBurnView.animateWithImages(images, transitionDuration: 4.0, initialDelay: 1.0, loop: true, isLandscape: true)
   }
 
 }

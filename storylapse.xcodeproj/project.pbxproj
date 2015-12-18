@@ -75,8 +75,8 @@
 		58C42B6B1C1430BD00D4CCB8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		58E4A9461C19A93F0008592E /* Story.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Story.swift; sourceTree = "<group>"; };
 		994832A61C19616600DBB136 /* PhotoDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoDetailViewController.swift; sourceTree = "<group>"; };
-		99AAA17F1C2297DE00B4EA69 /* MenuOptionsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuOptionsView.xib; sourceTree = "<group>"; };
-		99AAA1811C2298F100B4EA69 /* MenuOptionsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuOptionsView.swift; sourceTree = "<group>"; };
+		99AAA17F1C2297DE00B4EA69 /* MenuOptionsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MenuOptionsView.xib; path = ../MenuOptionsView.xib; sourceTree = "<group>"; };
+		99AAA1811C2298F100B4EA69 /* MenuOptionsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MenuOptionsView.swift; path = ../MenuOptionsView.swift; sourceTree = "<group>"; };
 		99D39D8C1C22FBCF0091188D /* PlayPhotosImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayPhotosImageViewController.swift; sourceTree = "<group>"; };
 		99EECC681C16D1A000C6B792 /* Photo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 		99EECC6A1C16D1F300C6B792 /* StoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryViewController.swift; sourceTree = "<group>"; };
@@ -149,8 +149,6 @@
 				58C42B6B1C1430BD00D4CCB8 /* Info.plist */,
 				5890ABB41C1AE7D1004A74DC /* storylapse-Bridging-Header.h */,
 				582048AD1C1BEEC700D76B1D /* fixtures.swift */,
-				99AAA17F1C2297DE00B4EA69 /* MenuOptionsView.xib */,
-				99AAA1811C2298F100B4EA69 /* MenuOptionsView.swift */,
 			);
 			path = storylapse;
 			sourceTree = "<group>";
@@ -199,6 +197,8 @@
 				1F044DDB1C22A5C40006E596 /* ImageStoryView.swift */,
 				99F1983D1C23D8E200DF28D3 /* KenBurnView.xib */,
 				99F1983F1C23D90200DF28D3 /* KenBurnView.swift */,
+				99AAA17F1C2297DE00B4EA69 /* MenuOptionsView.xib */,
+				99AAA1811C2298F100B4EA69 /* MenuOptionsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -247,7 +247,7 @@
 				TargetAttributes = {
 					58C42B5B1C1430BC00D4CCB8 = {
 						CreatedOnToolsVersion = 7.1;
-						DevelopmentTeam = A8323HJ86U;
+						DevelopmentTeam = T78DK947F2;
 					};
 				};
 			};

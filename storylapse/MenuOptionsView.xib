@@ -23,7 +23,7 @@
             <rect key="frame" x="0.0" y="0.0" width="170" height="160"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="share" translatesAutoresizingMaskIntoConstraints="NO" id="1ka-jd-3lx">
+                <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="share" translatesAutoresizingMaskIntoConstraints="NO" id="1ka-jd-3lx">
                     <rect key="frame" x="130" y="0.0" width="40" height="40"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="P3i-cp-Btj"/>
@@ -51,7 +51,7 @@
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="delete" translatesAutoresizingMaskIntoConstraints="NO" id="whN-Kh-Y78">
+                <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="delete" translatesAutoresizingMaskIntoConstraints="NO" id="whN-Kh-Y78">
                     <rect key="frame" x="130" y="80" width="40" height="40"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="FvV-bl-mLZ"/>
@@ -72,7 +72,7 @@
                         </mask>
                     </variation>
                 </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gif" translatesAutoresizingMaskIntoConstraints="NO" id="o4j-un-EE2">
+                <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gif" translatesAutoresizingMaskIntoConstraints="NO" id="o4j-un-EE2">
                     <rect key="frame" x="130" y="120" width="40" height="40"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="40" id="1Ii-mx-zTs"/>
@@ -120,7 +120,7 @@
                     </constraints>
                 </imageView>
             </subviews>
-            <color key="backgroundColor" red="0.0" green="0.95686274510000002" blue="0.79422636560000004" alpha="1" colorSpace="calibratedRGB"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <gestureRecognizers/>
             <constraints>
                 <constraint firstItem="Fan-PQ-VPP" firstAttribute="top" secondItem="lJX-C7-otW" secondAttribute="bottom" id="6sl-yb-7jG"/>

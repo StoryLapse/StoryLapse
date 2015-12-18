@@ -9,14 +9,7 @@
 import UIKit
 import JBKenBurnsView
 
-class KenBurnView: JBKenBurnsView, KenBurnsViewDelegate {
-
-  var photos: [Photo] = []
-  var story: Story! {
-    didSet {
-      photos = Photo.getPhotos(getDatabase(), story: story)
-    }
-  }
+class KenBurnView: JBKenBurnsView {
 
   @IBOutlet var kenBurnView: JBKenBurnsView!
 
@@ -31,13 +24,9 @@ class KenBurnView: JBKenBurnsView, KenBurnsViewDelegate {
   }
 
   func initSubviews() {
-    kenBurnView.delegate = self
     let nib = UINib(nibName: "KenBurnView", bundle: nil)
     nib.instantiateWithOwner(self, options: nil)
     addSubview(kenBurnView)
-
-    let images = photos.map { UIImage(named: $0.localPath)! }
-    kenBurnView.animateWithImages(images, transitionDuration: 6.0, initialDelay: 1.0, loop: true, isLandscape: true)
   }
   
 }
