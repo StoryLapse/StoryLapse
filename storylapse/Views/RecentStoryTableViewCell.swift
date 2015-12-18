@@ -17,7 +17,8 @@ class RecentStoryTableViewCell: UITableViewCell {
   var story: Story! {
     didSet {
       titleLabel.text = story.title
-      photoCountLabel.text = String(format: "%d photos", arguments: [story.photoCount])
+      photoCountLabel.text = String(format: "%d photos", arguments: [story.photoCount])      
+      accessoryType = selected ? .Checkmark : .None
     }
   }
   

@@ -10,37 +10,29 @@ import UIKit
 
 class PhotoEditViewController: UIViewController {
   
+  @IBOutlet var imagePreviewView: UIImageView!
+  
   var image: UIImage?
   var story: Story?
   
-  @IBOutlet var imagePreviewView: UIImageView!
   override func viewDidLoad() {
     super.viewDidLoad()
-    self.view.backgroundColor = UIColor.blackColor()
-    self.navigationController?.navigationBar.hidden = false
+    
     title = "Preview"
-    if let validImage = self.image {
-      self.imagePreviewView.image = validImage
-    }
+    navigationController?.navigationBar.hidden = false
+    view.backgroundColor = Colors.primaryBackgroundColor
+    
+    imagePreviewView.backgroundColor = Colors.primaryBackgroundColor
+    imagePreviewView.image = image
   }
   
   @IBAction func onDoneButton(sender: AnyObject) {
-    let photo = Photo.create(getDatabase())
-    if let image = imagePreviewView.image {
-      saveImage(image, path: photo.localPath)
-    }
   }
   
-  func saveImage(image: UIImage, path: String ) -> Bool {
-    let pngImageData = UIImageJPEGRepresentation(image, 1)
-    let result = pngImageData!.writeToFile(path, atomically: true)
-    return result
-  }
-    
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "showPhotoAddSegue" {
-            let nextVC = segue.destinationViewController as! PhotoAddViewController
-            nextVC.image = image
-        }
+  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    if segue.identifier == "showPhotoAddSegue" {
+      let nextVC = segue.destinationViewController as! PhotoAddViewController
+      nextVC.image = image
     }
+  }
 }
