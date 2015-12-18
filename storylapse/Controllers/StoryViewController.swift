@@ -101,12 +101,31 @@ extension StoryViewController {
 // MARK: Handle Menu Button
   @IBAction func handleMenuButtonTap(sender: AnyObject) {
 
-    if optionMenuView.hidden == false {
-      optionMenuView.hidden = true
-    } else {
-      optionMenuView.hidden = false
+    let actionSheet = UIAlertController(title: "Option Menu", message: "", preferredStyle: UIAlertControllerStyle.ActionSheet)
+    let reportButtonAction = UIAlertAction(title: "Report", style: UIAlertActionStyle.Default) { (UIAlertAction) -> Void in
+      print("Report")
     }
-    
+    let deleteButtonAction = UIAlertAction(title: "Delete", style: UIAlertActionStyle.Default) { (UIAlertAction) -> Void in
+      print("Delete")
+    }
+    let cancelButtonAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel) { (UIAlertAction) -> Void in
+      print("Cancel")
+    }
+    actionSheet.addAction(reportButtonAction)
+    actionSheet.addAction(deleteButtonAction)
+    actionSheet.addAction(cancelButtonAction)
+    self.presentViewController(actionSheet, animated: true, completion: nil)
   }
 
+// MARK: Handle Share Button
+
+  @IBAction func handleShareButtonTap(sender: AnyObject) {
+
+    print("Share")
+
+    let myShare = "I am feeling *** today"
+
+    let shareVC: UIActivityViewController = UIActivityViewController(activityItems: [myShare], applicationActivities: nil)
+    self.presentViewController(shareVC, animated: true, completion: nil)
+  }
 }

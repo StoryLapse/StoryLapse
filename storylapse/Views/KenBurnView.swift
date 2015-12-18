@@ -26,6 +26,7 @@ class KenBurnView: JBKenBurnsView {
   func initSubviews() {
     let nib = UINib(nibName: "KenBurnView", bundle: nil)
     nib.instantiateWithOwner(self, options: nil)
+    kenBurnView.frame = bounds
     addSubview(kenBurnView)
   }
   

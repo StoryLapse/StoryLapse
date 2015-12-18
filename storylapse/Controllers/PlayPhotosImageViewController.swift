@@ -26,13 +26,17 @@ class PlayPhotosImageViewController: UIViewController, KenBurnsViewDelegate {
     kenBurnView.delegate = self
   }
 
-  override func viewDidLayoutSubviews() {
-    super.viewDidLayoutSubviews()
+  override func viewDidAppear(animated: Bool) {
+    super.viewDidAppear(animated)
 
     kenBurnView = KenBurnView.init(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height))
     view.addSubview(kenBurnView)
     let images = photos.map { UIImage(named: $0.localPath)! }
     kenBurnView.animateWithImages(images, transitionDuration: 4.0, initialDelay: 1.0, loop: true, isLandscape: true)
+  }
+
+  override func shouldAutorotate() -> Bool {
+    return true
   }
 
 }
