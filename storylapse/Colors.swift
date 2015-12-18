@@ -18,4 +18,5 @@ struct Colors {
   static let primaryTextColor = UIColor(red:0.85, green:0.85, blue:0.85, alpha:1.0)
   static let secondaryTextColor = UIColor(red:0.65, green:0.65, blue:0.65, alpha:1.0)
   static let placeholderTextColor = UIColor(red:0.45, green:0.45, blue:0.45, alpha:1.0)
+  static let primaryBackgroundColor = UIColor(red:0.11, green:0.11, blue:0.11, alpha:1.0)
 }

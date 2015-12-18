@@ -23,6 +23,6 @@ class StoryTableView: UITableView {
     backgroundColor = Colors.ebony
     
     tableFooterView = UIView()
-    backgroundColor = UIColor(red: 0.11, green: 0.11, blue: 0.11, alpha: 1)
+    backgroundColor = Colors.primaryBackgroundColor
   }
 }

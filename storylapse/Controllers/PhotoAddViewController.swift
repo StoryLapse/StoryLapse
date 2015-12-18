@@ -12,7 +12,6 @@ class PhotoAddViewController: UIViewController {
   
   @IBOutlet var imagePreviewView: UIImageView!
   @IBOutlet var tableView: UITableView!
-  @IBOutlet var addPhotoToLabel: UILabel!
 
   var image: UIImage?
   var story: Story?
@@ -26,8 +25,6 @@ class PhotoAddViewController: UIViewController {
     if let validImage = self.image {
       self.imagePreviewView.image = validImage
     }
-    
-    addPhotoToLabel.textColor = Colors.primaryTextColor
     
     stories = Story.getCurrentUserStories(getDatabase())
     tableView.delegate = self

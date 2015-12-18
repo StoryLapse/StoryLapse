@@ -31,6 +31,10 @@
 		58C42B651C1430BD00D4CCB8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 58C42B631C1430BD00D4CCB8 /* Main.storyboard */; };
 		58C42B671C1430BD00D4CCB8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 58C42B661C1430BD00D4CCB8 /* Assets.xcassets */; };
 		58C42B6A1C1430BD00D4CCB8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 58C42B681C1430BD00D4CCB8 /* LaunchScreen.storyboard */; };
+		58CB63181C24021E005E6587 /* StoryAddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58CB63171C24021E005E6587 /* StoryAddViewController.swift */; };
+		58CB631A1C24061B005E6587 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58CB63191C24061B005E6587 /* TextField.swift */; };
+		58CB631C1C240672005E6587 /* FormCaptionLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58CB631B1C240672005E6587 /* FormCaptionLabel.swift */; };
+		58CB631F1C24407A005E6587 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58CB631E1C24407A005E6587 /* String.swift */; };
 		58E4A9471C19A93F0008592E /* Story.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E4A9461C19A93F0008592E /* Story.swift */; };
 		8E48828F6850D502868522EF /* Pods_storylapse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D6BE209FD67D57ABFBE7798 /* Pods_storylapse.framework */; };
 		994832A71C19616600DBB136 /* PhotoDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 994832A61C19616600DBB136 /* PhotoDetailViewController.swift */; };
@@ -75,6 +79,10 @@
 		58C42B661C1430BD00D4CCB8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		58C42B691C1430BD00D4CCB8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		58C42B6B1C1430BD00D4CCB8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		58CB63171C24021E005E6587 /* StoryAddViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryAddViewController.swift; sourceTree = "<group>"; };
+		58CB63191C24061B005E6587 /* TextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
+		58CB631B1C240672005E6587 /* FormCaptionLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormCaptionLabel.swift; sourceTree = "<group>"; };
+		58CB631E1C24407A005E6587 /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		58E4A9461C19A93F0008592E /* Story.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Story.swift; sourceTree = "<group>"; };
 		994832A61C19616600DBB136 /* PhotoDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoDetailViewController.swift; sourceTree = "<group>"; };
 		99AAA17F1C2297DE00B4EA69 /* MenuOptionsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MenuOptionsView.xib; path = ../MenuOptionsView.xib; sourceTree = "<group>"; };
@@ -142,6 +150,7 @@
 		58C42B5E1C1430BC00D4CCB8 /* storylapse */ = {
 			isa = PBXGroup;
 			children = (
+				58CB631D1C244069005E6587 /* Classes */,
 				589ACA4C1C17F87D0030A54D /* Constants */,
 				99EECC651C16D18400C6B792 /* Controllers */,
 				99EECC661C16D18400C6B792 /* Models */,
@@ -157,6 +166,14 @@
 			path = storylapse;
 			sourceTree = "<group>";
 		};
+		58CB631D1C244069005E6587 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				58CB631E1C24407A005E6587 /* String.swift */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
 		99EECC651C16D18400C6B792 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -170,6 +187,7 @@
 				580BBDFF1C222870009178B5 /* PhotoAddViewController.swift */,
 				1F044DDD1C22A8910006E596 /* TestViewController.swift */,
 				99D39D8C1C22FBCF0091188D /* PlayPhotosImageViewController.swift */,
+				58CB63171C24021E005E6587 /* StoryAddViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -203,6 +221,8 @@
 				99F1983F1C23D90200DF28D3 /* KenBurnView.swift */,
 				99AAA17F1C2297DE00B4EA69 /* MenuOptionsView.xib */,
 				99AAA1811C2298F100B4EA69 /* MenuOptionsView.swift */,
+				58CB63191C24061B005E6587 /* TextField.swift */,
+				58CB631B1C240672005E6587 /* FormCaptionLabel.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -348,11 +368,13 @@
 				580BBDF61C1D10D4009178B5 /* StoryTableViewCell.swift in Sources */,
 				589ACA4E1C17F8880030A54D /* Colors.swift in Sources */,
 				99EECC6F1C170EDC00C6B792 /* PhotoCollectionViewCell.swift in Sources */,
+				58CB63181C24021E005E6587 /* StoryAddViewController.swift in Sources */,
 				99EECC6B1C16D1F300C6B792 /* StoryViewController.swift in Sources */,
 				589ACA471C16DD5B0030A54D /* StoryIndexViewController.swift in Sources */,
 				58C42B601C1430BD00D4CCB8 /* AppDelegate.swift in Sources */,
 				580BBE001C222870009178B5 /* PhotoAddViewController.swift in Sources */,
 				580BBDF81C1D1D85009178B5 /* StoryTableView.swift in Sources */,
+				58CB631F1C24407A005E6587 /* String.swift in Sources */,
 				99F85C0D1C1BF3D500E13642 /* PhotoCollectionDetailViewCell.swift in Sources */,
 				589ACA491C16E1200030A54D /* SLTabBarController.swift in Sources */,
 				1F044DDE1C22A8910006E596 /* TestViewController.swift in Sources */,
@@ -360,8 +382,10 @@
 				5890ABAE1C1A8D17004A74DC /* Interaction.swift in Sources */,
 				99D39D8D1C22FBCF0091188D /* PlayPhotosImageViewController.swift in Sources */,
 				580BBE041C223A42009178B5 /* RecentStoryTabieViewAddStoryCell.swift in Sources */,
+				58CB631C1C240672005E6587 /* FormCaptionLabel.swift in Sources */,
 				580BBE021C222E48009178B5 /* RecentStoryTableViewCell.swift in Sources */,
 				5890ABAC1C1A8906004A74DC /* Comment.swift in Sources */,
+				58CB631A1C24061B005E6587 /* TextField.swift in Sources */,
 				5890ABAA1C1A4CE0004A74DC /* User.swift in Sources */,
 				994832A71C19616600DBB136 /* PhotoDetailViewController.swift in Sources */,
 				580BBDFC1C1F947D009178B5 /* ContentSettingsView.swift in Sources */,

@@ -11,6 +11,7 @@ import UIKit
 class SLTabBarController: UITabBarController {
   
   var cameraButton = UIButton(type: .System)
+  var hidden: Bool = false
   
   override func awakeFromNib() {
     super.awakeFromNib()
@@ -49,6 +50,38 @@ class SLTabBarController: UITabBarController {
   override func viewDidLoad() {
     cameraButton.frame = CGRectMake(0, 0, 100, tabBar.frame.height)
     cameraButton.center = tabBar.center
+  }
+  
+  func toggleTabBar(animated animated: Bool, showed: Bool? = nil) {
+    let hidden = !(showed ?? self.hidden)
+    
+    if hidden == self.hidden {
+      return
+    }
+    
+    tabBar.hidden = false
+    cameraButton.hidden = false
+    
+    self.hidden = hidden
+    
+    func animations() {
+      let intensive = self.tabBar.frame.height * (hidden ? 1 : -1)
+      
+      self.tabBar.frame = CGRectOffset(self.tabBar.frame, 0, intensive)
+      self.cameraButton.frame.origin.y += intensive
+    }
+    
+    func completion(finish: Bool) {
+      self.tabBar.hidden = hidden
+      self.cameraButton.hidden = hidden
+    }
+    
+    if (!animated) {
+      animations()
+      return completion(true)
+    }
+    
+    UIView.animateWithDuration(0.3, animations: animations, completion: completion)
   }
   
   func handleCameraButtonTap(sender: UIButton!) {
