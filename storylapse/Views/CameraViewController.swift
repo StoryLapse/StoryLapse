@@ -57,7 +57,7 @@ class CameraViewController: UIViewController,UIImagePickerControllerDelegate, UI
     switch (cameraManager.cameraOutputMode) {
     case .StillImage:
       cameraManager.capturePictureWithCompletition({ (image, error) -> Void in
-        self.performSegueWithIdentifier("photoEdit", sender: image)
+        self.performSegueWithIdentifier("photoPreview", sender: image)
       })
     case .VideoWithMic, .VideoOnly:
       sender.selected = !sender.selected
@@ -131,9 +131,9 @@ class CameraViewController: UIViewController,UIImagePickerControllerDelegate, UI
     
     if mediaType.isEqualToString(kUTTypeImage as String) {
       let image = info[UIImagePickerControllerOriginalImage] as! UIImage
-      
+      print (image)
       dispatch_async(dispatch_get_main_queue(), {
-        self.performSegueWithIdentifier("photoEdit", sender: image)
+        self.performSegueWithIdentifier("photoPreview", sender: image)
       })
       
     } else if mediaType.isEqualToString(kUTTypeMovie as String) {
@@ -143,6 +143,13 @@ class CameraViewController: UIViewController,UIImagePickerControllerDelegate, UI
     
     dismissViewControllerAnimated(true, completion: nil)
   }
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "photoPreview" {
+            let nextVC = segue.destinationViewController as! PhotoEditViewController
+            nextVC.image = sender as! UIImage
+        }
+    }
+
     func rotated()
     {
         if(UIDeviceOrientationIsLandscape(UIDevice.currentDevice().orientation))
@@ -163,7 +170,6 @@ class CameraViewController: UIViewController,UIImagePickerControllerDelegate, UI
             })
             print("Portrait")
         }
-        
     }
     
     
