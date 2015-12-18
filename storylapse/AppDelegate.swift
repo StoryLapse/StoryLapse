@@ -15,7 +15,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   var database: CBLDatabase!
   
   func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-    
     initializePhotoDir()
     //resetFixtures()
     initializeDatabase()
@@ -23,8 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     window?.tintColor = Colors.tintColor
     return true
   }
-  
-  func initializePhotoDir() {
+    func initializePhotoDir() {
     let photoDirURL = Photo.getPhotoDirURL()
     
     do {
@@ -68,4 +66,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 func getDatabase() -> CBLDatabase {
   return (UIApplication.sharedApplication().delegate as! AppDelegate).database
 }
+
 

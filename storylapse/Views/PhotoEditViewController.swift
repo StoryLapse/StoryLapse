@@ -24,10 +24,6 @@ class PhotoEditViewController: UIViewController {
     }
   }
   
-  @IBAction func onCancleButton(sender: AnyObject) {
-    dismissViewControllerAnimated(true, completion: nil)
-  }
-  
   @IBAction func onDoneButton(sender: AnyObject) {
     let photo = Photo.create(getDatabase())
     if let image = imagePreviewView.image {

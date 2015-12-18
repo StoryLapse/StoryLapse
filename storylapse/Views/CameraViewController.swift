@@ -17,12 +17,14 @@ class CameraViewController: UIViewController,UIImagePickerControllerDelegate, UI
   @IBOutlet var captureButton: UIButton!
   @IBOutlet var switchCameraButton: UIButton!
   @IBOutlet var flashButton: UIButton!
+  @IBOutlet var galleryButton: UIButton!
   
   let cameraManager = CameraManager()
   var story: Story?
   
   override func viewDidLoad() {
     super.viewDidLoad()
+     NSNotificationCenter.defaultCenter().addObserver(self, selector: "rotated", name: UIDeviceOrientationDidChangeNotification, object: nil)
     self.navigationController?.navigationBar.hidden = true
     cameraManager.showAccessPermissionPopupAutomatically = true
     flashButton.enabled = cameraManager.hasFlash
@@ -52,7 +54,6 @@ class CameraViewController: UIViewController,UIImagePickerControllerDelegate, UI
   
   @IBAction func handleCaptureButtonTap(sender: UIButton) {
     cameraManager.cameraOutputQuality = .High
-   // cameraManager.cameraOutputMode = .StillImage
     switch (cameraManager.cameraOutputMode) {
     case .StillImage:
       cameraManager.capturePictureWithCompletition({ (image, error) -> Void in
@@ -142,13 +143,30 @@ class CameraViewController: UIViewController,UIImagePickerControllerDelegate, UI
     
     dismissViewControllerAnimated(true, completion: nil)
   }
-  
-  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    if segue.identifier == "photoEdit" {
-        let nextVC = segue.destinationViewController as! PhotoEditViewController
-        nextVC.image = sender as? UIImage
+    func rotated()
+    {
+        if(UIDeviceOrientationIsLandscape(UIDevice.currentDevice().orientation))
+        {
+            UIView.animateWithDuration(0.5, animations: { () -> Void in
+                self.flashButton.transform = CGAffineTransformMakeRotation(CGFloat(M_PI_2))
+                self.switchCameraButton.transform = CGAffineTransformMakeRotation(CGFloat(M_PI_2))
+                //self.galleryButton.transform = CGAffineTransformMakeRotation(CGFloat(-M_PI_2))
+            })
+        }
+        
+        if(UIDeviceOrientationIsPortrait(UIDevice.currentDevice().orientation))
+        {
+            UIView.animateWithDuration(0.5, animations: { () -> Void in
+                self.flashButton.transform = CGAffineTransformMakeRotation(CGFloat(M_PI))
+                self.switchCameraButton.transform = CGAffineTransformMakeRotation(CGFloat(M_PI))
+                //self.galleryButton.transform = CGAffineTransformMakeRotation(CGFloat(-M_PI))
+            })
+            print("Portrait")
+        }
+        
     }
-  }
+    
     
 }
+
 

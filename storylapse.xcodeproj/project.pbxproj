@@ -10,6 +10,7 @@
 		1F044DDA1C22A5AA0006E596 /* ImageStoryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F044DD91C22A5AA0006E596 /* ImageStoryView.xib */; };
 		1F044DDC1C22A5C40006E596 /* ImageStoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F044DDB1C22A5C40006E596 /* ImageStoryView.swift */; };
 		1F044DDE1C22A8910006E596 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F044DDD1C22A8910006E596 /* TestViewController.swift */; };
+		1FA849CD1C22FCCD00863F00 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FA849CB1C22FC7300863F00 /* MobileCoreServices.framework */; };
 		1FD204501C1F2BB6001A99ED /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD2044F1C1F2BB6001A99ED /* CameraViewController.swift */; };
 		1FD204541C1F34DE001A99ED /* PhotoEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD204531C1F34DE001A99ED /* PhotoEditViewController.swift */; };
 		580BBDF61C1D10D4009178B5 /* StoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 580BBDF51C1D10D4009178B5 /* StoryTableViewCell.swift */; };
@@ -50,6 +51,7 @@
 		1F044DD91C22A5AA0006E596 /* ImageStoryView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImageStoryView.xib; sourceTree = "<group>"; };
 		1F044DDB1C22A5C40006E596 /* ImageStoryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageStoryView.swift; sourceTree = "<group>"; };
 		1F044DDD1C22A8910006E596 /* TestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
+		1FA849CB1C22FC7300863F00 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		1FD2044F1C1F2BB6001A99ED /* CameraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CameraViewController.swift; path = ../Views/CameraViewController.swift; sourceTree = "<group>"; };
 		1FD204531C1F34DE001A99ED /* PhotoEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PhotoEditViewController.swift; path = ../Views/PhotoEditViewController.swift; sourceTree = "<group>"; };
 		580BBDF51C1D10D4009178B5 /* StoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryTableViewCell.swift; sourceTree = "<group>"; };
@@ -94,6 +96,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1FA849CD1C22FCCD00863F00 /* MobileCoreServices.framework in Frameworks */,
 				8E48828F6850D502868522EF /* Pods_storylapse.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -104,6 +107,7 @@
 		279153A42028FFFCD47A9951 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1FA849CB1C22FC7300863F00 /* MobileCoreServices.framework */,
 				9D6BE209FD67D57ABFBE7798 /* Pods_storylapse.framework */,
 			);
 			name = Frameworks;
