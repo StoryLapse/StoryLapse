@@ -8,8 +8,9 @@
 
 import UIKit
 import JBKenBurnsView
+import ReplayKit
 
-class PlayPhotosImageViewController: UIViewController, KenBurnsViewDelegate {
+class PlayPhotosImageViewController: UIViewController, KenBurnsViewDelegate, RPPreviewViewControllerDelegate {
 
   @IBOutlet var kenBurnView: KenBurnView!
 
@@ -37,6 +38,45 @@ class PlayPhotosImageViewController: UIViewController, KenBurnsViewDelegate {
 
   override func shouldAutorotate() -> Bool {
     return true
+  }
+
+// MARK: Handle Record Button
+
+  @IBAction func handleRecordVideoButtonTap(sender: AnyObject) {
+    print("record")
+    startRecording()
+  }
+
+  func startRecording() {
+    print("start recording")
+    let recorder = RPScreenRecorder.sharedRecorder()
+
+    recorder.startRecordingWithMicrophoneEnabled(true) { [unowned self] (error) in
+      if let unwrappedError = error {
+        print(unwrappedError.localizedDescription)
+      } else {
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Stop", style: .Plain, target: self, action: "stopRecording")
+      }
+    }
+  }
+
+  func stopRecording() {
+    print("stop recording")
+    let recorder = RPScreenRecorder.sharedRecorder()
+
+    recorder.stopRecordingWithHandler { [unowned self] (preview, error) in
+      self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Start", style: .Plain, target: self, action: "startRecording")
+
+      if let unwrappedPreview = preview {
+        unwrappedPreview.previewControllerDelegate = self
+        self.presentViewController(unwrappedPreview, animated: true, completion: nil)
+      }
+    }
+  }
+
+  func previewControllerDidFinish(previewController: RPPreviewViewController) {
+    print("preview")
+    dismissViewControllerAnimated(true, completion: nil)
   }
 
 }
