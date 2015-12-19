@@ -121,11 +121,16 @@ extension StoryViewController {
 
   @IBAction func handleShareButtonTap(sender: AnyObject) {
 
-    print("Share")
+    print("share")
 
-    let myShare = "I am feeling *** today"
+    let myShare = "My lovely album! <3 <3"
+    var imagesShared = [UIImage]()
+    for index in 0..<story.photoCount {
+      let image = UIImage(named: photos[index].localPath)
+      imagesShared.append(image!)
+    }
 
-    let shareVC: UIActivityViewController = UIActivityViewController(activityItems: [myShare], applicationActivities: nil)
+    let shareVC: UIActivityViewController = UIActivityViewController(activityItems: [imagesShared, myShare], applicationActivities: nil)
     self.presentViewController(shareVC, animated: true, completion: nil)
   }
 }

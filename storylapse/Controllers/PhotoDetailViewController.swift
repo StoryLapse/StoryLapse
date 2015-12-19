@@ -121,11 +121,31 @@ class PhotoDetailViewController: UIViewController, AAShareBubblesDelegate, UICol
 
     print("share")
 
-    let myShare = "I am feeling *** today"
+    let myShare = "My beautiful photo! <3 <3"
+    let image: UIImage = UIImage(named: photos[selectedIndexPath!.row].localPath)!
 
-    let shareVC: UIActivityViewController = UIActivityViewController(activityItems: [myShare], applicationActivities: nil)
+    let shareVC: UIActivityViewController = UIActivityViewController(activityItems: [(image), myShare], applicationActivities: nil)
     self.presentViewController(shareVC, animated: true, completion: nil)
 
+  }
+
+// MARK: Handle Menu Button
+
+  @IBAction func handleMenuButtonTap(sender: AnyObject) {
+    let actionSheet = UIAlertController(title: "Option Menu", message: "", preferredStyle: UIAlertControllerStyle.ActionSheet)
+    let reportButtonAction = UIAlertAction(title: "Report", style: UIAlertActionStyle.Default) { (UIAlertAction) -> Void in
+      print("Report")
+    }
+    let deleteButtonAction = UIAlertAction(title: "Delete", style: UIAlertActionStyle.Default) { (UIAlertAction) -> Void in
+      print("Delete")
+    }
+    let cancelButtonAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel) { (UIAlertAction) -> Void in
+      print("Cancel")
+    }
+    actionSheet.addAction(reportButtonAction)
+    actionSheet.addAction(deleteButtonAction)
+    actionSheet.addAction(cancelButtonAction)
+    self.presentViewController(actionSheet, animated: true, completion: nil)
   }
 
   // MARK: Play automatic
