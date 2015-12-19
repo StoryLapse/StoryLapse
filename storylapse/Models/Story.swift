@@ -17,13 +17,22 @@ class Story: CBLModel {
   @NSManaged var desc: String?
   @NSManaged var photoIds: [String]
   @NSManaged var hashtags: [String]
-  @NSManaged var reminder: [String: AnyObject]?
-  
+//  @NSManaged var reminder: [String: AnyObject]
+//  reminder = ["Time": [
+//                        ["Hour" : "12"],
+//                        ["Minute" : "30"],
+//                        ["Day" : ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]]
+//                      ]
+//              ]
+  @NSManaged var reminderAtHour: [String: String]
+  @NSManaged var reminderAtMinute: [String: String] 
+  @NSManaged var reminderAtDays: [String: [String]]
+
   @NSManaged var interactionCount: Int
   @NSManaged var commentCount: Int
   
   @NSManaged var creatorId: String
-  
+
   @NSManaged var createdAt: NSDate
   @NSManaged var updatedAt: NSDate?
   
