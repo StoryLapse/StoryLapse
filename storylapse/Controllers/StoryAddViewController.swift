@@ -8,8 +8,9 @@
 
 import UIKit
 
-class StoryAddViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+class StoryAddViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
   
+  @IBOutlet var descriptionTextView: UITextView!
   @IBOutlet var hourPickerView: UIPickerView!
   @IBOutlet var minutePickerView: UIPickerView!
   @IBOutlet var mondayButton: UIButton!
@@ -42,8 +43,17 @@ class StoryAddViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     hourPickerDataBase = ["0", "1", "2" , "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23"]
     minutePickerDataBase = ["0", "1", "2" , "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26" , "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47", "48", "49", "50", "51", "52", "53", "54", "55", "56", "57", "58", "59"]
     _reminderAtDays = ["Days" : ["", "", "", "", "", "", ""] ]
+
+    titleTextField.delegate = self
+    titleTextField.becomeFirstResponder()
+    descriptionTextView.backgroundColor = Colors.canvasColor
+    descriptionTextView.textColor = Colors.primaryTextColor
+    descriptionTextView.layer.borderWidth = 1
+    descriptionTextView.layer.borderColor = Colors.borderColor.CGColor
+    descriptionTextView.attributedText = NSAttributedString(string: "Description",
+      attributes:[NSForegroundColorAttributeName: Colors.placeholderTextColor])
   }
-  
+
   override func viewWillAppear(animated: Bool) {
     if story == nil {
       story = Story.create(getDatabase())
@@ -62,13 +72,32 @@ class StoryAddViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
   @IBAction func handleViewTap(sender: AnyObject) {
     view.endEditing(true)
   }
-  
+
+  func textFieldShouldReturn(textField: UITextField) -> Bool {
+    titleTextField.resignFirstResponder()
+    return true
+  }
+
+  func showAlertViewWhenTitleIsNil() {
+    let actionSheet = UIAlertController(title: "", message: "Your story title is empty", preferredStyle: UIAlertControllerStyle.Alert)
+    let cancelButtonAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel) { (UIAlertAction) -> Void in
+      print("Cancel")
+    }
+    actionSheet.addAction(cancelButtonAction)
+    self.presentViewController(actionSheet, animated: true, completion: nil)
+  }
+
   @IBAction func handleCreateButtonTap(sender: UIButton) {
-    story?.title = titleTextField.text!
-    story?.hashtags = hashtagsTextField.text!.split("\\s*,\\s*")
+    if titleTextField.text == "" {
+      showAlertViewWhenTitleIsNil()
+    } else {
+      story?.title = titleTextField.text!
+      story?.hashtags = hashtagsTextField.text!.split("\\s*,\\s*")
     
-    try! story?.save()
-    navigationController?.popViewControllerAnimated(true)
+      try! story?.save()
+      navigationController?.popViewControllerAnimated(true)
+    }
+    print(story?.hashtags)
   }
 
 // MARK: handle hour and minute picker view
@@ -129,11 +158,13 @@ class StoryAddViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
       hour = hourPickerDataBase[row]
       story?.reminderAtHour["Hour"] = hour
       print(story?.reminderAtHour["Hour"])
+      view.endEditing(true)
     } else {
       print("minutePickerDataBase[row] is \(minutePickerDataBase[row])")
       minute = minutePickerDataBase[row]
       story?.reminderAtMinute["Minute"] = minute
       print(story?.reminderAtMinute["Minute"])
+      view.endEditing(true)
     }
   }
 

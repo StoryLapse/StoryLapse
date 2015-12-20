@@ -43,6 +43,7 @@
 		997160DB1C266EAB002B67B3 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 997160DA1C266EAB002B67B3 /* LoginViewController.swift */; };
 		997160DD1C26934D002B67B3 /* UserListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 997160DC1C26934D002B67B3 /* UserListViewController.swift */; };
 		997160DF1C269386002B67B3 /* UserListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 997160DE1C269386002B67B3 /* UserListTableViewCell.swift */; };
+		997160E11C26B463002B67B3 /* TextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 997160E01C26B463002B67B3 /* TextView.swift */; };
 		99AAA1801C2297DE00B4EA69 /* MenuOptionsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99AAA17F1C2297DE00B4EA69 /* MenuOptionsView.xib */; };
 		99AAA1821C2298F100B4EA69 /* MenuOptionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99AAA1811C2298F100B4EA69 /* MenuOptionsView.swift */; };
 		99D39D8D1C22FBCF0091188D /* PlayPhotosImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D39D8C1C22FBCF0091188D /* PlayPhotosImageViewController.swift */; };
@@ -95,6 +96,7 @@
 		997160DA1C266EAB002B67B3 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		997160DC1C26934D002B67B3 /* UserListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserListViewController.swift; sourceTree = "<group>"; };
 		997160DE1C269386002B67B3 /* UserListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserListTableViewCell.swift; sourceTree = "<group>"; };
+		997160E01C26B463002B67B3 /* TextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextView.swift; sourceTree = "<group>"; };
 		99AAA17F1C2297DE00B4EA69 /* MenuOptionsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MenuOptionsView.xib; path = ../MenuOptionsView.xib; sourceTree = "<group>"; };
 		99AAA1811C2298F100B4EA69 /* MenuOptionsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MenuOptionsView.swift; path = ../MenuOptionsView.swift; sourceTree = "<group>"; };
 		99D39D8C1C22FBCF0091188D /* PlayPhotosImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayPhotosImageViewController.swift; sourceTree = "<group>"; };
@@ -238,6 +240,7 @@
 				58CB631B1C240672005E6587 /* FormCaptionLabel.swift */,
 				58CB63201C24DC2B005E6587 /* StoryPhotoPlayView.swift */,
 				997160DE1C269386002B67B3 /* UserListTableViewCell.swift */,
+				997160E01C26B463002B67B3 /* TextView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -393,6 +396,7 @@
 				580BBDF81C1D1D85009178B5 /* StoryTableView.swift in Sources */,
 				58CB631F1C24407A005E6587 /* String.swift in Sources */,
 				99F85C0D1C1BF3D500E13642 /* PhotoCollectionDetailViewCell.swift in Sources */,
+				997160E11C26B463002B67B3 /* TextView.swift in Sources */,
 				589ACA491C16E1200030A54D /* SLTabBarController.swift in Sources */,
 				1F044DDE1C22A8910006E596 /* TestViewController.swift in Sources */,
 				589ACA4B1C16E3F80030A54D /* SLNavigationController.swift in Sources */,
