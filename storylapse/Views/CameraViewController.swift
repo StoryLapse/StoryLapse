@@ -18,16 +18,33 @@ class CameraViewController: UIViewController,UIImagePickerControllerDelegate, UI
   @IBOutlet var switchCameraButton: UIButton!
   @IBOutlet var flashButton: UIButton!
   @IBOutlet var galleryButton: UIButton!
+  @IBOutlet var recordTimeLabel: UILabel!
+  @IBOutlet var topView: UIView!
+  @IBOutlet var bottomView: UIView!
+  
+  @IBOutlet var cameraViewTopConstraint: NSLayoutConstraint!
+  @IBOutlet var cameraViewBottomConstraint: NSLayoutConstraint!
   
   let cameraManager = CameraManager()
   var story: Story?
+  var recordTimer: NSTimer!
+  var recordTime: Int = 0 {
+    didSet {
+      let second = recordTime % 60
+      let minute = (recordTime - second) / 60
+      
+      recordTimeLabel.text = String (format: "%02d:%02d", arguments: [minute, second])
+    }
+  }
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    NSNotificationCenter.defaultCenter().addObserver(self, selector: "rotated", name: UIDeviceOrientationDidChangeNotification, object: nil)
+    NSNotificationCenter.defaultCenter().addObserver(self, selector: "handleOrientationChange", name: UIDeviceOrientationDidChangeNotification, object: nil)
     self.navigationController?.navigationBar.hidden = true
     cameraManager.showAccessPermissionPopupAutomatically = true
+    cameraManager.writeFilesToPhoneLibrary = false
     flashButton.enabled = cameraManager.hasFlash
+    recordTimeLabel.hidden = true
     addCameraToView()
   }
   
@@ -60,18 +77,38 @@ class CameraViewController: UIViewController,UIImagePickerControllerDelegate, UI
         self.performSegueWithIdentifier("photoPreview", sender: image)
       })
     case .VideoWithMic, .VideoOnly:
-      sender.selected = !sender.selected
-      sender.setTitle(" ", forState: UIControlState.Selected)
-      sender.backgroundColor = sender.selected ? UIColor.redColor() : UIColor.greenColor()
-      if sender.selected {
-        cameraManager.startRecordingVideo()
-      } else {
-        cameraManager.stopRecordingVideo({ (videoURL, error) -> Void in
-          if let errorOccured = error {
-            self.cameraManager.showErrorBlock(erTitle: "Error occurred", erMessage: errorOccured.localizedDescription)
-          }
-        })
+      cameraManager.stopRecordingVideo({ (videoURL, error) -> Void in
+        if let errorOccured = error {
+          self.cameraManager.showErrorBlock(erTitle: "Error occurred", erMessage: errorOccured.localizedDescription)
+        }
+        else {
+          self.performSegueWithIdentifier("videoEdit", sender: videoURL)
+        }
+      })
+    }
+  }
+  @IBAction func handleRecordButton(sender: UIButton) {
+    cameraManager.cameraOutputMode = .VideoWithMic
+    sender.selected = !sender.selected
+    if sender.selected {
+      cameraManager.startRecordingVideo()
+      topView.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.2)
+      bottomView.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.2)
+      cameraViewTopConstraint.constant = 0
+      cameraViewBottomConstraint.constant = 0
+      recordTimeLabel.hidden = false
+      recordTimer = NSTimer.every(1) {
+        self.recordTime++
       }
+    } else {
+      cameraManager.stopRecordingVideo({ (videoURL, error) -> Void in
+        if let errorOccured = error {
+          self.cameraManager.showErrorBlock(erTitle: "Error occurred", erMessage: errorOccured.localizedDescription)
+        }
+        else {
+          self.performSegueWithIdentifier("videoEdit", sender: videoURL)
+        }
+      })
     }
   }
   
@@ -121,6 +158,18 @@ class CameraViewController: UIViewController,UIImagePickerControllerDelegate, UI
     self.presentViewController(imagePicker, animated: true,
       completion: nil)
   }
+  /*
+  @IBAction func handleVideoButton(sender: UIButton) {
+  cameraManager.cameraOutputMode = cameraManager.cameraOutputMode == CameraOutputMode.VideoWithMic ? CameraOutputMode.StillImage : CameraOutputMode.VideoWithMic
+  switch (cameraManager.cameraOutputMode) {
+  case .StillImage:
+  //cameraButton.selected = false
+  //cameraButton.backgroundColor = UIColor.greenColor()
+  sender.setTitle("Image", forState: UIControlState.Normal)
+  case .VideoWithMic, .VideoOnly:
+  sender.setTitle("Video", forState: UIControlState.Normal)
+  }
+  }*/
   
   func imagePickerControllerDidCancel(picker: UIImagePickerController) {
     dismissViewControllerAnimated(true, completion: nil)
@@ -146,32 +195,35 @@ class CameraViewController: UIViewController,UIImagePickerControllerDelegate, UI
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
     if segue.identifier == "photoPreview" {
       let photoEditViewController = segue.destinationViewController as! PhotoEditViewController
-      
       photoEditViewController.image = sender as? UIImage
       photoEditViewController.story = story
+    } else if segue.identifier == "videoEdit" {
+      let nextVC = segue.destinationViewController as! VideoEditViewController
     }
   }
   
-  func rotated() {
-    if (UIDeviceOrientationIsLandscape(UIDevice.currentDevice().orientation)) {
-      UIView.animateWithDuration(0.5, animations: { () -> Void in
-        self.flashButton.transform = CGAffineTransformMakeRotation(CGFloat(M_PI_2))
-        self.switchCameraButton.transform = CGAffineTransformMakeRotation(CGFloat(M_PI_2))
-        //self.galleryButton.transform = CGAffineTransformMakeRotation(CGFloat(-M_PI_2))
-      })
+  func handleOrientationChange() {
+    var nextRotationAngle: CGFloat = 0
+    
+    switch UIDevice.currentDevice().orientation {
+    case .LandscapeLeft:
+      nextRotationAngle = CGFloat(M_PI_2)
+      
+    case .LandscapeRight:
+      nextRotationAngle = -CGFloat(M_PI_2)
+      
+    default:
+      break
     }
     
-    if (UIDeviceOrientationIsPortrait(UIDevice.currentDevice().orientation)) {
-      UIView.animateWithDuration(0.5, animations: { () -> Void in
-        self.flashButton.transform = CGAffineTransformMakeRotation(CGFloat(M_PI))
-        self.switchCameraButton.transform = CGAffineTransformMakeRotation(CGFloat(M_PI))
-        //self.galleryButton.transform = CGAffineTransformMakeRotation(CGFloat(-M_PI))
-      })
-      print("Portrait")
-    }
+    UIView.animateWithDuration(0.2, animations: { () -> Void in
+      let nextTransform = CGAffineTransformMakeRotation(nextRotationAngle)
+      
+      self.flashButton.transform = nextTransform
+      self.switchCameraButton.transform = nextTransform
+      self.galleryButton.transform = nextTransform
+    })
   }
-  
-  
 }
 
 

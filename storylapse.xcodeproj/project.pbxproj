@@ -10,6 +10,7 @@
 		1F044DDA1C22A5AA0006E596 /* ImageStoryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F044DD91C22A5AA0006E596 /* ImageStoryView.xib */; };
 		1F044DDC1C22A5C40006E596 /* ImageStoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F044DDB1C22A5C40006E596 /* ImageStoryView.swift */; };
 		1F044DDE1C22A8910006E596 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F044DDD1C22A8910006E596 /* TestViewController.swift */; };
+		1F1642201C2699F5005BA3A1 /* VideoEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F16421F1C2699F5005BA3A1 /* VideoEditViewController.swift */; };
 		1FA849CD1C22FCCD00863F00 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FA849CB1C22FC7300863F00 /* MobileCoreServices.framework */; };
 		1FD204501C1F2BB6001A99ED /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD2044F1C1F2BB6001A99ED /* CameraViewController.swift */; };
 		1FD204541C1F34DE001A99ED /* PhotoEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD204531C1F34DE001A99ED /* PhotoEditViewController.swift */; };
@@ -59,6 +60,7 @@
 		1F044DD91C22A5AA0006E596 /* ImageStoryView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImageStoryView.xib; sourceTree = "<group>"; };
 		1F044DDB1C22A5C40006E596 /* ImageStoryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageStoryView.swift; sourceTree = "<group>"; };
 		1F044DDD1C22A8910006E596 /* TestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
+		1F16421F1C2699F5005BA3A1 /* VideoEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoEditViewController.swift; sourceTree = "<group>"; };
 		1FA849CB1C22FC7300863F00 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		1FD2044F1C1F2BB6001A99ED /* CameraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CameraViewController.swift; path = ../Views/CameraViewController.swift; sourceTree = "<group>"; };
 		1FD204531C1F34DE001A99ED /* PhotoEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PhotoEditViewController.swift; path = ../Views/PhotoEditViewController.swift; sourceTree = "<group>"; };
@@ -186,6 +188,7 @@
 			isa = PBXGroup;
 			children = (
 				1FD2044F1C1F2BB6001A99ED /* CameraViewController.swift */,
+				1F16421F1C2699F5005BA3A1 /* VideoEditViewController.swift */,
 				1FD204531C1F34DE001A99ED /* PhotoEditViewController.swift */,
 				99EECC6A1C16D1F300C6B792 /* StoryViewController.swift */,
 				589ACA461C16DD5B0030A54D /* StoryIndexViewController.swift */,
@@ -283,7 +286,6 @@
 				TargetAttributes = {
 					58C42B5B1C1430BC00D4CCB8 = {
 						CreatedOnToolsVersion = 7.1;
-						DevelopmentTeam = T78DK947F2;
 					};
 				};
 			};
@@ -405,6 +407,7 @@
 				994832A71C19616600DBB136 /* PhotoDetailViewController.swift in Sources */,
 				580BBDFC1C1F947D009178B5 /* ContentSettingsView.swift in Sources */,
 				997160DB1C266EAB002B67B3 /* LoginViewController.swift in Sources */,
+				1F1642201C2699F5005BA3A1 /* VideoEditViewController.swift in Sources */,
 				99EECC6D1C16D21700C6B792 /* PhotoView.swift in Sources */,
 				1FD204501C1F2BB6001A99ED /* CameraViewController.swift in Sources */,
 				582048AE1C1BEEC700D76B1D /* fixtures.swift in Sources */,
@@ -533,7 +536,7 @@
 				INFOPLIST_FILE = storylapse/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.storylapse.storylapse.ios;
+				PRODUCT_BUNDLE_IDENTIFIER = com.huyngo.storylapse.ios;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "storylapse/storylapse-Bridging-Header.h";
@@ -556,7 +559,7 @@
 				INFOPLIST_FILE = storylapse/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.storylapse.storylapse.ios;
+				PRODUCT_BUNDLE_IDENTIFIER = com.huyngo.storylapse.ios;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "storylapse/storylapse-Bridging-Header.h";
