@@ -7,6 +7,15 @@
 //
 
 func resetFixtures() {
+  let samplePhotoDirURL = NSFileManager.defaultManager()
+    .URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)[0]
+    .URLByAppendingPathComponent("sample-photos")
+  
+  if !NSFileManager.defaultManager().fileExistsAtPath(samplePhotoDirURL.path!) {
+    print("Please unzip sample-photos into \(samplePhotoDirURL)")
+    return
+  }
+  
   try! CBLManager.sharedInstance().databaseNamed("storylapse").deleteDatabase()
   let db = try! CBLManager.sharedInstance().databaseNamed("storylapse")
   
@@ -19,11 +28,6 @@ func resetFixtures() {
   
   // Create photos
   let results = try! db.createAllDocumentsQuery().run()
-  let samplePhotoDirURL = NSFileManager.defaultManager()
-    .URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)[0]
-    .URLByAppendingPathComponent("sample-photos")
-  
-  print("Please unzip sample-photos into \(samplePhotoDirURL)")
   
   while let row = results.nextRow() {
     let story = Story(forDocument: row.document!)
@@ -31,16 +35,13 @@ func resetFixtures() {
     for idx in 1...40 {
       let photo = Photo.create(db)
       photo.storyId = story.document!.documentID
-      
-      try! photo.save()
       story.photoIds += [photo.document!.documentID]
       
       // Copy images
-        
-      let samplePhotoPath = samplePhotoDirURL.URLByAppendingPathComponent(String(format: "sample-%d.jpg", idx % 5)).path!
+      let samplePhotoPath = samplePhotoDirURL.URLByAppendingPathComponent(String(format: "sample-%d.jpg", (idx + story.title.hash) % 5)).path!
       
       try! NSFileManager.defaultManager().copyItemAtPath(samplePhotoPath, toPath: photo.localPath)
-
+      try! photo.save()
     }
     
     try! story.save()

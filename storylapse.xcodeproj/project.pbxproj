@@ -35,6 +35,7 @@
 		58CB631A1C24061B005E6587 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58CB63191C24061B005E6587 /* TextField.swift */; };
 		58CB631C1C240672005E6587 /* FormCaptionLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58CB631B1C240672005E6587 /* FormCaptionLabel.swift */; };
 		58CB631F1C24407A005E6587 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58CB631E1C24407A005E6587 /* String.swift */; };
+		58CB63211C24DC2B005E6587 /* StoryPhotoPlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58CB63201C24DC2B005E6587 /* StoryPhotoPlayView.swift */; };
 		58E4A9471C19A93F0008592E /* Story.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E4A9461C19A93F0008592E /* Story.swift */; };
 		8E48828F6850D502868522EF /* Pods_storylapse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D6BE209FD67D57ABFBE7798 /* Pods_storylapse.framework */; };
 		994832A71C19616600DBB136 /* PhotoDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 994832A61C19616600DBB136 /* PhotoDetailViewController.swift */; };
@@ -83,6 +84,7 @@
 		58CB63191C24061B005E6587 /* TextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
 		58CB631B1C240672005E6587 /* FormCaptionLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormCaptionLabel.swift; sourceTree = "<group>"; };
 		58CB631E1C24407A005E6587 /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		58CB63201C24DC2B005E6587 /* StoryPhotoPlayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryPhotoPlayView.swift; sourceTree = "<group>"; };
 		58E4A9461C19A93F0008592E /* Story.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Story.swift; sourceTree = "<group>"; };
 		994832A61C19616600DBB136 /* PhotoDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoDetailViewController.swift; sourceTree = "<group>"; };
 		99AAA17F1C2297DE00B4EA69 /* MenuOptionsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MenuOptionsView.xib; path = ../MenuOptionsView.xib; sourceTree = "<group>"; };
@@ -223,6 +225,7 @@
 				99AAA1811C2298F100B4EA69 /* MenuOptionsView.swift */,
 				58CB63191C24061B005E6587 /* TextField.swift */,
 				58CB631B1C240672005E6587 /* FormCaptionLabel.swift */,
+				58CB63201C24DC2B005E6587 /* StoryPhotoPlayView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -271,7 +274,7 @@
 				TargetAttributes = {
 					58C42B5B1C1430BC00D4CCB8 = {
 						CreatedOnToolsVersion = 7.1;
-						DevelopmentTeam = T78DK947F2;
+						DevelopmentTeam = NENL5G4Q5P;
 					};
 				};
 			};
@@ -367,6 +370,7 @@
 				99EECC691C16D1A000C6B792 /* Photo.swift in Sources */,
 				580BBDF61C1D10D4009178B5 /* StoryTableViewCell.swift in Sources */,
 				589ACA4E1C17F8880030A54D /* Colors.swift in Sources */,
+				58CB63211C24DC2B005E6587 /* StoryPhotoPlayView.swift in Sources */,
 				99EECC6F1C170EDC00C6B792 /* PhotoCollectionViewCell.swift in Sources */,
 				58CB63181C24021E005E6587 /* StoryAddViewController.swift in Sources */,
 				99EECC6B1C16D1F300C6B792 /* StoryViewController.swift in Sources */,
@@ -517,7 +521,7 @@
 				INFOPLIST_FILE = storylapse/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.storylapse.storylapse;
+				PRODUCT_BUNDLE_IDENTIFIER = com.storylapse.storylapse.ios;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "storylapse/storylapse-Bridging-Header.h";
@@ -540,7 +544,7 @@
 				INFOPLIST_FILE = storylapse/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.storylapse.storylapse;
+				PRODUCT_BUNDLE_IDENTIFIER = com.storylapse.storylapse.ios;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "storylapse/storylapse-Bridging-Header.h";

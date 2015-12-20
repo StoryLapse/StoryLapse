@@ -26,14 +26,15 @@ class StoryIndexViewController: UIViewController {
   
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
-    
     stories = Story.getCurrentUserStories(getDatabase())
-    storyTableView.reloadData()
+    dispatch_async(dispatch_get_main_queue()) {
+      self.storyTableView.reloadData()
+    }
   }
 }
 
 // MARK: TableView
-extension StoryIndexViewController: UITableViewDataSource {
+extension StoryIndexViewController: UITableViewDataSource, StoryTableViewCellDelegate {
   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return stories.count
   }
@@ -42,7 +43,12 @@ extension StoryIndexViewController: UITableViewDataSource {
     let cell = storyTableView.dequeueReusableCellWithIdentifier("storyTableViewCell") as! StoryTableViewCell
     
     cell.story = stories[indexPath.row]
+    cell.delegate = self
     return cell
+  }
+  
+  func storyCell(didTapAddPhotoButtonForStory story: Story) {
+    performSegueWithIdentifier("takePhotoSegue", sender: story)
   }
 }
 
@@ -54,6 +60,13 @@ extension StoryIndexViewController {
       let story = (sender as! StoryTableViewCell).story
       
       storyViewController.story = story
+    }
+    
+    if segue.identifier == "takePhotoSegue" {
+      let cameraViewController = (segue.destinationViewController as! SLNavigationController).topViewController as! CameraViewController
+      let story = sender as! Story
+      
+      cameraViewController.story = story
     }
   }
 }

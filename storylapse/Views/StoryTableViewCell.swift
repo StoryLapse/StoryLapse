@@ -7,28 +7,49 @@
 //
 
 import UIKit
-import AlamofireImage
 
 class StoryTableViewCell: UITableViewCell {
   
+  @IBOutlet var cardView: UIView!
+  @IBOutlet var photoPlayView: StoryPhotoPlayView!
   @IBOutlet var titleLabel: UILabel!
   @IBOutlet var photoCountLabel: UILabel!
-  @IBOutlet var thumbImageView: UIImageView!
+  @IBOutlet var addPhotoButton: UIButton!
+  var delegate: StoryTableViewCellDelegate?
 
+  var photos: [Photo] = []
   var story: Story! {
     didSet {
       titleLabel.text = story.title
       photoCountLabel.text = String(format: "%d photos", arguments: [story.photoCount])
-      thumbImageView.af_setImageWithURL(NSURL(string: "http://lorempixel.com/160/160/sports/")!)
+      
+      photos = Photo.getPhotos(getDatabase(), story: story)
+      photoPlayView.story = story
+      photoPlayView.play()
     }
   }
   
   override func awakeFromNib() {
     selectionStyle = .None
-    backgroundColor = Colors.ebony
+    backgroundColor = UIColor.clearColor()
     
+    cardView.backgroundColor = Colors.ebony
+    photoPlayView.contentMode = .Center
     titleLabel.textColor = Colors.primaryTextColor
     photoCountLabel.textColor = Colors.secondaryTextColor
-    thumbImageView.backgroundColor = UIColor.darkGrayColor()
+    photoPlayView.backgroundColor = UIColor.darkGrayColor()
+    
+    // Change colors
+    addPhotoButton.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.10)
+    addPhotoButton.setImage(UIImage(named: "camera-icon"), forState: .Normal)
+    addPhotoButton.imageEdgeInsets = UIEdgeInsetsMake(8, 8, 8, 8)
   }
+  
+  @IBAction func handleAddPhotoButtonTap(sender: UIButton) {
+    delegate?.storyCell?(didTapAddPhotoButtonForStory: story)
+  }
+}
+
+@objc protocol StoryTableViewCellDelegate {
+  optional func storyCell(didTapAddPhotoButtonForStory story: Story)
 }

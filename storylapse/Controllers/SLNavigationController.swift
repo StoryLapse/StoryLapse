@@ -10,6 +10,8 @@ import UIKit
 
 class SLNavigationController: UINavigationController {
   
+  var context: [String: AnyObject?] = [:]
+  
   override func awakeFromNib() {
     super.awakeFromNib()
     

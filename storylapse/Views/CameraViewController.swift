@@ -12,7 +12,7 @@ import AVFoundation
 import MobileCoreServices
 
 class CameraViewController: UIViewController,UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    
+  
   @IBOutlet var cameraView: UIView!
   @IBOutlet var captureButton: UIButton!
   @IBOutlet var switchCameraButton: UIButton!
@@ -24,16 +24,16 @@ class CameraViewController: UIViewController,UIImagePickerControllerDelegate, UI
   
   override func viewDidLoad() {
     super.viewDidLoad()
-     NSNotificationCenter.defaultCenter().addObserver(self, selector: "rotated", name: UIDeviceOrientationDidChangeNotification, object: nil)
+    NSNotificationCenter.defaultCenter().addObserver(self, selector: "rotated", name: UIDeviceOrientationDidChangeNotification, object: nil)
     self.navigationController?.navigationBar.hidden = true
     cameraManager.showAccessPermissionPopupAutomatically = true
     flashButton.enabled = cameraManager.hasFlash
     addCameraToView()
   }
-    
-    override func prefersStatusBarHidden() -> Bool {
-        return true
-    }
+  
+  override func prefersStatusBarHidden() -> Bool {
+    return true
+  }
   
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
@@ -106,10 +106,10 @@ class CameraViewController: UIViewController,UIImagePickerControllerDelegate, UI
     }
   }
   
-    @IBAction func handleCancelButtonTap(sender: AnyObject) {
-        dismissViewControllerAnimated(true, completion: nil)
-    }
-    
+  @IBAction func handleCancelButtonTap(sender: AnyObject) {
+    dismissViewControllerAnimated(true, completion: nil)
+  }
+  
   @IBAction func handleGalleryButtonTap(sender: AnyObject) {
     let imagePicker = UIImagePickerController()
     
@@ -143,36 +143,35 @@ class CameraViewController: UIViewController,UIImagePickerControllerDelegate, UI
     
     dismissViewControllerAnimated(true, completion: nil)
   }
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "photoPreview" {
-            let nextVC = segue.destinationViewController as! PhotoEditViewController
-            nextVC.image = sender as! UIImage
-        }
+  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    if segue.identifier == "photoPreview" {
+      let photoEditViewController = segue.destinationViewController as! PhotoEditViewController
+      
+      photoEditViewController.image = sender as? UIImage
+      photoEditViewController.story = story
     }
-
-    func rotated()
-    {
-        if(UIDeviceOrientationIsLandscape(UIDevice.currentDevice().orientation))
-        {
-            UIView.animateWithDuration(0.5, animations: { () -> Void in
-                self.flashButton.transform = CGAffineTransformMakeRotation(CGFloat(M_PI_2))
-                self.switchCameraButton.transform = CGAffineTransformMakeRotation(CGFloat(M_PI_2))
-                //self.galleryButton.transform = CGAffineTransformMakeRotation(CGFloat(-M_PI_2))
-            })
-        }
-        
-        if(UIDeviceOrientationIsPortrait(UIDevice.currentDevice().orientation))
-        {
-            UIView.animateWithDuration(0.5, animations: { () -> Void in
-                self.flashButton.transform = CGAffineTransformMakeRotation(CGFloat(M_PI))
-                self.switchCameraButton.transform = CGAffineTransformMakeRotation(CGFloat(M_PI))
-                //self.galleryButton.transform = CGAffineTransformMakeRotation(CGFloat(-M_PI))
-            })
-            print("Portrait")
-        }
+  }
+  
+  func rotated() {
+    if (UIDeviceOrientationIsLandscape(UIDevice.currentDevice().orientation)) {
+      UIView.animateWithDuration(0.5, animations: { () -> Void in
+        self.flashButton.transform = CGAffineTransformMakeRotation(CGFloat(M_PI_2))
+        self.switchCameraButton.transform = CGAffineTransformMakeRotation(CGFloat(M_PI_2))
+        //self.galleryButton.transform = CGAffineTransformMakeRotation(CGFloat(-M_PI_2))
+      })
     }
     
-    
+    if (UIDeviceOrientationIsPortrait(UIDevice.currentDevice().orientation)) {
+      UIView.animateWithDuration(0.5, animations: { () -> Void in
+        self.flashButton.transform = CGAffineTransformMakeRotation(CGFloat(M_PI))
+        self.switchCameraButton.transform = CGAffineTransformMakeRotation(CGFloat(M_PI))
+        //self.galleryButton.transform = CGAffineTransformMakeRotation(CGFloat(-M_PI))
+      })
+      print("Portrait")
+    }
+  }
+  
+  
 }
 
 

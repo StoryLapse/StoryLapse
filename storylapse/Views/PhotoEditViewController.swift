@@ -26,13 +26,12 @@ class PhotoEditViewController: UIViewController {
     imagePreviewView.image = image
   }
   
-  @IBAction func onDoneButton(sender: AnyObject) {
-  }
-  
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
     if segue.identifier == "showPhotoAddSegue" {
-      let nextVC = segue.destinationViewController as! PhotoAddViewController
-      nextVC.image = image
+      let photoAddViewController = segue.destinationViewController as! PhotoAddViewController
+      
+      photoAddViewController.image = image
+      photoAddViewController.story = story
     }
   }
 }

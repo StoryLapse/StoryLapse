@@ -17,7 +17,7 @@ class StoryTableView: UITableView {
     rowHeight = UITableViewAutomaticDimension
     estimatedRowHeight = 100
     
-    separatorStyle = .SingleLine
+    separatorStyle = .None
     separatorInset = UIEdgeInsetsZero
     separatorColor = UIColor.darkGrayColor()
     backgroundColor = Colors.ebony

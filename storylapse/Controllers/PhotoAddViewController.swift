@@ -38,6 +38,14 @@ class PhotoAddViewController: UIViewController {
     createButton.tintColor = UIColor.whiteColor()
   }
   
+  override func viewWillAppear(animated: Bool) {
+    super.viewWillAppear(animated)
+    
+    if story != nil {
+      selectedIndex = stories.indexOf { $0.document?.documentID == story?.document?.documentID }
+    }
+  }
+  
   @IBAction func handleCreateButtonTap(sender: UIButton) {
     if selectedIndex == nil {
       print("User haven't chosen story yet")
