@@ -11,6 +11,26 @@ import UIKit
 class StoryTableViewCell: UITableViewCell {
   
   @IBOutlet var cardView: UIView!
+  @IBOutlet var topView: UIView!
+  @IBOutlet var userAvatarImageView: UIImageView!
+  @IBOutlet var usernameLabel: UILabel!
+  @IBOutlet var updateMomentLabel: UILabel!
+  @IBOutlet var interactionCountButton: UIButton! {
+    didSet {
+      let interactionImage = UIImage(named: "interaction-icon")?.imageWithRenderingMode(.AlwaysTemplate)
+      interactionCountButton.tintColor = Colors.secondaryTextColor
+      interactionCountButton.setImage(interactionImage, forState: .Normal)
+      interactionCountButton.titleEdgeInsets = UIEdgeInsetsMake(0, 5, 0, -5)
+
+      let titleLabel = interactionCountButton.titleLabel!
+      let imageView = interactionCountButton.imageView!
+      
+      interactionCountButton.transform = CGAffineTransformScale(interactionCountButton.transform, -1, 1)
+      titleLabel.transform = CGAffineTransformScale(titleLabel.transform, -1, 1)
+      imageView.transform = CGAffineTransformScale(imageView.transform, -1, 1)
+
+    }
+  }
   @IBOutlet var photoPlayView: StoryPhotoPlayView!
   @IBOutlet var titleLabel: UILabel!
   @IBOutlet var photoCountLabel: UILabel!
@@ -34,6 +54,12 @@ class StoryTableViewCell: UITableViewCell {
     backgroundColor = UIColor.clearColor()
     
     cardView.backgroundColor = Colors.ebony
+    
+    topView.backgroundColor = UIColor.clearColor()
+    userAvatarImageView.backgroundColor = UIColor.darkGrayColor()
+    usernameLabel.textColor = Colors.primaryTextColor
+    updateMomentLabel.textColor = Colors.secondaryTextColor
+    
     photoPlayView.contentMode = .Center
     titleLabel.textColor = Colors.primaryTextColor
     photoCountLabel.textColor = Colors.secondaryTextColor

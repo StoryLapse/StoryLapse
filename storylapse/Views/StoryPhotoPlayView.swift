@@ -91,8 +91,7 @@ class StoryPhotoPlayView: UIView {
     }
     
     next(true)
-    timer = NSTimer.every(enterTime + delayTime) { self.next() }
-  }
+    timer = NSTimer.every(enterTime + delayTime) { self.next() }  }
   
   func stop() {
     currentPhotoIndex = 0

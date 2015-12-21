@@ -24,9 +24,9 @@ class Story: CBLModel {
 //                        ["Day" : ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]]
 //                      ]
 //              ]
-  @NSManaged var reminderAtHour: [String: String]
-  @NSManaged var reminderAtMinute: [String: String] 
-  @NSManaged var reminderAtDays: [String: [String]]
+  @NSManaged var remindeAtHour: Int
+  @NSManaged var remindeAtMinute: Int
+  @NSManaged var remindeAtDaysOfWeek: [Bool]
 
   @NSManaged var interactionCount: Int
   @NSManaged var commentCount: Int

@@ -7,29 +7,79 @@
 //
 
 import UIKit
+import Cartography
 
-class StoryAddViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
+class StoryAddViewController: UIViewController, UITextFieldDelegate {
   
   @IBOutlet var descriptionTextView: UITextView!
   @IBOutlet var hourPickerView: UIPickerView!
   @IBOutlet var minutePickerView: UIPickerView!
-  @IBOutlet var mondayButton: UIButton!
-  @IBOutlet var tuesdayButton: UIButton!
-  @IBOutlet var wednesdayButton: UIButton!
-  @IBOutlet var thursdayButton: UIButton!
-  @IBOutlet var fridayButton: UIButton!
-  @IBOutlet var saturdayButton: UIButton!
-  @IBOutlet var sundayButton: UIButton!
   @IBOutlet var titleTextField: TextField!
   @IBOutlet var hashtagsTextField: TextField!
   @IBOutlet var createButton: UIButton!
-  var hourPickerDataBase = [String]()
-  var minutePickerDataBase = [String]()
+  @IBOutlet var weekDaysView: UIView!
+  
   var hour = String()
   var minute = String()
   
   var story: Story?
-  var _reminderAtDays: [String: [String]]?
+  
+  private var daysOfWeek: [Bool] = [true, true, true, true, true, true, true] {
+    didSet {
+      daysOfWeek.enumerate().forEach {
+        let button = dayOfWeekButtons[$0.0]
+        
+        button.backgroundColor = $0.1 ?
+          Colors.canvasColor :
+          UIColor.clearColor()
+        
+        button.alpha = $0.1 ? 1 : 0.5
+      }
+      
+      dayOfWeekButtons.first!.tintColor = UIColor.redColor()
+    }
+  }
+  
+  private lazy var dayOfWeekButtons: [UIButton]  = { [unowned self] in
+    let weekDaysView = self.weekDaysView
+    let buttons: [UIButton] = ["M", "T", "W", "T", "F", "S", "S"]
+      .map { title in
+        let button = UIButton(type: .System)
+        button.setTitle(title, forState: .Normal)
+        return button
+    }
+    
+    buttons.forEach{ weekDaysView.addSubview($0) }
+    
+    let lastButton = buttons.reduce(nil) { (lastButton, button) -> UIButton? in
+      if let lastButton = lastButton {
+        constrain(button, lastButton) { button, lastButton in
+          button.width == lastButton.width
+          button.left == lastButton.right + 8
+        }
+        
+      } else {
+        constrain(button, weekDaysView) { button, view in
+          button.left == view.leftMargin
+        }
+      }
+      
+      constrain(button, weekDaysView) { button, view in
+        button.top == view.topMargin
+        align(centerY: view, button)
+      }
+      
+      return button
+    }!
+    
+    constrain(lastButton, weekDaysView) { button, view in
+      button.right == view.rightMargin
+    }
+    
+    weekDaysView.layoutIfNeeded()
+    return [lastButton] + buttons[0..<buttons.count - 1]
+    
+    }()
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -37,23 +87,25 @@ class StoryAddViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     view.backgroundColor = Colors.primaryBackgroundColor
     (tabBarController as! SLTabBarController).toggleTabBar(animated: false, showed: false)
     
-    createButton.backgroundColor = Colors.tintColor
-    createButton.tintColor = UIColor.whiteColor()
-
-    hourPickerDataBase = ["0", "1", "2" , "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23"]
-    minutePickerDataBase = ["0", "1", "2" , "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26" , "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47", "48", "49", "50", "51", "52", "53", "54", "55", "56", "57", "58", "59"]
-    _reminderAtDays = ["Days" : ["", "", "", "", "", "", ""] ]
-
+    
     titleTextField.delegate = self
     titleTextField.becomeFirstResponder()
+    
     descriptionTextView.backgroundColor = Colors.canvasColor
     descriptionTextView.textColor = Colors.primaryTextColor
     descriptionTextView.layer.borderWidth = 1
     descriptionTextView.layer.borderColor = Colors.borderColor.CGColor
     descriptionTextView.attributedText = NSAttributedString(string: "Description",
       attributes:[NSForegroundColorAttributeName: Colors.placeholderTextColor])
+    
+    createButton.backgroundColor = Colors.tintColor
+    createButton.tintColor = UIColor.whiteColor()
+    
+    dayOfWeekButtons.forEach { $0.addTarget(self, action: "handleDayOfWeekButtonTap:", forControlEvents: .TouchUpInside) }
+    
+    daysOfWeek = [true, true, true, true, true, true, true]
   }
-
+  
   override func viewWillAppear(animated: Bool) {
     if story == nil {
       story = Story.create(getDatabase())
@@ -72,12 +124,12 @@ class StoryAddViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
   @IBAction func handleViewTap(sender: AnyObject) {
     view.endEditing(true)
   }
-
+  
   func textFieldShouldReturn(textField: UITextField) -> Bool {
     titleTextField.resignFirstResponder()
     return true
   }
-
+  
   func showAlertViewWhenTitleIsNil() {
     let actionSheet = UIAlertController(title: "", message: "Your story title is empty", preferredStyle: UIAlertControllerStyle.Alert)
     let cancelButtonAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel) { (UIAlertAction) -> Void in
@@ -86,179 +138,62 @@ class StoryAddViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     actionSheet.addAction(cancelButtonAction)
     self.presentViewController(actionSheet, animated: true, completion: nil)
   }
-
+  
   @IBAction func handleCreateButtonTap(sender: UIButton) {
     if titleTextField.text == "" {
       showAlertViewWhenTitleIsNil()
     } else {
       story?.title = titleTextField.text!
       story?.hashtags = hashtagsTextField.text!.split("\\s*,\\s*")
-    
+      
       try! story?.save()
       navigationController?.popViewControllerAnimated(true)
     }
     print(story?.hashtags)
   }
+  
+  
+  // MARK: Handle day buttons tap
+  func handleDayOfWeekButtonTap(sender: UIButton) {
+    let index = dayOfWeekButtons.indexOf(sender)!
+    daysOfWeek[index] = !daysOfWeek[index]
+  }
+}
 
-// MARK: handle hour and minute picker view
-
+// MARK: Picker view
+extension StoryAddViewController: UIPickerViewDelegate, UIPickerViewDataSource {
+  
   func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
     return 1
   }
-
+  
   func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-    if (pickerView.tag == 1){
-      return hourPickerDataBase.count
-    } else{
-      return minutePickerDataBase.count
-    }
+    return pickerView.tag == 1 ? 24 : 60
   }
-
-  func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-    if (pickerView.tag == 1){
-      return hourPickerDataBase[component]
-    } else{
-      return minutePickerDataBase[component]
-    }
-  }
-
-  func pickerView(pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
-    if pickerView.tag == 1 {
-      let titleData1 = hourPickerDataBase[row]
-      let myTitle1 = NSAttributedString(string: titleData1, attributes: [NSForegroundColorAttributeName: UIColor.blueColor()])
-      return myTitle1
-    } else {
-      let titleData2 = minutePickerDataBase[row]
-      let myTitle2 = NSAttributedString(string: titleData2, attributes: [NSForegroundColorAttributeName: UIColor.blueColor()])
-      return myTitle2
-    }
-  }
-
+  
   func pickerView(pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusingView view: UIView?) -> UIView {
-    if pickerView.tag == 1 {
-      let hourPickerLabel = UILabel()
-      hourPickerLabel.textColor = UIColor.blueColor()
-      hourPickerLabel.text = hourPickerDataBase[row]
-      hourPickerLabel.font = UIFont(name: "Arial-BoldMT", size: 25)
-      hourPickerLabel.textAlignment = NSTextAlignment.Center
-      return hourPickerLabel
-    } else {
-      let minutePickerLabel = UILabel()
-      minutePickerLabel.textColor = UIColor.blueColor()
-      minutePickerLabel.text = minutePickerDataBase[row]
-      minutePickerLabel.font = UIFont(name: "Arial-BoldMT", size: 25)
-      minutePickerLabel.textAlignment = NSTextAlignment.Center
-      return minutePickerLabel
-    }
+    let label = UILabel()
+    
+    label.textColor = Colors.tintColor
+    label.text = String(format: pickerView.tag == 1 ? "%d" : "%02d", row)
+    label.font = UIFont(name: "Arial-BoldMT", size: 32)
+    label.textAlignment = NSTextAlignment.Center
+    
+    return label
   }
-
+  
+  func pickerView(pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
+    return 36
+  }
+  
   func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
     if pickerView.tag == 1 {
-      print("hourPickerDataBase[row] is \(hourPickerDataBase[row])")
-      hour = hourPickerDataBase[row]
-      story?.reminderAtHour["Hour"] = hour
-      print(story?.reminderAtHour["Hour"])
-      view.endEditing(true)
+      story?.remindeAtHour = row
+      
     } else {
-      print("minutePickerDataBase[row] is \(minutePickerDataBase[row])")
-      minute = minutePickerDataBase[row]
-      story?.reminderAtMinute["Minute"] = minute
-      print(story?.reminderAtMinute["Minute"])
-      view.endEditing(true)
+      story?.remindeAtMinute = row
     }
-  }
-
-// MARK: handle day buttons tap
-
-  @IBAction func handleMondayButtonTap(sender: AnyObject) {
-    if mondayButton.backgroundColor == nil {
-      mondayButton.backgroundColor = UIColor.greenColor()
-      _reminderAtDays!["Days"]![0] = "Monday"
-      story?.reminderAtDays = _reminderAtDays!
-      print(story?.reminderAtDays)
-    } else {
-      mondayButton.backgroundColor = nil
-      _reminderAtDays!["Days"]![0] = ""
-      story?.reminderAtDays = _reminderAtDays!
-      print(story?.reminderAtDays)
-    }
-  }
-  @IBAction func handleTuesdayButtonTap(sender: AnyObject) {
-    if tuesdayButton.backgroundColor == nil {
-      tuesdayButton.backgroundColor = UIColor.greenColor()
-      _reminderAtDays!["Days"]![1] = "Tuesday"
-      story?.reminderAtDays = _reminderAtDays!
-      print(story?.reminderAtDays)
-    } else {
-      tuesdayButton.backgroundColor = nil
-      _reminderAtDays!["Days"]![1] = ""
-      story?.reminderAtDays = _reminderAtDays!
-      print(story?.reminderAtDays)
-    }
-  }
-  @IBAction func handleWednesdayButtonTap(sender: AnyObject) {
-    if wednesdayButton.backgroundColor == nil {
-      wednesdayButton.backgroundColor = UIColor.greenColor()
-      _reminderAtDays!["Days"]![2] = "Wednesday"
-      story?.reminderAtDays = _reminderAtDays!
-      print(story?.reminderAtDays)
-    } else {
-      wednesdayButton.backgroundColor = nil
-      _reminderAtDays!["Days"]![2] = ""
-      story?.reminderAtDays = _reminderAtDays!
-      print(story?.reminderAtDays)
-    }
-  }
-  @IBAction func handleThursdayButtonTap(sender: AnyObject) {
-    if thursdayButton.backgroundColor == nil {
-      thursdayButton.backgroundColor = UIColor.greenColor()
-      _reminderAtDays!["Days"]![3] = "Thursday"
-      story?.reminderAtDays = _reminderAtDays!
-      print(story?.reminderAtDays)
-    } else {
-      thursdayButton.backgroundColor = nil
-      _reminderAtDays!["Days"]![3] = ""
-      story?.reminderAtDays = _reminderAtDays!
-      print(story?.reminderAtDays)
-    }
-  }
-  @IBAction func handleFridayButtonTap(sender: AnyObject) {
-    if fridayButton.backgroundColor == nil {
-      fridayButton.backgroundColor = UIColor.greenColor()
-      _reminderAtDays!["Days"]![4] = "Friday"
-      story?.reminderAtDays = _reminderAtDays!
-      print(story?.reminderAtDays)
-    } else {
-      fridayButton.backgroundColor = nil
-      _reminderAtDays!["Days"]![4] = ""
-      story?.reminderAtDays = _reminderAtDays!
-      print(story?.reminderAtDays)
-    }
-  }
-  @IBAction func handleSaturdayButtonTap(sender: AnyObject) {
-    if saturdayButton.backgroundColor == nil {
-      saturdayButton.backgroundColor = UIColor.greenColor()
-      _reminderAtDays!["Days"]![5] = "Saturday"
-      story?.reminderAtDays = _reminderAtDays!
-      print(story?.reminderAtDays)
-    } else {
-      saturdayButton.backgroundColor = nil
-      _reminderAtDays!["Days"]![5] = ""
-      story?.reminderAtDays = _reminderAtDays!
-      print(story?.reminderAtDays)
-    }
-  }
-  @IBAction func handleSundayButtonTap(sender: AnyObject) {
-    if sundayButton.backgroundColor == nil {
-      sundayButton.backgroundColor = UIColor.greenColor()
-      _reminderAtDays!["Days"]![6] = "Sunday"
-      story?.reminderAtDays = _reminderAtDays!
-      print(story?.reminderAtDays)
-    } else {
-      sundayButton.backgroundColor = nil
-      _reminderAtDays!["Days"]![6] = ""
-      story?.reminderAtDays = _reminderAtDays!
-      print(story?.reminderAtDays)
-    }
+    
+    view.endEditing(true)
   }
 }
