@@ -149,7 +149,6 @@ class StoryAddViewController: UIViewController, UITextFieldDelegate {
       try! story?.save()
       navigationController?.popViewControllerAnimated(true)
     }
-    print(story?.hashtags)
   }
   
   

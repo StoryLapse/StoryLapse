@@ -10,8 +10,6 @@ import UIKit
 
 class StoryViewController: UIViewController {
 
-
-  @IBOutlet var optionMenuView: MenuOptionsView!
   @IBOutlet var navigationBar: UIBarButtonItem!
   @IBOutlet var collectionView: UICollectionView!
   
@@ -26,14 +24,6 @@ class StoryViewController: UIViewController {
     super.viewDidLoad()
     
     title = "Dalat trip"
-  }
-
-  override func viewDidLayoutSubviews() {
-    super.viewDidLayoutSubviews()
-    let screenSize: CGRect = UIScreen.mainScreen().bounds
-    optionMenuView = MenuOptionsView.init(frame: CGRect(x: screenSize.width - optionMenuView.frame.width, y: 0, width: optionMenuView.frame.width, height: optionMenuView.frame.height))
-    view.addSubview(optionMenuView)
-    optionMenuView.hidden = true
   }
 
   override func didReceiveMemoryWarning() {
