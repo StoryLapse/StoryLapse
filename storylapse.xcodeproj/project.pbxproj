@@ -11,6 +11,9 @@
 		1FA849CD1C22FCCD00863F00 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FA849CB1C22FC7300863F00 /* MobileCoreServices.framework */; };
 		1FD204501C1F2BB6001A99ED /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD2044F1C1F2BB6001A99ED /* CameraViewController.swift */; };
 		1FD204541C1F34DE001A99ED /* PhotoEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD204531C1F34DE001A99ED /* PhotoEditViewController.swift */; };
+		5809EDA81C27ED60003E0057 /* MenuItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5809EDA71C27ED60003E0057 /* MenuItemView.xib */; };
+		5809EDAA1C27EE36003E0057 /* MenuItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5809EDA91C27EE36003E0057 /* MenuItemView.swift */; };
+		5809EDAC1C27F0D8003E0057 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5809EDAB1C27F0D8003E0057 /* MenuViewController.swift */; };
 		580BBDF61C1D10D4009178B5 /* StoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 580BBDF51C1D10D4009178B5 /* StoryTableViewCell.swift */; };
 		580BBDF81C1D1D85009178B5 /* StoryTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 580BBDF71C1D1D85009178B5 /* StoryTableView.swift */; };
 		580BBDFC1C1F947D009178B5 /* ContentSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 580BBDFB1C1F947D009178B5 /* ContentSettingsView.swift */; };
@@ -57,6 +60,9 @@
 		1FA849CB1C22FC7300863F00 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		1FD2044F1C1F2BB6001A99ED /* CameraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CameraViewController.swift; path = ../Views/CameraViewController.swift; sourceTree = "<group>"; };
 		1FD204531C1F34DE001A99ED /* PhotoEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PhotoEditViewController.swift; path = ../Views/PhotoEditViewController.swift; sourceTree = "<group>"; };
+		5809EDA71C27ED60003E0057 /* MenuItemView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuItemView.xib; sourceTree = "<group>"; };
+		5809EDA91C27EE36003E0057 /* MenuItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuItemView.swift; sourceTree = "<group>"; };
+		5809EDAB1C27F0D8003E0057 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		580BBDF51C1D10D4009178B5 /* StoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryTableViewCell.swift; sourceTree = "<group>"; };
 		580BBDF71C1D1D85009178B5 /* StoryTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryTableView.swift; sourceTree = "<group>"; };
 		580BBDFB1C1F947D009178B5 /* ContentSettingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentSettingsView.swift; sourceTree = "<group>"; };
@@ -192,6 +198,7 @@
 				58CB63171C24021E005E6587 /* StoryAddViewController.swift */,
 				997160DA1C266EAB002B67B3 /* LoginViewController.swift */,
 				997160DC1C26934D002B67B3 /* UserListViewController.swift */,
+				5809EDAB1C27F0D8003E0057 /* MenuViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -226,6 +233,8 @@
 				58CB63201C24DC2B005E6587 /* StoryPhotoPlayView.swift */,
 				997160DE1C269386002B67B3 /* UserListTableViewCell.swift */,
 				997160E01C26B463002B67B3 /* TextView.swift */,
+				5809EDA71C27ED60003E0057 /* MenuItemView.xib */,
+				5809EDA91C27EE36003E0057 /* MenuItemView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -300,6 +309,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5809EDA81C27ED60003E0057 /* MenuItemView.xib in Resources */,
 				99F1983E1C23D8E200DF28D3 /* KenBurnView.xib in Resources */,
 				58C42B6A1C1430BD00D4CCB8 /* LaunchScreen.storyboard in Resources */,
 				58C42B671C1430BD00D4CCB8 /* Assets.xcassets in Resources */,
@@ -368,6 +378,7 @@
 				589ACA4E1C17F8880030A54D /* Colors.swift in Sources */,
 				997160DD1C26934D002B67B3 /* UserListViewController.swift in Sources */,
 				58CB63211C24DC2B005E6587 /* StoryPhotoPlayView.swift in Sources */,
+				5809EDAA1C27EE36003E0057 /* MenuItemView.swift in Sources */,
 				99EECC6F1C170EDC00C6B792 /* PhotoCollectionViewCell.swift in Sources */,
 				997160DF1C269386002B67B3 /* UserListTableViewCell.swift in Sources */,
 				58CB63181C24021E005E6587 /* StoryAddViewController.swift in Sources */,
@@ -394,6 +405,7 @@
 				997160DB1C266EAB002B67B3 /* LoginViewController.swift in Sources */,
 				1F1642201C2699F5005BA3A1 /* VideoEditViewController.swift in Sources */,
 				99EECC6D1C16D21700C6B792 /* PhotoView.swift in Sources */,
+				5809EDAC1C27F0D8003E0057 /* MenuViewController.swift in Sources */,
 				1FD204501C1F2BB6001A99ED /* CameraViewController.swift in Sources */,
 				582048AE1C1BEEC700D76B1D /* fixtures.swift in Sources */,
 				1FD204541C1F34DE001A99ED /* PhotoEditViewController.swift in Sources */,

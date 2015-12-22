@@ -9,7 +9,7 @@
 import UIKit
 
 class StoryViewController: UIViewController {
-
+  
   @IBOutlet var navigationBar: UIBarButtonItem!
   @IBOutlet var collectionView: UICollectionView!
   
@@ -19,17 +19,17 @@ class StoryViewController: UIViewController {
       photos = Photo.getPhotos(getDatabase(), story: story)
     }
   }
-
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     
     title = "Dalat trip"
   }
-
+  
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
   }
-
+  
 }
 
 // MARK: Collection
@@ -87,39 +87,35 @@ extension StoryViewController {
         photoDetailVC.story = story
     }
   }
-
-// MARK: Handle Menu Button
+  
+  // MARK: Handle Menu Button
   @IBAction func handleMenuButtonTap(sender: AnyObject) {
-
-    let actionSheet = UIAlertController(title: "Option Menu", message: "", preferredStyle: UIAlertControllerStyle.ActionSheet)
-    let reportButtonAction = UIAlertAction(title: "Report", style: UIAlertActionStyle.Default) { (UIAlertAction) -> Void in
-      print("Report")
-    }
-    let deleteButtonAction = UIAlertAction(title: "Delete", style: UIAlertActionStyle.Default) { (UIAlertAction) -> Void in
-      print("Delete")
-    }
-    let cancelButtonAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel) { (UIAlertAction) -> Void in
-      print("Cancel")
-    }
-    actionSheet.addAction(reportButtonAction)
-    actionSheet.addAction(deleteButtonAction)
-    actionSheet.addAction(cancelButtonAction)
-    self.presentViewController(actionSheet, animated: true, completion: nil)
+    
+    
+    let menuViewController = MenuViewController(items:
+      [
+        MenuViewController.Item(title: "Report", iconImage: nil),
+        MenuViewController.Item(title: "Delete", iconImage: nil),
+        MenuViewController.Item(title: "Cancel", iconImage: nil)
+      ]
+    )
+    
+    self.presentViewController(menuViewController, animated: true, completion: nil)
   }
-
-// MARK: Handle Share Button
-
+  
+  // MARK: Handle Share Button
+  
   @IBAction func handleShareButtonTap(sender: AnyObject) {
-
+    
     print("share")
-
+    
     let myShare = "My lovely album! <3 <3"
     var imagesShared = [UIImage]()
     for index in 0..<story.photoCount {
       let image = UIImage(named: photos[index].localPath)
       imagesShared.append(image!)
     }
-
+    
     let shareVC: UIActivityViewController = UIActivityViewController(activityItems: [imagesShared, myShare], applicationActivities: nil)
     self.presentViewController(shareVC, animated: true, completion: nil)
   }
