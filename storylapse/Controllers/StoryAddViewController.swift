@@ -21,6 +21,7 @@ class StoryAddViewController: UIViewController, UITextFieldDelegate {
   
   var hour = String()
   var minute = String()
+  var notification = RemindNotification()
   
   var story: Story?
   
@@ -147,11 +148,11 @@ class StoryAddViewController: UIViewController, UITextFieldDelegate {
       story?.hashtags = hashtagsTextField.text!.split("\\s*,\\s*")
       
       try! story?.save()
+      notification.notification(story!)
       navigationController?.popViewControllerAnimated(true)
     }
   }
-  
-  
+
   // MARK: Handle day buttons tap
   func handleDayOfWeekButtonTap(sender: UIButton) {
     let index = dayOfWeekButtons.indexOf(sender)!

@@ -44,6 +44,7 @@
 		997160DD1C26934D002B67B3 /* UserListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 997160DC1C26934D002B67B3 /* UserListViewController.swift */; };
 		997160DF1C269386002B67B3 /* UserListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 997160DE1C269386002B67B3 /* UserListTableViewCell.swift */; };
 		997160E11C26B463002B67B3 /* TextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 997160E01C26B463002B67B3 /* TextView.swift */; };
+		9985F3541C28FF9B0049251E /* RemindNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9985F3531C28FF9A0049251E /* RemindNotification.swift */; };
 		99D39D8D1C22FBCF0091188D /* PlayPhotosImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D39D8C1C22FBCF0091188D /* PlayPhotosImageViewController.swift */; };
 		99EECC691C16D1A000C6B792 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99EECC681C16D1A000C6B792 /* Photo.swift */; };
 		99EECC6B1C16D1F300C6B792 /* StoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99EECC6A1C16D1F300C6B792 /* StoryViewController.swift */; };
@@ -95,6 +96,7 @@
 		997160DC1C26934D002B67B3 /* UserListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserListViewController.swift; sourceTree = "<group>"; };
 		997160DE1C269386002B67B3 /* UserListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserListTableViewCell.swift; sourceTree = "<group>"; };
 		997160E01C26B463002B67B3 /* TextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextView.swift; sourceTree = "<group>"; };
+		9985F3531C28FF9A0049251E /* RemindNotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemindNotification.swift; sourceTree = "<group>"; };
 		99D39D8C1C22FBCF0091188D /* PlayPhotosImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayPhotosImageViewController.swift; sourceTree = "<group>"; };
 		99EECC681C16D1A000C6B792 /* Photo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 		99EECC6A1C16D1F300C6B792 /* StoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryViewController.swift; sourceTree = "<group>"; };
@@ -170,6 +172,7 @@
 				58C42B6B1C1430BD00D4CCB8 /* Info.plist */,
 				5890ABB41C1AE7D1004A74DC /* storylapse-Bridging-Header.h */,
 				582048AD1C1BEEC700D76B1D /* fixtures.swift */,
+				9985F3531C28FF9A0049251E /* RemindNotification.swift */,
 			);
 			path = storylapse;
 			sourceTree = "<group>";
@@ -379,6 +382,7 @@
 				997160DD1C26934D002B67B3 /* UserListViewController.swift in Sources */,
 				58CB63211C24DC2B005E6587 /* StoryPhotoPlayView.swift in Sources */,
 				5809EDAA1C27EE36003E0057 /* MenuItemView.swift in Sources */,
+				9985F3541C28FF9B0049251E /* RemindNotification.swift in Sources */,
 				99EECC6F1C170EDC00C6B792 /* PhotoCollectionViewCell.swift in Sources */,
 				997160DF1C269386002B67B3 /* UserListTableViewCell.swift in Sources */,
 				58CB63181C24021E005E6587 /* StoryAddViewController.swift in Sources */,

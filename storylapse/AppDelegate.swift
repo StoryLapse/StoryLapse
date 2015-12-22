@@ -8,6 +8,8 @@
 
 import UIKit
 
+
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
   
@@ -20,6 +22,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     initializeDatabase()
     
     window?.tintColor = Colors.tintColor
+
+    application.registerUserNotificationSettings(UIUserNotificationSettings(forTypes: [.Sound, .Badge, .Alert], categories: nil))
     return true
   }
     func initializePhotoDir() {
