@@ -15,10 +15,6 @@ class TextView: UITextView {
 
     backgroundColor = Colors.canvasColor
     textColor = Colors.primaryTextColor
-    layer.borderWidth = 1
-    layer.borderColor = Colors.borderColor.CGColor
-//    attributedPlaceholder = NSAttributedString(string: placeholder!,
-//      attributes:[NSForegroundColorAttributeName: Colors.placeholderTextColor])
-
+    layer.borderColor = UIColor.clearColor().CGColor
   }
 }

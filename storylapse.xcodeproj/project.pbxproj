@@ -21,6 +21,7 @@
 		580BBE021C222E48009178B5 /* RecentStoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 580BBE011C222E48009178B5 /* RecentStoryTableViewCell.swift */; };
 		580BBE041C223A42009178B5 /* RecentStoryTabieViewAddStoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 580BBE031C223A42009178B5 /* RecentStoryTabieViewAddStoryCell.swift */; };
 		582048AE1C1BEEC700D76B1D /* fixtures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582048AD1C1BEEC700D76B1D /* fixtures.swift */; };
+		585881D61C29521A00F5A79F /* MenuViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 585881D51C29521A00F5A79F /* MenuViewItem.swift */; };
 		5890ABAA1C1A4CE0004A74DC /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5890ABA91C1A4CE0004A74DC /* User.swift */; };
 		5890ABAC1C1A8906004A74DC /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5890ABAB1C1A8906004A74DC /* Comment.swift */; };
 		5890ABAE1C1A8D17004A74DC /* Interaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5890ABAD1C1A8D17004A74DC /* Interaction.swift */; };
@@ -71,6 +72,7 @@
 		580BBE011C222E48009178B5 /* RecentStoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecentStoryTableViewCell.swift; sourceTree = "<group>"; };
 		580BBE031C223A42009178B5 /* RecentStoryTabieViewAddStoryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecentStoryTabieViewAddStoryCell.swift; sourceTree = "<group>"; };
 		582048AD1C1BEEC700D76B1D /* fixtures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = fixtures.swift; sourceTree = "<group>"; };
+		585881D51C29521A00F5A79F /* MenuViewItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewItem.swift; sourceTree = "<group>"; };
 		5890ABA91C1A4CE0004A74DC /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		5890ABAB1C1A8906004A74DC /* Comment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		5890ABAD1C1A8D17004A74DC /* Interaction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Interaction.swift; sourceTree = "<group>"; };
@@ -181,6 +183,7 @@
 			isa = PBXGroup;
 			children = (
 				58CB631E1C24407A005E6587 /* String.swift */,
+				585881D51C29521A00F5A79F /* MenuViewItem.swift */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -381,6 +384,7 @@
 				589ACA4E1C17F8880030A54D /* Colors.swift in Sources */,
 				997160DD1C26934D002B67B3 /* UserListViewController.swift in Sources */,
 				58CB63211C24DC2B005E6587 /* StoryPhotoPlayView.swift in Sources */,
+				585881D61C29521A00F5A79F /* MenuViewItem.swift in Sources */,
 				5809EDAA1C27EE36003E0057 /* MenuItemView.swift in Sources */,
 				9985F3541C28FF9B0049251E /* RemindNotification.swift in Sources */,
 				99EECC6F1C170EDC00C6B792 /* PhotoCollectionViewCell.swift in Sources */,
@@ -536,7 +540,7 @@
 				INFOPLIST_FILE = storylapse/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.huyngo.storylapse.ios;
+				PRODUCT_BUNDLE_IDENTIFIER = com.storylapse.ios;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "storylapse/storylapse-Bridging-Header.h";
@@ -559,7 +563,7 @@
 				INFOPLIST_FILE = storylapse/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.huyngo.storylapse.ios;
+				PRODUCT_BUNDLE_IDENTIFIER = com.storylapse.ios;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "storylapse/storylapse-Bridging-Header.h";

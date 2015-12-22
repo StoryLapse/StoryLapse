@@ -16,13 +16,16 @@ class RemindNotification {
   func notification(story: Story) {
     let timeInterval = NSTimeInterval(story.remindeAtHour * 3600 + story.remindeAtMinute * 60)
     let notification = UILocalNotification()
+    
     notification.alertAction = "Title"
     notification.alertBody = "It's time to take a photo"
     notification.fireDate = NSDate(timeIntervalSinceNow: timeInterval)
+    
     for index in story.remindeAtDaysOfWeek {
-      let dayChoosen = 
+//      let dayChoosen = 
     }
-    notification.repeatCalendar = NSCalendar.CalendarUnitDay
+    
+    notification.repeatCalendar = .None
     UIApplication.sharedApplication().scheduleLocalNotification(notification)
     timerNotification.invalidate()
   }

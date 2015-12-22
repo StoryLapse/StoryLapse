@@ -10,10 +10,7 @@ import UIKit
 
 class MenuViewController: UIViewController {
   
-  struct Item {
-    var title: String? = nil
-    var iconImage: UIImage? = nil
-  }
+  typealias Item = MenuViewItem
   
   var menuView: UIView!
   lazy var backdropView: UIView = {
@@ -44,14 +41,16 @@ class MenuViewController: UIViewController {
     
     menuView = UIView(frame: CGRectMake(0, view.bounds.height - menuViewHeight, view.bounds.width, menuViewHeight))
     
-    let menuItemViews: [MenuItemView] = items.enumerate().map {
-      let y = CGFloat($0.0) * menuHeight
+    let menuItemViews: [MenuItemView] = items.enumerate().map { t in
+      let y = CGFloat(t.0) * menuHeight
 
       return MenuItemView(
         frame: CGRectMake(0, y, view.bounds.width, menuHeight),
-        title: $0.1.title,
-        iconImage: $0.1.iconImage
-      )
+        item: t.1
+        ) {
+          self.dismissViewControllerAnimated(true, completion: nil)
+          t.1.tapHandler?()
+      }
     }
     
     menuItemViews.forEach { menuView.addSubview($0) }
@@ -94,7 +93,7 @@ extension MenuViewController: UIViewControllerTransitioningDelegate, UIViewContr
       menuView.frame.origin.y += menuView.frame.height
       backdropView.alpha = 0
       
-      UIView.animateWithDuration(0.2, delay: 0, options: .CurveEaseOut, animations: { () -> Void in
+      UIView.animateWithDuration(0.3, delay: 0, options: .CurveEaseOut, animations: { () -> Void in
         self.menuView.frame.origin.y -= self.menuView.frame.height
         self.backdropView.alpha = 1
         }, completion: { finished in
@@ -102,7 +101,7 @@ extension MenuViewController: UIViewControllerTransitioningDelegate, UIViewContr
       })
       
     } else {
-      UIView.animateWithDuration(0.2, delay: 0, options: .CurveEaseOut, animations: { () -> Void in
+      UIView.animateWithDuration(0.3, delay: 0, options: .CurveEaseOut, animations: { () -> Void in
         self.menuView.frame.origin.y += self.menuView.frame.height
         self.backdropView.alpha = 0
         }, completion: { finished in

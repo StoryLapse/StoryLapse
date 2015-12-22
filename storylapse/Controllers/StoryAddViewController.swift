@@ -92,13 +92,6 @@ class StoryAddViewController: UIViewController, UITextFieldDelegate {
     titleTextField.delegate = self
     titleTextField.becomeFirstResponder()
     
-    descriptionTextView.backgroundColor = Colors.canvasColor
-    descriptionTextView.textColor = Colors.primaryTextColor
-    descriptionTextView.layer.borderWidth = 1
-    descriptionTextView.layer.borderColor = Colors.borderColor.CGColor
-    descriptionTextView.attributedText = NSAttributedString(string: "Description",
-      attributes:[NSForegroundColorAttributeName: Colors.placeholderTextColor])
-    
     createButton.backgroundColor = Colors.tintColor
     createButton.tintColor = UIColor.whiteColor()
     

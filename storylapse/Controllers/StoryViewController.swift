@@ -94,9 +94,13 @@ extension StoryViewController {
     
     let menuViewController = MenuViewController(items:
       [
-        MenuViewController.Item(title: "Report", iconImage: nil),
-        MenuViewController.Item(title: "Delete", iconImage: nil),
-        MenuViewController.Item(title: "Cancel", iconImage: nil)
+        MenuViewItem(title: "Report", iconImage: UIImage(named: "warning-menu-icon")) {
+          print("Reported")
+        },
+        MenuViewItem(title: "Delete", iconImage: UIImage(named: "garbage-bin-menu-icon")) {
+          print("Deleted")
+        },
+        MenuViewItem(title: "Cancel", iconImage: UIImage(named: "cross-menu-icon"), type: .Cancel)
       ]
     )
     

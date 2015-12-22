@@ -10,6 +10,8 @@ import UIKit
 
 class MenuItemView: UIView {
   
+  typealias TapHandler = () -> Void
+  
   @IBOutlet var titleLabel: UILabel!
   @IBOutlet var iconImageView: UIImageView!
   @IBOutlet private var view: UIView!
@@ -22,42 +24,43 @@ class MenuItemView: UIView {
     }
   }
   
-  var title: String? {
+  var item: MenuViewItem! {
     didSet {
-      titleLabel.text = title
+      titleLabel.text = item.title
+      iconImageView.image = item.iconImage
     }
   }
   
-  var iconImage: UIImage? {
-    didSet {
-      iconImageView.image = iconImage
-    }
-  }
+  var tapHandler: TapHandler?
   
   required init?(coder aDecoder: NSCoder) {
     super.init(coder: aDecoder)!
   }
   
-  init(frame: CGRect, title: String? = nil, iconImage: UIImage? = nil) {
+  init(frame: CGRect, item: MenuViewItem, onTap tapHandler: TapHandler?) {
     super.init(frame: frame)
     
-    initSubViews(title: title, iconImage: iconImage)
+    self.tapHandler = tapHandler
+    initSubViews(item: item)
   }
   
-  private func initSubViews(title title: String? = nil, iconImage: UIImage? = nil) {
+  private func initSubViews(item item: MenuViewItem) {
     let nib = UINib(nibName: "MenuItemView", bundle: nil)
     nib.instantiateWithOwner(self, options: nil)
     
-    let topBorderView = UIView(frame: CGRectMake(0, 0, bounds.width, 1))
+    if item.type == .Cancel {
+      let topBorderView = UIView(frame: CGRectMake(0, 0, bounds.width, 1))
+      topBorderView.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.1)
+      view.addSubview(topBorderView)
+    }
     
-    topBorderView.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.1)
     view.frame = bounds
     iconImageView.contentMode = .Center
-    view.addSubview(topBorderView)
-    addSubview(view)
+    titleLabel.alpha = 0.8
+    iconImageView.alpha = 0.8
     
-    self.title = title
-    self.iconImage = iconImage
+    addSubview(view)
+    self.item = item
   }
   
   private func isTouchesInsideView(touches: Set<UITouch>) -> Bool {
@@ -77,6 +80,8 @@ class MenuItemView: UIView {
   
   override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
     touchingDown = false
-    print(isTouchesInsideView(touches))
+    if (isTouchesInsideView(touches)) {
+      self.tapHandler?()
+    }
   }
 }
