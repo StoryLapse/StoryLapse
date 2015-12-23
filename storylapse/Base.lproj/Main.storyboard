@@ -1408,7 +1408,7 @@
                                             <action selector="handleCreateButtonTap:" destination="gq4-11-TVV" eventType="touchUpInside" id="14j-mv-ikP"/>
                                         </connections>
                                     </button>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Description" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="vE9-vU-Wms" customClass="TextView" customModule="storylapse" customModuleProvider="target">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="vE9-vU-Wms" customClass="TextView" customModule="storylapse" customModuleProvider="target">
                                         <rect key="frame" x="8" y="126" width="359" height="60"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
@@ -1417,6 +1417,9 @@
                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Description"/>
+                                        </userDefinedRuntimeAttributes>
                                     </textView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ljg-rW-cMB">
                                         <rect key="frame" x="8" y="233" width="359" height="116"/>

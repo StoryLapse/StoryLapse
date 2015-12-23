@@ -16,14 +16,15 @@ class StoryViewController: UIViewController {
   var photos: [Photo] = []
   var story: Story! {
     didSet {
+      title = story.title
       photos = Photo.getPhotos(getDatabase(), story: story)
     }
   }
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    
-    title = "Dalat trip"
+
+    collectionView.backgroundColor = Colors.primaryBackgroundColor
   }
   
   override func didReceiveMemoryWarning() {

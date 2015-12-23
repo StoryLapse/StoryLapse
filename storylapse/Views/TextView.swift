@@ -7,8 +7,12 @@
 //
 
 import UIKit
+import Cartography
+import SZTextView
 
-class TextView: UITextView {
+class TextView: SZTextView {
+  
+  private var placeholderLabel = UILabel()
 
   override func awakeFromNib() {
     super.awakeFromNib()

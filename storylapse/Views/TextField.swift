@@ -17,7 +17,6 @@ class TextField: UITextField {
     textColor = Colors.primaryTextColor
     layer.borderColor = UIColor.clearColor().CGColor
     attributedPlaceholder = NSAttributedString(string: placeholder!,
-      attributes:[NSForegroundColorAttributeName: Colors.placeholderTextColor])
-    
+      attributes:[NSForegroundColorAttributeName: Colors.placeholderTextColor])    
   }
 }

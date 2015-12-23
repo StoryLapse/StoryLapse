@@ -11,6 +11,7 @@ PODS:
   - JBKenBurnsView (1.0)
   - SwiftyTimer (1.2.0)
   - SwipeView (1.3.2)
+  - SZTextView (1.2.1)
 
 DEPENDENCIES:
   - AAShareBubbles
@@ -22,6 +23,7 @@ DEPENDENCIES:
   - JBKenBurnsView (~> 1.0)
   - SwiftyTimer (~> 1.2)
   - SwipeView (~> 1.3)
+  - SZTextView
 
 SPEC CHECKSUMS:
   AAShareBubbles: 960610d6a3c4da57d7cd295f4bec68790307bce8
@@ -33,5 +35,6 @@ SPEC CHECKSUMS:
   JBKenBurnsView: e40d10fcd4fbeb652c29fa431d4748780a4672ff
   SwiftyTimer: 5453593e0aaacfb1611fb6986d257281140913bb
   SwipeView: bd67cfaf7760c036438446b3ccb28a3b84fce009
+  SZTextView: 906df45afd3c1b24fc5252088d5ef8061513c238
 
 COCOAPODS: 0.39.0

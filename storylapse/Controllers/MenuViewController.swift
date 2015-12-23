@@ -93,7 +93,7 @@ extension MenuViewController: UIViewControllerTransitioningDelegate, UIViewContr
       menuView.frame.origin.y += menuView.frame.height
       backdropView.alpha = 0
       
-      UIView.animateWithDuration(0.3, delay: 0, options: .CurveEaseOut, animations: { () -> Void in
+      UIView.animateWithDuration(0.25, delay: 0, options: .CurveEaseOut, animations: { () -> Void in
         self.menuView.frame.origin.y -= self.menuView.frame.height
         self.backdropView.alpha = 1
         }, completion: { finished in
@@ -101,7 +101,7 @@ extension MenuViewController: UIViewControllerTransitioningDelegate, UIViewContr
       })
       
     } else {
-      UIView.animateWithDuration(0.3, delay: 0, options: .CurveEaseOut, animations: { () -> Void in
+      UIView.animateWithDuration(0.25, delay: 0, options: .CurveEaseOut, animations: { () -> Void in
         self.menuView.frame.origin.y += self.menuView.frame.height
         self.backdropView.alpha = 0
         }, completion: { finished in
