@@ -17,7 +17,7 @@ class StoryTableViewCell: UITableViewCell {
   @IBOutlet var updateMomentLabel: UILabel!
   @IBOutlet var interactionCountButton: UIButton! {
     didSet {
-      let interactionImage = UIImage(named: "interaction-icon")?.imageWithRenderingMode(.AlwaysTemplate)
+      let interactionImage = UIImage(named: "star-icon")?.imageWithRenderingMode(.AlwaysTemplate)
       interactionCountButton.tintColor = Colors.secondaryTextColor
       interactionCountButton.setImage(interactionImage, forState: .Normal)
       interactionCountButton.titleEdgeInsets = UIEdgeInsetsMake(0, 5, 0, -5)
@@ -32,6 +32,7 @@ class StoryTableViewCell: UITableViewCell {
     }
   }
   @IBOutlet var photoPlayView: StoryPhotoPlayView!
+  @IBOutlet var primaryInteractButton: InteractButton!
   @IBOutlet var titleLabel: UILabel!
   @IBOutlet var photoCountLabel: UILabel!
   @IBOutlet var addPhotoButton: UIButton!
@@ -53,7 +54,7 @@ class StoryTableViewCell: UITableViewCell {
     selectionStyle = .None
     backgroundColor = UIColor.clearColor()
     
-    cardView.backgroundColor = Colors.ebony
+    cardView.backgroundColor = Colors.canvasColor
     
     topView.backgroundColor = UIColor.clearColor()
     userAvatarImageView.backgroundColor = UIColor.darkGrayColor()
@@ -65,10 +66,28 @@ class StoryTableViewCell: UITableViewCell {
     photoCountLabel.textColor = Colors.secondaryTextColor
     photoPlayView.backgroundColor = UIColor.darkGrayColor()
     
+    // Interact buttons
+    primaryInteractButton.addTarget(target: self, action: "handleInteraction:")
+    
     // Change colors
     addPhotoButton.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.10)
     addPhotoButton.setImage(UIImage(named: "camera-icon"), forState: .Normal)
     addPhotoButton.imageEdgeInsets = UIEdgeInsetsMake(8, 8, 8, 8)
+  }
+  
+  func handleInteraction(button: InteractButton) {
+    switch (button) {
+    case primaryInteractButton:
+      addSubview(FloatBubble(frame: photoPlayView.frame, direction: .LeftToRight, intensive: CGFloat(50)))
+      
+      NSTimer.after(0.5) { () -> Void in
+        self.addSubview(FloatBubble(frame: self.photoPlayView.frame, direction: .RightToLeft, intensive: CGFloat(50)))
+      }
+      break
+      
+    default:
+      break
+    }
   }
   
   @IBAction func handleAddPhotoButtonTap(sender: UIButton) {
