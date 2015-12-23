@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="1TA-fu-iqj">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F1509" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="1TA-fu-iqj">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
@@ -855,14 +855,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ttX-Bh-6Ds">
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ttX-Bh-6Ds">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <subviews>
-                                    <view contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="sdy-DF-ReA">
+                                    <view contentMode="scaleAspectFit" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sdy-DF-ReA">
                                         <rect key="frame" x="0.0" y="45" width="375" height="496"/>
                                         <color key="backgroundColor" red="0.90884718498659511" green="0.90884718498659511" blue="0.90884718498659511" alpha="1" colorSpace="calibratedRGB"/>
+                                        <gestureRecognizers/>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5He-UW-I4u">
+                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5He-UW-I4u">
                                         <rect key="frame" x="0.0" y="541" width="375" height="62"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Jd-Vb-ZXV">
@@ -979,8 +980,8 @@
                                                     <action selector="handleCancelButtonTap:" destination="WeL-fg-sM9" eventType="touchUpInside" id="Way-4V-7aJ"/>
                                                 </connections>
                                             </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nFf-nl-Joa">
-                                                <rect key="frame" x="152" y="13" width="72" height="21"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nFf-nl-Joa">
+                                                <rect key="frame" x="165" y="13.5" width="46" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -992,7 +993,7 @@
                                             <constraint firstItem="CO7-ey-Xgz" firstAttribute="centerY" secondItem="bZp-1j-1fA" secondAttribute="centerY" id="MKa-dZ-IOC"/>
                                             <constraint firstItem="aJ1-nA-vSj" firstAttribute="leading" secondItem="bZp-1j-1fA" secondAttribute="leading" constant="8" id="SW0-sn-tdQ"/>
                                             <constraint firstItem="aJ1-nA-vSj" firstAttribute="centerY" secondItem="bZp-1j-1fA" secondAttribute="centerY" id="StY-fg-hnw"/>
-                                            <constraint firstItem="nFf-nl-Joa" firstAttribute="centerY" secondItem="bZp-1j-1fA" secondAttribute="centerY" id="U73-ZY-0Sz"/>
+                                            <constraint firstItem="nFf-nl-Joa" firstAttribute="centerY" secondItem="bZp-1j-1fA" secondAttribute="centerY" constant="1" id="U73-ZY-0Sz"/>
                                             <constraint firstAttribute="width" constant="375" id="Xxc-Bw-F91"/>
                                             <constraint firstItem="B4S-h5-uWJ" firstAttribute="centerY" secondItem="bZp-1j-1fA" secondAttribute="centerY" id="l5G-L8-kVQ"/>
                                             <constraint firstItem="B4S-h5-uWJ" firstAttribute="leading" secondItem="CO7-ey-Xgz" secondAttribute="trailing" constant="22" id="qvK-p2-cjg"/>
@@ -1059,7 +1060,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="48g-Qq-CuI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1314.5" y="2041.5"/>
+            <point key="canvasLocation" x="1284.5" y="2041.5"/>
         </scene>
         <!--Photo Edit View Controller-->
         <scene sceneID="v6t-Yc-kVP">
@@ -1142,10 +1143,36 @@
                     <view key="view" contentMode="scaleToFill" id="i8F-Xd-PiE">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bEu-kI-S0G">
+                                <rect key="frame" x="172" y="629" width="30" height="30"/>
+                                <state key="normal" title="Edit"/>
+                                <connections>
+                                    <action selector="handleEditButton:" destination="DBP-uv-3J5" eventType="touchUpInside" id="DGw-B1-y6O"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hGW-dy-7ne">
+                                <rect key="frame" x="0.0" y="64" width="375" height="515"/>
+                                <color key="backgroundColor" red="0.79624664879356566" green="0.79624664879356566" blue="0.79624664879356566" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="hGW-dy-7ne" secondAttribute="trailing" id="4Sk-Av-rbw"/>
+                            <constraint firstItem="aV3-f0-q17" firstAttribute="top" secondItem="bEu-kI-S0G" secondAttribute="bottom" constant="8" id="Gan-f2-X0p"/>
+                            <constraint firstItem="hGW-dy-7ne" firstAttribute="centerX" secondItem="i8F-Xd-PiE" secondAttribute="centerX" id="HcH-28-M8g"/>
+                            <constraint firstItem="hGW-dy-7ne" firstAttribute="leading" secondItem="i8F-Xd-PiE" secondAttribute="leading" id="Lnc-08-SFo"/>
+                            <constraint firstItem="bEu-kI-S0G" firstAttribute="centerX" secondItem="i8F-Xd-PiE" secondAttribute="centerX" id="Rn9-xJ-Gpg"/>
+                            <constraint firstItem="bEu-kI-S0G" firstAttribute="top" secondItem="hGW-dy-7ne" secondAttribute="bottom" constant="50" id="nMf-BH-zTH"/>
+                            <constraint firstItem="hGW-dy-7ne" firstAttribute="top" secondItem="XFR-Pr-CgJ" secondAttribute="bottom" id="rpx-4q-76l"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="VideoEdit" id="AI5-VV-FoS"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="playerView" destination="hGW-dy-7ne" id="Lz5-tE-mz7"/>
+                        <segue destination="WeL-fg-sM9" kind="modal" identifier="backSegue" id="1lJ-dY-tQN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="68b-JO-Yj6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1654,6 +1681,7 @@
         <image name="swapButton" width="44" height="44"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="1lJ-dY-tQN"/>
         <segue reference="11W-Qh-4qO"/>
     </inferredMetricsTieBreakers>
 </document>

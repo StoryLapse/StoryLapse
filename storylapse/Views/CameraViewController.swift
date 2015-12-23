@@ -43,6 +43,7 @@ class CameraViewController: UIViewController,UIImagePickerControllerDelegate, UI
     self.navigationController?.navigationBar.hidden = true
     cameraManager.showAccessPermissionPopupAutomatically = true
     cameraManager.writeFilesToPhoneLibrary = false
+    cameraManager.shouldRespondToOrientationChanges = false
     flashButton.enabled = cameraManager.hasFlash
     recordTimeLabel.hidden = true
     addCameraToView()
@@ -82,11 +83,19 @@ class CameraViewController: UIViewController,UIImagePickerControllerDelegate, UI
           self.cameraManager.showErrorBlock(erTitle: "Error occurred", erMessage: errorOccured.localizedDescription)
         }
         else {
+          self.topView.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
+          self.bottomView.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
+          self.cameraViewTopConstraint.constant = 45
+          self.cameraViewBottomConstraint.constant = 62
+          self.cameraManager.cameraOutputMode = .StillImage
           self.performSegueWithIdentifier("videoEdit", sender: videoURL)
+          self.recordTimer.invalidate()
+          self.recordTimeLabel.text = "00:00"
         }
       })
     }
   }
+  
   @IBAction func handleRecordButton(sender: UIButton) {
     cameraManager.cameraOutputMode = .VideoWithMic
     sender.selected = !sender.selected
@@ -106,7 +115,22 @@ class CameraViewController: UIViewController,UIImagePickerControllerDelegate, UI
           self.cameraManager.showErrorBlock(erTitle: "Error occurred", erMessage: errorOccured.localizedDescription)
         }
         else {
+          do {
+            try NSFileHandle(forWritingToURL: videoURL!)
+            print("success")
+          } catch {
+            print("error")
+          }
           self.performSegueWithIdentifier("videoEdit", sender: videoURL)
+          self.topView.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
+          self.bottomView.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
+          self.cameraViewTopConstraint.constant = 45
+          self.cameraViewBottomConstraint.constant = 62
+          self.cameraManager.cameraOutputMode = .StillImage
+          self.recordTimer.invalidate()
+          self.recordTime = 0
+          self.recordTimeLabel.text = "00:00"
+          self.recordTimeLabel.hidden = true
         }
       })
     }
@@ -158,19 +182,7 @@ class CameraViewController: UIViewController,UIImagePickerControllerDelegate, UI
     self.presentViewController(imagePicker, animated: true,
       completion: nil)
   }
-  /*
-  @IBAction func handleVideoButton(sender: UIButton) {
-  cameraManager.cameraOutputMode = cameraManager.cameraOutputMode == CameraOutputMode.VideoWithMic ? CameraOutputMode.StillImage : CameraOutputMode.VideoWithMic
-  switch (cameraManager.cameraOutputMode) {
-  case .StillImage:
-  //cameraButton.selected = false
-  //cameraButton.backgroundColor = UIColor.greenColor()
-  sender.setTitle("Image", forState: UIControlState.Normal)
-  case .VideoWithMic, .VideoOnly:
-  sender.setTitle("Video", forState: UIControlState.Normal)
-  }
-  }*/
-  
+
   func imagePickerControllerDidCancel(picker: UIImagePickerController) {
     dismissViewControllerAnimated(true, completion: nil)
   }
@@ -199,6 +211,7 @@ class CameraViewController: UIViewController,UIImagePickerControllerDelegate, UI
       photoEditViewController.story = story
     } else if segue.identifier == "videoEdit" {
       let nextVC = segue.destinationViewController as! VideoEditViewController
+      nextVC.videoURL = (sender as? NSURL)!
     }
   }
   
@@ -218,12 +231,10 @@ class CameraViewController: UIViewController,UIImagePickerControllerDelegate, UI
     
     UIView.animateWithDuration(0.2, animations: { () -> Void in
       let nextTransform = CGAffineTransformMakeRotation(nextRotationAngle)
-      
       self.flashButton.transform = nextTransform
       self.switchCameraButton.transform = nextTransform
       self.galleryButton.transform = nextTransform
     })
   }
 }
-
 

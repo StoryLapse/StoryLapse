@@ -7,12 +7,31 @@
 //
 
 import UIKit
+import AVKit
+import AVFoundation
+import MediaPlayer
 
-class VideoEditViewController: UIViewController {
-
+class VideoEditViewController: UIViewController, UIVideoEditorControllerDelegate, UINavigationControllerDelegate {
+  
+  @IBOutlet var playerView: UIView!
+  var videoURL = NSURL()
+  var moviePlayer:MPMoviePlayerController!
+  
     override func viewDidLoad() {
         super.viewDidLoad()
-
+      self.navigationController?.navigationBar.hidden = false
+      self.navigationController?.navigationItem.backBarButtonItem?.action = "handleBackButton"
+      //playVideo(videoURL)
+      moviePlayer = MPMoviePlayerController(contentURL: videoURL)
+      moviePlayer.view.frame = playerView.bounds
+      //moviePlayer.view.sizeToFit()
+      moviePlayer.scalingMode = .AspectFill
+      moviePlayer.fullscreen = true
+      moviePlayer.controlStyle = .Embedded
+      //moviePlayer.movieSourceType = .File
+      moviePlayer.repeatMode = .One
+      moviePlayer.play()
+      self.view.addSubview(moviePlayer.view)
         // Do any additional setup after loading the view.
     }
 
@@ -21,7 +40,25 @@ class VideoEditViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
+  func playVideo(url: NSURL) {
+    let player = AVPlayer(URL: url)
+    let playerController = AVPlayerViewController()
+    playerController.player = player
+    self.presentViewController(playerController, animated: true) {
+      player.play()
+    }
+  }
+  @IBAction func handleEditButton(sender: AnyObject) {
+    let videoEditor = UIVideoEditorController()
+    videoEditor.delegate = self
+    let videoString = videoURL.absoluteString
+    if UIVideoEditorController.canEditVideoAtPath(videoString) {
+      videoEditor.videoPath = String(videoString)
+      presentViewController(videoEditor, animated: true, completion: nil)
+    } else {
+      print("can't edit video " );
+    }
+  }
     /*
     // MARK: - Navigation
 
@@ -31,5 +68,13 @@ class VideoEditViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
+  func handleBackButton() {
+    print("pressed")
+  }
+//  override func willMoveToParentViewController(parent: UIViewController?) {
+//    if parent == nil {
+//      performSegueWithIdentifier("backSegue", sender: self)
+//      print("This VC is 'will' be popped. i.e. the back button was pressed.")
+//    }
+//  }
 }
