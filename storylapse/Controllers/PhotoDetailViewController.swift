@@ -29,10 +29,12 @@ class PhotoDetailViewController: UIViewController, AAShareBubblesDelegate, UICol
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    title = "Photo Detail"
     collectionView.delegate = self
     collectionView.dataSource = self
-    
+  }
+  
+  override func viewWillAppear(animated: Bool) {
+    super.viewWillAppear(animated)
   }
 
   override func viewDidLayoutSubviews() {

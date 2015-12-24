@@ -92,8 +92,6 @@ extension StoryViewController {
   
   // MARK: Handle Menu Button
   @IBAction func handleMenuButtonTap(sender: AnyObject) {
-    
-    
     let menuViewController = MenuViewController(items:
       [
         MenuViewItem(title: "Report", iconImage: UIImage(named: "warning-menu-icon")) {
@@ -106,7 +104,7 @@ extension StoryViewController {
       ]
     )
     
-    self.presentViewController(menuViewController, animated: true, completion: nil)
+    presentViewController(menuViewController, animated: true, completion: nil)
   }
   
   // MARK: Handle Share Button

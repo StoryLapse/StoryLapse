@@ -31,7 +31,7 @@ class MenuViewController: UIViewController {
     
     self.items = items ?? []
     
-    modalPresentationStyle = .Custom
+//    modalPresentationStyle = .Custom
     transitioningDelegate = self
   }
   
