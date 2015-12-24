@@ -44,6 +44,10 @@ class UserListViewController: UITableViewController {
     let cell = tableView.dequeueReusableCellWithIdentifier("UserListCell", forIndexPath: indexPath) as! UserListTableViewCell
     cell.userAvatarImageView.image = UIImage(named: "person")
     cell.userNameLabel.text = "Khuong"
+    cell.timeLabel.text = "Thu, Dec-24-12:56 PM"
+    cell.typeInteractionImageView.image = UIImage(named: "loveface")
+    cell.layer.borderWidth = 0.5
+    cell.layer.borderColor = UIColor.blueColor().CGColor
 
     return cell
   }

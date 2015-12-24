@@ -12,6 +12,9 @@ class UserListTableViewCell: UITableViewCell {
 
   @IBOutlet var userAvatarImageView: UIImageView!
   @IBOutlet var userNameLabel: UILabel!
+  @IBOutlet var typeInteractionImageView: UIImageView!
+  @IBOutlet var timeLabel: UILabel!
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

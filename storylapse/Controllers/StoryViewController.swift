@@ -25,6 +25,7 @@ class StoryViewController: UIViewController {
     super.viewDidLoad()
 
     collectionView.backgroundColor = Colors.primaryBackgroundColor
+    self.navigationItem.backBarButtonItem = UIBarButtonItem(title:"", style:.Plain, target:nil, action:nil)
   }
   
   override func didReceiveMemoryWarning() {
