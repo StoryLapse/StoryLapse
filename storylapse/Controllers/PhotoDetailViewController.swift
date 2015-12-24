@@ -81,14 +81,6 @@ class PhotoDetailViewController: UIViewController, AAShareBubblesDelegate, UICol
     collectionView.reloadData()
   }
 
-
-  // MARK: OnBack
-
-
-  @IBAction func onBackClicked(sender: AnyObject) {
-    self.navigationController?.popViewControllerAnimated(true)
-  }
-
   // MARK: onTabGesture ImageView
 
 
