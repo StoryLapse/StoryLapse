@@ -141,6 +141,7 @@ class StoryAddViewController: UIViewController, UITextFieldDelegate {
       story?.hashtags = hashtagsTextField.text!.split("\\s*,\\s*")
       
       try! story?.save()
+      story?.remindeAtDaysOfWeek = daysOfWeek
       notification.notification(story!)
       navigationController?.popViewControllerAnimated(true)
     }
