@@ -26,6 +26,7 @@ class LoginViewController: UIViewController {
   @IBAction func handleFacebookLoginButtonTap(sender: AnyObject) {
     User.loginFacebook(getDatabase()) { _ in
       Story.updateCurrentUserStories(getDatabase())
+      self.dismissViewControllerAnimated(true, completion: nil)
     }
   }
   

@@ -61,6 +61,9 @@ class StoryTableViewCell: UITableViewCell {
   var story: Story! {
     didSet {
       userAvatarImageView.af_setImageWithURL(NSURL(string: story.creatorAvatarPath)!)
+      userAvatarImageView.layer.cornerRadius = 2
+      userAvatarImageView.clipsToBounds = true
+      
       usernameLabel.text = story.creatorName
       titleLabel.text = story.title
       photoCountLabel.text = String(format: "%d photos", arguments: [story.photoCount])

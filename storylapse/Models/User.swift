@@ -43,8 +43,6 @@ class User: CBLModel {
       User.currentUser.name = "You"
       User.currentUser.avatarPath = "https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png"
       
-      print("BUU")
-      
       try! User.currentUser.save()
     }
   }
