@@ -7,8 +7,7 @@
 //
 
 import UIKit
-
-
+import OAuthSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,10 +15,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   var window: UIWindow?
   var database: CBLDatabase!
   
+  var pull: CBLReplication!
+  var push: CBLReplication!
+  
   func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
     initializePhotoDir()
     resetFixtures()
     initializeDatabase()
+    User.initializeCurrentUser(getDatabase())
     
     window?.tintColor = Colors.tintColor
 
@@ -37,12 +40,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
   }
   
-  func initializeDatabase() {
-    let manager = CBLManager.sharedInstance()
-    database = try! manager.databaseNamed("storylapse")
-    
-    Story.createViews(database)
+  func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool {
+    if (url.host == "oauth-callback") {
+      OAuth2Swift.handleOpenURL(url)
+    }
+    return true
   }
+
   
   func applicationWillResignActive(application: UIApplication) {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
@@ -71,4 +75,38 @@ func getDatabase() -> CBLDatabase {
   return (UIApplication.sharedApplication().delegate as! AppDelegate).database
 }
 
+// MARK: Database
+extension AppDelegate {
+  
+  func initializeDatabase() {
+    let manager = CBLManager.sharedInstance()
+    database = try! manager.databaseNamed("storylapse")
+    
+    Story.createViews(database)
+    
+    let url = NSURL(string: "http://localhost:4984/storylapse/")!
+    push = database.createPushReplication(url)!
+    pull = database.createPullReplication(url)!
+    push.continuous = true
+    pull.continuous = true
+    
+    let auth = CBLAuthenticator.basicAuthenticatorWithName("firstUser", password: "123")
+    push.authenticator = auth
+    pull.authenticator = auth
 
+//    push.start()
+//    pull.start()
+    
+    NSNotificationCenter.defaultCenter().addObserver(self,
+      selector: "replicationChanged:",
+      name: kCBLReplicationChangeNotification,
+      object: push)
+    NSNotificationCenter.defaultCenter().addObserver(self,
+      selector: "replicationChanged:",
+      name: kCBLReplicationChangeNotification,
+      object: pull)
+  }
+  
+  func replicationChanged(n: NSNotification) {
+  }
+}

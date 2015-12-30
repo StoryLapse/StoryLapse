@@ -166,23 +166,4 @@ class PhotoDetailViewController: UIViewController, AAShareBubblesDelegate, UICol
 
     self.presentViewController(navigation, animated: true, completion: nil)
   }
-
-  @IBAction func handleCommentsCountButtonTap(sender: AnyObject) {
-
-    presentLoginView()
-  }
-
-  func presentLoginView() {
-    let storyboard = UIStoryboard(name: "Main", bundle: nil)
-    let loginVC = storyboard.instantiateViewControllerWithIdentifier("LoginViewController") as! LoginViewController
-    let navigation = UINavigationController(rootViewController: loginVC)
-    let backButton = UIBarButtonItem(title: "Back", style: UIBarButtonItemStyle.Plain, target: self, action: "backAction")
-    navigation.navigationBar.topItem!.leftBarButtonItem = backButton
-
-    self.presentViewController(navigation, animated: true, completion: nil)
-  }
-
-  func backAction() {
-    navigationController?.dismissViewControllerAnimated(true, completion: nil)
-  }
 }

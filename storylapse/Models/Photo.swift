@@ -20,6 +20,12 @@ class Photo: CBLModel {
   @NSManaged var createdAt: NSDate
   @NSManaged var creatorId: String
   
+  var id: String {
+    get {
+      return self.document!.documentID
+    }
+  }
+  
   var localPath: String {
     get {
       return Photo.getPhotoDirURL()
@@ -33,11 +39,11 @@ class Photo: CBLModel {
   }
   
   static func create(db: CBLDatabase) -> Photo {
-    let photo = Photo(forDocument: db.documentWithID(NSUUID().UUIDString)!)
+    let photo = Photo(forDocument: db.documentWithID(NSUUID().UUIDString.lowercaseString)!)
     
     photo.interactionCount = 0
     
-    photo.creatorId = User.currentUserId
+    photo.creatorId = User.currentUser.id
     photo.createdAt = NSDate()
     
     return photo

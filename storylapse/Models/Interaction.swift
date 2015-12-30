@@ -11,15 +11,15 @@ import Foundation
 struct Interaction {
   
   enum Type {
-    case SimpleSmile
+    case Kiss
     case ThumbUp
-    case HeartEyes
+    case Gorgeous
+    case Heart
   }
   
-  var id: String
   var type: Type
-  var createdAt: NSDate
-  var createdBy: User
-  var photoId: String?
-  var storyId: String
+  
+  init(type: Type) {
+    self.type = type
+  }
 }

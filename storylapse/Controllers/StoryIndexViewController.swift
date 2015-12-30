@@ -26,6 +26,7 @@ class StoryIndexViewController: UIViewController {
   
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
+    
     stories = Story.getCurrentUserStories(getDatabase())
     dispatch_async(dispatch_get_main_queue()) {
       self.storyTableView.reloadData()
@@ -68,5 +69,10 @@ extension StoryIndexViewController {
       
       cameraViewController.story = story
     }
+  }
+  
+  @IBAction func handleLoginButtonTap(sender: AnyObject) {
+    let loginViewController = storyboard!.instantiateViewControllerWithIdentifier("loginViewController")
+    presentViewController(loginViewController, animated: true, completion: nil)
   }
 }

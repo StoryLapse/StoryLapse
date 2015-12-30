@@ -7,24 +7,29 @@
 //
 
 import UIKit
+import OAuthSwift
 
 class LoginViewController: UIViewController {
-
+  
+  @IBOutlet var laterButton: UIButton! {
+    didSet {
+      laterButton.tintColor = Colors.secondaryTextColor
+    }
+  }
+  
   override func viewDidLoad() {
     super.viewDidLoad()
-
-    // Do any additional setup after loading the view.
+    
+    view.backgroundColor = Colors.primaryBackgroundColor
   }
-
-  override func didReceiveMemoryWarning() {
-    super.didReceiveMemoryWarning()
-    // Dispose of any resources that can be recreated.
+  
+  @IBAction func handleFacebookLoginButtonTap(sender: AnyObject) {
+    User.loginFacebook(getDatabase()) { _ in
+      Story.updateCurrentUserStories(getDatabase())
+    }
   }
-
-
-  // MARK: - Navigation
-
-  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-
+  
+  @IBAction func handleLaterButtonTap(sender: AnyObject) {
+    dismissViewControllerAnimated(true, completion: nil)
   }
 }

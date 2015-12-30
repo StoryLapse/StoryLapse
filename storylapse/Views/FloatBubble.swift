@@ -20,7 +20,7 @@ class FloatBubble: UIView {
   var bubbleView: UIView!
   var iconImageView: UIImageView!
   
-  convenience init(frame: CGRect, direction: Direction, intensive: CGFloat) {
+  convenience init(frame: CGRect, interaction: Interaction, direction: Direction, intensive: CGFloat) {
     self.init(frame: frame)
 
     self.direction = direction
@@ -31,7 +31,25 @@ class FloatBubble: UIView {
     let bubbleImageView = UIImageView(image: UIImage(named: "bubble-background"))
     bubbleImageView.contentMode = .ScaleAspectFit
     
-    iconImageView = UIImageView(image: UIImage(named: "kiss-icon"))
+    var iconImageName = ""
+    
+    switch interaction.type {
+    case .Gorgeous:
+      iconImageName = "gorgeous-icon"
+      
+    case .Heart:
+      iconImageName = "heart-icon"
+      
+    case .Kiss:
+      iconImageName = "kiss-icon"
+      
+    case .ThumbUp:
+      iconImageName = "thumb-up-icon"
+    }
+    
+
+    
+    iconImageView = UIImageView(image: UIImage(named: iconImageName))
     iconImageView.contentMode = .Center
     
     bubbleImageView.frame = bubbleView.bounds

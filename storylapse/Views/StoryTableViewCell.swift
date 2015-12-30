@@ -21,28 +21,50 @@ class StoryTableViewCell: UITableViewCell {
       interactionCountButton.tintColor = Colors.secondaryTextColor
       interactionCountButton.setImage(interactionImage, forState: .Normal)
       interactionCountButton.titleEdgeInsets = UIEdgeInsetsMake(0, 5, 0, -5)
-
+      
       let titleLabel = interactionCountButton.titleLabel!
       let imageView = interactionCountButton.imageView!
       
       interactionCountButton.transform = CGAffineTransformScale(interactionCountButton.transform, -1, 1)
       titleLabel.transform = CGAffineTransformScale(titleLabel.transform, -1, 1)
       imageView.transform = CGAffineTransformScale(imageView.transform, -1, 1)
-
+      
     }
   }
   @IBOutlet var photoPlayView: StoryPhotoPlayView!
-  @IBOutlet var primaryInteractButton: InteractButton!
+  @IBOutlet var interactButton1: InteractButton! {
+    didSet {
+      interactButton1.interaction = Interaction(type: .ThumbUp)
+    }
+  }
+  @IBOutlet var interactButton2: InteractButton! {
+    didSet {
+      interactButton2.interaction = Interaction(type: .Heart)
+    }
+  }
+  @IBOutlet var interactButton3: InteractButton! {
+    didSet {
+      interactButton3.interaction = Interaction(type: .Gorgeous)
+    }
+  }
+  @IBOutlet var interactButton4: InteractButton! {
+    didSet {
+      interactButton4.interaction = Interaction(type: .Kiss)
+    }
+  }
   @IBOutlet var titleLabel: UILabel!
   @IBOutlet var photoCountLabel: UILabel!
   @IBOutlet var addPhotoButton: UIButton!
   var delegate: StoryTableViewCellDelegate?
-
+  
   var photos: [Photo] = []
   var story: Story! {
     didSet {
+      userAvatarImageView.af_setImageWithURL(NSURL(string: story.creatorAvatarPath)!)
+      usernameLabel.text = story.creatorName
       titleLabel.text = story.title
       photoCountLabel.text = String(format: "%d photos", arguments: [story.photoCount])
+      interactionCountButton.titleLabel!.text = String(format: "%d", story.interactionCount)
       
       photos = Photo.getPhotos(getDatabase(), story: story)
       photoPlayView.story = story
@@ -67,7 +89,9 @@ class StoryTableViewCell: UITableViewCell {
     photoPlayView.backgroundColor = UIColor.darkGrayColor()
     
     // Interact buttons
-    primaryInteractButton.addTarget(target: self, action: "handleInteraction:")
+    [interactButton1, interactButton2, interactButton3, interactButton4].forEach { button in
+      button.addTarget(target: self, action: "handleInteraction:")
+    }
     
     // Change colors
     addPhotoButton.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.10)
@@ -76,17 +100,31 @@ class StoryTableViewCell: UITableViewCell {
   }
   
   func handleInteraction(button: InteractButton) {
-    switch (button) {
-    case primaryInteractButton:
-      addSubview(FloatBubble(frame: photoPlayView.frame, direction: .LeftToRight, intensive: CGFloat(50)))
-      
-      NSTimer.after(0.5) { () -> Void in
-        self.addSubview(FloatBubble(frame: self.photoPlayView.frame, direction: .RightToLeft, intensive: CGFloat(50)))
-      }
-      break
-      
-    default:
-      break
+    addSubview(
+      FloatBubble(
+        frame: photoPlayView.frame,
+        interaction: button.interaction,
+        direction: .LeftToRight,
+        intensive: CGFloat(50)
+      )
+    )
+    
+    NSTimer.after(0.5) { () -> Void in
+      let interaction = [
+        Interaction(type: .ThumbUp),
+        Interaction(type: .Heart),
+        Interaction(type: .Gorgeous),
+        Interaction(type: .Kiss)
+        ][Int(arc4random_uniform(4))]
+
+      self.addSubview(
+        FloatBubble(
+          frame: self.photoPlayView.frame,
+          interaction: interaction,
+          direction: .RightToLeft,
+          intensive: CGFloat(50)
+        )
+      )
     }
   }
   

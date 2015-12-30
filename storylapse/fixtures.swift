@@ -19,6 +19,8 @@ func resetFixtures() {
   try! CBLManager.sharedInstance().databaseNamed("storylapse").deleteDatabase()
   let db = try! CBLManager.sharedInstance().databaseNamed("storylapse")
   
+  User.initializeCurrentUser(db)
+  
   // Create stories
   [String](["Saigon", "The Dalat trip", "Quy nhon", "My dog", "Hello world"]).forEach { title in
     let story = Story.create(db)
@@ -30,6 +32,10 @@ func resetFixtures() {
   let results = try! db.createAllDocumentsQuery().run()
   
   while let row = results.nextRow() {
+    if row.document!.propertyForKey("type") as? String != Story.type {
+      continue
+    }
+    
     let story = Story(forDocument: row.document!)
     
     for idx in 1...40 {

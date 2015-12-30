@@ -17,13 +17,6 @@ class Story: CBLModel {
   @NSManaged var desc: String?
   @NSManaged var photoIds: [String]
   @NSManaged var hashtags: [String]
-//  @NSManaged var reminder: [String: AnyObject]
-//  reminder = ["Time": [
-//                        ["Hour" : "12"],
-//                        ["Minute" : "30"],
-//                        ["Day" : ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]]
-//                      ]
-//              ]
   @NSManaged var remindeAtHour: Int
   @NSManaged var remindeAtMinute: Int
   @NSManaged var remindeAtDaysOfWeek: [Bool]
@@ -32,9 +25,17 @@ class Story: CBLModel {
   @NSManaged var commentCount: Int
   
   @NSManaged var creatorId: String
+  @NSManaged var creatorName: String
+  @NSManaged var creatorAvatarPath: String
 
   @NSManaged var createdAt: NSDate
   @NSManaged var updatedAt: NSDate?
+  
+  var id: String {
+    get {
+      return self.document!.documentID
+    }
+  }
   
   var photoCount: Int {
     get {
@@ -43,7 +44,7 @@ class Story: CBLModel {
   }
   
   static func create(db: CBLDatabase) -> Story {
-    let story = Story(forDocument: db.documentWithID(NSUUID().UUIDString)!)
+    let story = Story(forDocument: db.documentWithID(NSUUID().UUIDString.lowercaseString)!)
     
     story.title = ""
     story.photoIds = []
@@ -52,7 +53,9 @@ class Story: CBLModel {
     story.interactionCount = 0
     story.commentCount = 0
     
-    story.creatorId = User.currentUserId
+    story.creatorId = User.currentUser.id
+    story.creatorName = User.currentUser.name
+    story.creatorAvatarPath = User.currentUser.avatarPath
     story.createdAt = NSDate()
     
     return story
@@ -66,15 +69,25 @@ class Story: CBLModel {
 // MARK: Indexes
 extension Story {
   static func createViews(db: CBLDatabase) {
+    // currentUserStories view
     let currentUserStoriesView = db.viewNamed("currentUserStories")
     currentUserStoriesView.setMapBlock({ (doc, emit) -> Void in
       if let
         type = doc["type"] as? String,
         creatorId = doc["creatorId"] as? String where
-        type == Story.type && creatorId == User.currentUserId {
+        type == Story.type && creatorId == User.currentUser.id {
           emit(doc["createdAt"]!, doc)
       }
       }, version: "1")
+  }
+  
+  static func updateCurrentUserStories(db: CBLDatabase) {
+    Story.getCurrentUserStories(db).forEach { story in
+      story.creatorName = User.currentUser.name
+      story.creatorAvatarPath = User.currentUser.avatarPath
+      
+      try! story.save()
+    }
   }
 }
 

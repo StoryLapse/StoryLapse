@@ -11,6 +11,27 @@ import UIKit
 class InteractButton: UIVisualEffectView {
   
   var iconImageView = UIImageView(image: UIImage(named: "kiss-icon"))
+  var interaction: Interaction! {
+    didSet {
+      var imageName = ""
+      
+      switch interaction.type {
+      case .Gorgeous:
+        imageName = "gorgeous-icon"
+        
+      case .Heart:
+        imageName = "heart-icon"
+        
+      case .Kiss:
+        imageName = "kiss-icon"
+        
+      case .ThumbUp:
+        imageName = "thumb-up-icon"
+      }
+      
+      iconImageView = UIImageView(image: UIImage(named: imageName))
+    }
+  }
   private var targets = [(AnyObject, Selector)]()
   
   override func awakeFromNib() {

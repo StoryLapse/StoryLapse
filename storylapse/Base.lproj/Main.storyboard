@@ -521,8 +521,14 @@
                                                             <rect key="frame" x="0.0" y="38" width="359" height="150"/>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             <constraints>
+                                                                <constraint firstAttribute="width" secondItem="pJH-qJ-7d2" secondAttribute="height" multiplier="359:150" id="b8T-W5-T5L"/>
                                                                 <constraint firstAttribute="height" constant="150" id="rOd-Yi-OMQ"/>
                                                             </constraints>
+                                                            <variation key="default">
+                                                                <mask key="constraints">
+                                                                    <exclude reference="rOd-Yi-OMQ"/>
+                                                                </mask>
+                                                            </variation>
                                                         </view>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ExR-93-HFd" customClass="InteractButton" customModule="storylapse" customModuleProvider="target">
                                                             <rect key="frame" x="8" y="160" width="32" height="24"/>
@@ -557,6 +563,14 @@
                                                                 <constraint firstAttribute="width" constant="32" id="dKS-bN-WcX"/>
                                                             </constraints>
                                                         </view>
+                                                        <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qB2-se-AOv" customClass="InteractButton" customModule="storylapse" customModuleProvider="target">
+                                                            <rect key="frame" x="117" y="160" width="32" height="24"/>
+                                                            <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="24" id="QnL-Q4-HlY"/>
+                                                                <constraint firstAttribute="width" constant="32" id="XnA-GK-8ib"/>
+                                                            </constraints>
+                                                        </view>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
@@ -580,6 +594,7 @@
                                                         <constraint firstAttribute="trailingMargin" secondItem="bpB-Dj-zcI" secondAttribute="trailing" id="aSz-Ya-0Vv"/>
                                                         <constraint firstItem="bpB-Dj-zcI" firstAttribute="leading" secondItem="ZC3-D4-ed4" secondAttribute="leadingMargin" id="ce7-nl-NaU"/>
                                                         <constraint firstItem="2wf-IN-ptW" firstAttribute="leading" secondItem="Hng-WA-HGo" secondAttribute="trailing" constant="4" id="idw-M0-XlD"/>
+                                                        <constraint firstItem="qB2-se-AOv" firstAttribute="bottom" secondItem="2wf-IN-ptW" secondAttribute="bottom" id="iqh-9U-usu"/>
                                                         <constraint firstItem="GlI-GL-oyZ" firstAttribute="leading" secondItem="ZC3-D4-ed4" secondAttribute="leadingMargin" id="jj3-zz-2N9"/>
                                                         <constraint firstItem="bpB-Dj-zcI" firstAttribute="leading" secondItem="ZC3-D4-ed4" secondAttribute="leading" id="mpv-0d-StK"/>
                                                         <constraint firstItem="bpB-Dj-zcI" firstAttribute="top" secondItem="ExR-93-HFd" secondAttribute="bottom" constant="12" id="roA-dC-Y3P"/>
@@ -587,6 +602,7 @@
                                                         <constraint firstAttribute="height" constant="200" id="t3i-Pl-1tH"/>
                                                         <constraint firstItem="Hng-WA-HGo" firstAttribute="bottom" secondItem="ExR-93-HFd" secondAttribute="bottom" id="uqX-SW-XBC"/>
                                                         <constraint firstItem="pJH-qJ-7d2" firstAttribute="top" secondItem="3aw-Zo-NG2" secondAttribute="bottom" id="ypG-gS-gSQ"/>
+                                                        <constraint firstItem="qB2-se-AOv" firstAttribute="leading" secondItem="2wf-IN-ptW" secondAttribute="trailing" constant="4" id="zcj-Ww-6s4"/>
                                                     </constraints>
                                                     <variation key="default">
                                                         <mask key="constraints">
@@ -617,10 +633,13 @@
                                         <connections>
                                             <outlet property="addPhotoButton" destination="xTq-YE-zyu" id="dN6-D0-rZa"/>
                                             <outlet property="cardView" destination="ZC3-D4-ed4" id="UZB-Yh-bir"/>
+                                            <outlet property="interactButton1" destination="ExR-93-HFd" id="SZo-Dq-5GJ"/>
+                                            <outlet property="interactButton2" destination="Hng-WA-HGo" id="AwC-rt-hm5"/>
+                                            <outlet property="interactButton3" destination="2wf-IN-ptW" id="3jf-zQ-OYo"/>
+                                            <outlet property="interactButton4" destination="qB2-se-AOv" id="RIE-jH-6p3"/>
                                             <outlet property="interactionCountButton" destination="9Z0-ca-d6O" id="wmr-9H-4n4"/>
                                             <outlet property="photoCountLabel" destination="GlI-GL-oyZ" id="970-D5-XCU"/>
                                             <outlet property="photoPlayView" destination="pJH-qJ-7d2" id="D87-PF-luH"/>
-                                            <outlet property="primaryInteractButton" destination="ExR-93-HFd" id="tdi-Tt-Tp3"/>
                                             <outlet property="titleLabel" destination="bpB-Dj-zcI" id="IyZ-ih-JHX"/>
                                             <outlet property="topView" destination="3aw-Zo-NG2" id="HZw-Rc-aMR"/>
                                             <outlet property="updateMomentLabel" destination="cx4-Sy-FHT" id="ovi-UZ-iH3"/>
@@ -641,6 +660,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="FSN-DB-fV3">
+                        <barButtonItem key="leftBarButtonItem" title="Login" id="pmi-RW-6oG">
+                            <connections>
+                                <action selector="handleLoginButtonTap:" destination="yXI-0c-5R2" id="0et-4S-s6X"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="U9l-qt-7HZ">
                             <connections>
                                 <segue destination="gq4-11-TVV" kind="show" id="L2s-Iq-P69"/>
@@ -706,7 +730,7 @@
         <!--Login View Controller-->
         <scene sceneID="JvJ-Jk-ie7">
             <objects>
-                <viewController storyboardIdentifier="LoginViewController" id="LAp-w7-QaV" customClass="LoginViewController" customModule="storylapse" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="loginViewController" id="LAp-w7-QaV" customClass="LoginViewController" customModule="storylapse" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="u1q-hS-Pqu"/>
                         <viewControllerLayoutGuide type="bottom" id="vml-y9-OJn"/>
@@ -716,26 +740,56 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pHF-f7-3ig">
-                                <rect key="frame" x="-13" y="302" width="400" height="64"/>
+                                <rect key="frame" x="4" y="308" width="366" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="pHF-f7-3ig" secondAttribute="height" multiplier="401:64" id="hyg-ZK-smF"/>
                                     <constraint firstAttribute="width" constant="400" id="tOE-KP-boB"/>
                                 </constraints>
-                                <state key="normal" title="Button" image="loginFacebook"/>
+                                <state key="normal" image="facebook-login-button"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="hyg-ZK-smF"/>
+                                        <exclude reference="tOE-KP-boB"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <action selector="handleFacebookLoginButtonTap:" destination="LAp-w7-QaV" eventType="touchUpInside" id="8iD-eI-QWl"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Connect to the world" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pkP-Nf-BVk" customClass="Label" customModule="storylapse" customModuleProvider="target">
+                                <rect key="frame" x="82" y="255" width="211" height="29"/>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="24"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1nf-Gq-208">
+                                <rect key="frame" x="170" y="366" width="34" height="29"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <state key="normal" title="Later"/>
+                                <connections>
+                                    <action selector="handleLaterButtonTap:" destination="LAp-w7-QaV" eventType="touchUpInside" id="BJq-G3-gn9"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="pkP-Nf-BVk" firstAttribute="centerY" secondItem="UBz-wk-0Yb" secondAttribute="centerY" constant="-64" id="Dai-o8-M1e"/>
                             <constraint firstItem="pHF-f7-3ig" firstAttribute="centerY" secondItem="UBz-wk-0Yb" secondAttribute="centerY" id="d8B-WY-GAB"/>
+                            <constraint firstItem="pkP-Nf-BVk" firstAttribute="centerX" secondItem="UBz-wk-0Yb" secondAttribute="centerX" id="flk-YT-qD6"/>
                             <constraint firstItem="pHF-f7-3ig" firstAttribute="centerX" secondItem="UBz-wk-0Yb" secondAttribute="centerX" id="iHF-n6-pPS"/>
+                            <constraint firstItem="1nf-Gq-208" firstAttribute="top" secondItem="pHF-f7-3ig" secondAttribute="bottom" constant="8" id="kMn-RV-sDH"/>
+                            <constraint firstItem="1nf-Gq-208" firstAttribute="centerX" secondItem="UBz-wk-0Yb" secondAttribute="centerX" id="ocv-W2-jk3"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="w0w-fu-o4H"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="laterButton" destination="1nf-Gq-208" id="0ab-bV-dHF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Itu-qU-f8J" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1857.5" y="246.5"/>
+            <point key="canvasLocation" x="1849.5" y="199.5"/>
         </scene>
         <!--User List View Controller-->
         <scene sceneID="svv-9R-R4t">
@@ -766,7 +820,7 @@
                                                 <constraint firstAttribute="height" constant="21" id="oH6-SX-grK"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loveface" translatesAutoresizingMaskIntoConstraints="NO" id="1Gk-zX-Cx9">
@@ -1727,9 +1781,9 @@
     <resources>
         <image name="cameraButton" width="80" height="80"/>
         <image name="closeButton" width="44" height="44"/>
+        <image name="facebook-login-button" width="366" height="50"/>
         <image name="flashOffIcon" width="44" height="44"/>
         <image name="libraryButton" width="44" height="44"/>
-        <image name="loginFacebook" width="732" height="100"/>
         <image name="logo" width="512" height="512"/>
         <image name="loveface" width="24" height="24"/>
         <image name="menu-icon" width="16" height="16"/>
@@ -1740,7 +1794,7 @@
         <image name="swapButton" width="44" height="44"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="1lJ-dY-tQN"/>
         <segue reference="11W-Qh-4qO"/>
+        <segue reference="1lJ-dY-tQN"/>
     </inferredMetricsTieBreakers>
 </document>

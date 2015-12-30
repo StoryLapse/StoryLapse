@@ -14,6 +14,7 @@
 		5809EDA81C27ED60003E0057 /* MenuItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5809EDA71C27ED60003E0057 /* MenuItemView.xib */; };
 		5809EDAA1C27EE36003E0057 /* MenuItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5809EDA91C27EE36003E0057 /* MenuItemView.swift */; };
 		5809EDAC1C27F0D8003E0057 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5809EDAB1C27F0D8003E0057 /* MenuViewController.swift */; };
+		580A6A681C2EAD5200EE38DD /* api.swift in Sources */ = {isa = PBXBuildFile; fileRef = 580A6A671C2EAD5200EE38DD /* api.swift */; };
 		580BBDF61C1D10D4009178B5 /* StoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 580BBDF51C1D10D4009178B5 /* StoryTableViewCell.swift */; };
 		580BBDF81C1D1D85009178B5 /* StoryTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 580BBDF71C1D1D85009178B5 /* StoryTableView.swift */; };
 		580BBDFC1C1F947D009178B5 /* ContentSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 580BBDFB1C1F947D009178B5 /* ContentSettingsView.swift */; };
@@ -22,6 +23,7 @@
 		580BBE041C223A42009178B5 /* RecentStoryTabieViewAddStoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 580BBE031C223A42009178B5 /* RecentStoryTabieViewAddStoryCell.swift */; };
 		582048AE1C1BEEC700D76B1D /* fixtures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582048AD1C1BEEC700D76B1D /* fixtures.swift */; };
 		5839C4591C2BFA190055D053 /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5839C4581C2BFA190055D053 /* IntroViewController.swift */; };
+		5839C45B1C2C55EB0055D053 /* Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5839C45A1C2C55EB0055D053 /* Label.swift */; };
 		585881D61C29521A00F5A79F /* MenuViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 585881D51C29521A00F5A79F /* MenuViewItem.swift */; };
 		585881D81C2AB64000F5A79F /* InteractButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 585881D71C2AB64000F5A79F /* InteractButton.swift */; };
 		5880971A1C2AEF1F00B4049F /* FloatBubble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 588097191C2AEF1F00B4049F /* FloatBubble.swift */; };
@@ -67,6 +69,7 @@
 		5809EDA71C27ED60003E0057 /* MenuItemView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuItemView.xib; sourceTree = "<group>"; };
 		5809EDA91C27EE36003E0057 /* MenuItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuItemView.swift; sourceTree = "<group>"; };
 		5809EDAB1C27F0D8003E0057 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		580A6A671C2EAD5200EE38DD /* api.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = api.swift; sourceTree = "<group>"; };
 		580BBDF51C1D10D4009178B5 /* StoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryTableViewCell.swift; sourceTree = "<group>"; };
 		580BBDF71C1D1D85009178B5 /* StoryTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryTableView.swift; sourceTree = "<group>"; };
 		580BBDFB1C1F947D009178B5 /* ContentSettingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentSettingsView.swift; sourceTree = "<group>"; };
@@ -75,6 +78,7 @@
 		580BBE031C223A42009178B5 /* RecentStoryTabieViewAddStoryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecentStoryTabieViewAddStoryCell.swift; sourceTree = "<group>"; };
 		582048AD1C1BEEC700D76B1D /* fixtures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = fixtures.swift; sourceTree = "<group>"; };
 		5839C4581C2BFA190055D053 /* IntroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroViewController.swift; sourceTree = "<group>"; };
+		5839C45A1C2C55EB0055D053 /* Label.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Label.swift; sourceTree = "<group>"; };
 		585881D51C29521A00F5A79F /* MenuViewItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewItem.swift; sourceTree = "<group>"; };
 		585881D71C2AB64000F5A79F /* InteractButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InteractButton.swift; sourceTree = "<group>"; };
 		588097191C2AEF1F00B4049F /* FloatBubble.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatBubble.swift; sourceTree = "<group>"; };
@@ -179,6 +183,7 @@
 				5890ABB41C1AE7D1004A74DC /* storylapse-Bridging-Header.h */,
 				582048AD1C1BEEC700D76B1D /* fixtures.swift */,
 				9985F3531C28FF9A0049251E /* RemindNotification.swift */,
+				580A6A671C2EAD5200EE38DD /* api.swift */,
 			);
 			path = storylapse;
 			sourceTree = "<group>";
@@ -247,6 +252,7 @@
 				997160E01C26B463002B67B3 /* TextView.swift */,
 				585881D71C2AB64000F5A79F /* InteractButton.swift */,
 				588097191C2AEF1F00B4049F /* FloatBubble.swift */,
+				5839C45A1C2C55EB0055D053 /* Label.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -295,7 +301,7 @@
 				TargetAttributes = {
 					58C42B5B1C1430BC00D4CCB8 = {
 						CreatedOnToolsVersion = 7.1;
-						DevelopmentTeam = A8323HJ86U;
+						DevelopmentTeam = NENL5G4Q5P;
 					};
 				};
 			};
@@ -398,6 +404,7 @@
 				9985F3541C28FF9B0049251E /* RemindNotification.swift in Sources */,
 				99EECC6F1C170EDC00C6B792 /* PhotoCollectionViewCell.swift in Sources */,
 				997160DF1C269386002B67B3 /* UserListTableViewCell.swift in Sources */,
+				5839C45B1C2C55EB0055D053 /* Label.swift in Sources */,
 				58CB63181C24021E005E6587 /* StoryAddViewController.swift in Sources */,
 				99EECC6B1C16D1F300C6B792 /* StoryViewController.swift in Sources */,
 				589ACA471C16DD5B0030A54D /* StoryIndexViewController.swift in Sources */,
@@ -426,6 +433,7 @@
 				582048AE1C1BEEC700D76B1D /* fixtures.swift in Sources */,
 				1FD204541C1F34DE001A99ED /* PhotoEditViewController.swift in Sources */,
 				58E4A9471C19A93F0008592E /* Story.swift in Sources */,
+				580A6A681C2EAD5200EE38DD /* api.swift in Sources */,
 				5880971A1C2AEF1F00B4049F /* FloatBubble.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -553,6 +561,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "storylapse/storylapse-Bridging-Header.h";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -576,6 +585,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "storylapse/storylapse-Bridging-Header.h";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
