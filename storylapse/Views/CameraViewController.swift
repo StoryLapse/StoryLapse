@@ -10,8 +10,11 @@ import UIKit
 import CameraManager
 import AVFoundation
 import MobileCoreServices
-
+import AssetsLibrary
+import KYShutterButton
 class CameraViewController: UIViewController,UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+  
+  @IBOutlet var focusGestureRecognizer: UITapGestureRecognizer!
   
   @IBOutlet var cameraView: UIView!
   @IBOutlet var captureButton: UIButton!
@@ -21,6 +24,8 @@ class CameraViewController: UIViewController,UIImagePickerControllerDelegate, UI
   @IBOutlet var recordTimeLabel: UILabel!
   @IBOutlet var topView: UIView!
   @IBOutlet var bottomView: UIView!
+  var currentframe: CGRect?
+  @IBOutlet var recordButton: KYShutterButton!
   
   @IBOutlet var cameraViewTopConstraint: NSLayoutConstraint!
   @IBOutlet var cameraViewBottomConstraint: NSLayoutConstraint!
@@ -43,10 +48,10 @@ class CameraViewController: UIViewController,UIImagePickerControllerDelegate, UI
     self.navigationController?.navigationBar.hidden = true
     cameraManager.showAccessPermissionPopupAutomatically = true
     cameraManager.writeFilesToPhoneLibrary = false
-    cameraManager.shouldRespondToOrientationChanges = false
     flashButton.enabled = cameraManager.hasFlash
     recordTimeLabel.hidden = true
     addCameraToView()
+    currentframe = topView.frame
   }
   
   override func prefersStatusBarHidden() -> Bool {
@@ -75,10 +80,13 @@ class CameraViewController: UIViewController,UIImagePickerControllerDelegate, UI
     switch (cameraManager.cameraOutputMode) {
     case .StillImage:
       cameraManager.capturePictureWithCompletition({ (image, error) -> Void in
-        self.performSegueWithIdentifier("photoPreview", sender: image)
+        if let image = image {
+          self.performSegueWithIdentifier("photoPreview", sender: image)
+        }
       })
     case .VideoWithMic, .VideoOnly:
       cameraManager.stopRecordingVideo({ (videoURL, error) -> Void in
+        self.recordButton.buttonState = .Normal
         if let errorOccured = error {
           self.cameraManager.showErrorBlock(erTitle: "Error occurred", erMessage: errorOccured.localizedDescription)
         }
@@ -100,6 +108,7 @@ class CameraViewController: UIViewController,UIImagePickerControllerDelegate, UI
     cameraManager.cameraOutputMode = .VideoWithMic
     sender.selected = !sender.selected
     if sender.selected {
+      recordButton.buttonState = .Recording
       cameraManager.startRecordingVideo()
       topView.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.2)
       bottomView.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.2)
@@ -111,16 +120,11 @@ class CameraViewController: UIViewController,UIImagePickerControllerDelegate, UI
       }
     } else {
       cameraManager.stopRecordingVideo({ (videoURL, error) -> Void in
+        self.recordButton.buttonState = .Normal
         if let errorOccured = error {
           self.cameraManager.showErrorBlock(erTitle: "Error occurred", erMessage: errorOccured.localizedDescription)
         }
         else {
-          do {
-            try NSFileHandle(forWritingToURL: videoURL!)
-            print("success")
-          } catch {
-            print("error")
-          }
           self.performSegueWithIdentifier("videoEdit", sender: videoURL)
           self.topView.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
           self.bottomView.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
@@ -182,7 +186,7 @@ class CameraViewController: UIViewController,UIImagePickerControllerDelegate, UI
     self.presentViewController(imagePicker, animated: true,
       completion: nil)
   }
-
+  
   func imagePickerControllerDidCancel(picker: UIImagePickerController) {
     dismissViewControllerAnimated(true, completion: nil)
   }
@@ -225,16 +229,46 @@ class CameraViewController: UIViewController,UIImagePickerControllerDelegate, UI
     case .LandscapeRight:
       nextRotationAngle = -CGFloat(M_PI_2)
       
+    case .Portrait:
+      nextRotationAngle = 0
+      
     default:
       break
     }
     
+    let cameraViewOriginFrame = cameraView.frame
+    cameraView.transform = CGAffineTransformMakeRotation(nextRotationAngle)
+    cameraView.frame = cameraViewOriginFrame
+    
     UIView.animateWithDuration(0.2, animations: { () -> Void in
       let nextTransform = CGAffineTransformMakeRotation(nextRotationAngle)
-      self.flashButton.transform = nextTransform
-      self.switchCameraButton.transform = nextTransform
-      self.galleryButton.transform = nextTransform
+      if self.cameraManager.cameraOutputMode == .StillImage {
+        self.flashButton.transform = nextTransform
+        self.switchCameraButton.transform = nextTransform
+        self.galleryButton.transform = nextTransform
+        
+      } else if self.cameraManager.cameraOutputMode == .VideoWithMic {
+        switch UIDevice.currentDevice().orientation {
+        case .Portrait:
+          self.topView.transform = CGAffineTransformMakeRotation(nextRotationAngle)
+          self.topView.frame = self.currentframe!
+        case .LandscapeLeft:
+          self.topView.transform = nextTransform
+          self.topView.frame = CGRect(x: self.view.frame.width - self.topView.frame.width , y: (self.view.frame.height)/2 - self.topView.frame.height/2, width: self.topView.frame.width, height: self.topView.frame.height)
+        case .LandscapeRight:
+          self.topView.transform = nextTransform
+          self.topView.frame = CGRect(x: 0 , y: (self.view.frame.height)/2 - self.topView.frame.height/2, width: self.topView.frame.width, height: self.topView.frame.height)
+        default:
+          break
+        }
+      }
     })
+  }
+  
+  @IBAction func handeTapFocusGesture(sender: UIGestureRecognizer) {
+    let focusPoint = focusGestureRecognizer.locationInView(cameraView)
+    //cameraManager.setFocusMode(AVCaptureFocusMode.ContinuousAutoFocus, atPoint: focusPoint)
+    //cameraManager.setExposureMode(AVCaptureExposureMode.ContinuousAutoExposure, atPoint: focusPoint)
   }
 }
 

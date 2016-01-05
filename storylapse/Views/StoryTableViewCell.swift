@@ -12,8 +12,8 @@ class StoryTableViewCell: UITableViewCell {
   
   @IBOutlet var cardView: UIView!
   @IBOutlet var topView: UIView!
-  @IBOutlet var userAvatarImageView: UIImageView!
-  @IBOutlet var usernameLabel: UILabel!
+  @IBOutlet var creatorAvatarImageView: UIImageView!
+  @IBOutlet var creatorNameLabel: UILabel!
   @IBOutlet var updateMomentLabel: UILabel!
   @IBOutlet var interactionCountButton: UIButton! {
     didSet {
@@ -60,14 +60,14 @@ class StoryTableViewCell: UITableViewCell {
   var photos: [Photo] = []
   var story: Story! {
     didSet {
-      userAvatarImageView.af_setImageWithURL(NSURL(string: story.creatorAvatarPath)!)
-      userAvatarImageView.layer.cornerRadius = 2
-      userAvatarImageView.clipsToBounds = true
+      creatorAvatarImageView.af_setImageWithURL(NSURL(string: story.creatorAvatarPath)!)
+      creatorAvatarImageView.layer.cornerRadius = 2
+      creatorAvatarImageView.clipsToBounds = true
       
-      usernameLabel.text = story.creatorName
+      creatorNameLabel.text = story.creatorName
       titleLabel.text = story.title
       photoCountLabel.text = String(format: "%d photos", arguments: [story.photoCount])
-      interactionCountButton.titleLabel!.text = String(format: "%d", story.interactionCount)
+      interactionCountButton.setTitle(String(format: "%d", story.interactionCount), forState: .Normal)
       
       photos = Photo.getPhotos(getDatabase(), story: story)
       photoPlayView.story = story
@@ -82,8 +82,8 @@ class StoryTableViewCell: UITableViewCell {
     cardView.backgroundColor = Colors.canvasColor
     
     topView.backgroundColor = UIColor.clearColor()
-    userAvatarImageView.backgroundColor = UIColor.darkGrayColor()
-    usernameLabel.textColor = Colors.primaryTextColor
+    creatorAvatarImageView.backgroundColor = UIColor.darkGrayColor()
+    creatorNameLabel.textColor = Colors.primaryTextColor
     updateMomentLabel.textColor = Colors.secondaryTextColor
     
     photoPlayView.contentMode = .Center

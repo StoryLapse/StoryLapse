@@ -17,16 +17,14 @@ class StoryIndexViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    
-    title = "Stories"
-    navigationController?.title = nil
-    
+
     storyTableView.dataSource = self
   }
   
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
     
+    title = "Stories"
     stories = Story.getCurrentUserStories(getDatabase())
     dispatch_async(dispatch_get_main_queue()) {
       self.storyTableView.reloadData()
@@ -57,9 +55,10 @@ extension StoryIndexViewController: UITableViewDataSource, StoryTableViewCellDel
 extension StoryIndexViewController {
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
     if segue.identifier == "showStorySegue" {
-      let storyViewController = segue.destinationViewController as! StoryViewController
+      let storyViewController = segue.destinationViewController as! SLStoryViewController
       let story = (sender as! StoryTableViewCell).story
       
+      title = ""
       storyViewController.story = story
     }
     

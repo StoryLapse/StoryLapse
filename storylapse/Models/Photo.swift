@@ -28,9 +28,27 @@ class Photo: CBLModel {
   
   var localPath: String {
     get {
-      return Photo.getPhotoDirURL()
-        .URLByAppendingPathComponent(document!.documentID)
-        .path! + ".jpg"
+      return Photo.photoLocalPath(document!.documentID)
+    }
+  }
+  
+  var updatedMoment: String {
+    get {
+      let currentSeconds = Int(NSDate().timeIntervalSince1970)
+      let createdAtSeconds = Int(createdAt.timeIntervalSince1970)
+      let moment = currentSeconds - createdAtSeconds
+      
+      if moment < 60 {
+        return "\(moment) seconds ago"
+        
+      } else if moment >= 60 && moment < 3600 {
+        return "\(moment / 60) minutes ago"
+        
+      } else if moment >= 3600 && moment < 86400 {
+        return "\(moment / 3600) hours ago"
+      }
+      
+      return "\(moment / 86400) days ago"
     }
   }
   
@@ -57,9 +75,10 @@ class Photo: CBLModel {
     return photoDirURL
   }
   
-  func fileInDocumentsDirectory(filename: String) -> String {
-    let fileURL = Photo.getPhotoDirURL().URLByAppendingPathComponent(filename)
-    return fileURL.path!
+  static func photoLocalPath(filename: String) -> String {
+    return  Photo.getPhotoDirURL()
+      .URLByAppendingPathComponent(filename)
+      .path! + ".jpg"
   }
 }
 

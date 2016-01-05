@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="StoryHeaderView" customModule="storylapse" customModuleProvider="target">
+            <connections>
+                <outlet property="creatorAvatarImageView" destination="Irw-6f-kIW" id="Q7d-DM-HjT"/>
+                <outlet property="creatorNameLabel" destination="ioo-UJ-bA8" id="WKF-9J-EvT"/>
+                <outlet property="titleLabel" destination="ioo-UJ-bA8" id="v25-YA-MzI"/>
+                <outlet property="view" destination="iN0-l3-epB" id="yQw-jd-396"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lt2-3t-E58">
+                    <rect key="frame" x="246" y="8" width="108.5" height="24"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Irw-6f-kIW">
+                            <rect key="frame" x="0.0" y="0.0" width="24" height="24"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="eN1-BF-bc6"/>
+                                <constraint firstAttribute="width" constant="24" id="kra-2o-3yQ"/>
+                                <constraint firstAttribute="width" secondItem="Irw-6f-kIW" secondAttribute="height" multiplier="1:1" id="z61-QK-rpj"/>
+                            </constraints>
+                            <variation key="default">
+                                <mask key="constraints">
+                                    <exclude reference="eN1-BF-bc6"/>
+                                </mask>
+                            </variation>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="quangbuule" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5dQ-Ok-tAR">
+                            <rect key="frame" x="32" y="4" width="76.5" height="17"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="Irw-6f-kIW" firstAttribute="top" secondItem="lt2-3t-E58" secondAttribute="top" id="9h6-aO-QRP"/>
+                        <constraint firstAttribute="trailing" secondItem="5dQ-Ok-tAR" secondAttribute="trailing" id="Vmm-PS-PbI"/>
+                        <constraint firstItem="5dQ-Ok-tAR" firstAttribute="leading" secondItem="Irw-6f-kIW" secondAttribute="trailing" constant="8" id="bNf-J5-MWf"/>
+                        <constraint firstAttribute="bottom" secondItem="Irw-6f-kIW" secondAttribute="bottom" id="vFJ-IE-9WB"/>
+                        <constraint firstItem="5dQ-Ok-tAR" firstAttribute="centerY" secondItem="Irw-6f-kIW" secondAttribute="centerY" id="xI2-la-mFx"/>
+                        <constraint firstItem="Irw-6f-kIW" firstAttribute="leading" secondItem="lt2-3t-E58" secondAttribute="leading" id="y7m-hk-sHd"/>
+                    </constraints>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="750" text="Story title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ioo-UJ-bA8">
+                    <rect key="frame" x="263" y="40" width="74" height="552"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="ioo-UJ-bA8" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="7Dl-qz-F15"/>
+                <constraint firstAttribute="bottomMargin" secondItem="ioo-UJ-bA8" secondAttribute="bottom" id="AlJ-At-y7H"/>
+                <constraint firstItem="lt2-3t-E58" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="K12-6k-zit"/>
+                <constraint firstItem="ioo-UJ-bA8" firstAttribute="top" secondItem="lt2-3t-E58" secondAttribute="bottom" constant="8" id="Uxm-KH-g4Y"/>
+                <constraint firstItem="lt2-3t-E58" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="topMargin" id="kSJ-vO-EMs"/>
+            </constraints>
+            <point key="canvasLocation" x="204" y="445"/>
+        </view>
+    </objects>
+</document>

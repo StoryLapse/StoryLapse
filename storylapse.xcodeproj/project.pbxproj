@@ -11,6 +11,8 @@
 		1FA849CD1C22FCCD00863F00 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FA849CB1C22FC7300863F00 /* MobileCoreServices.framework */; };
 		1FD204501C1F2BB6001A99ED /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD2044F1C1F2BB6001A99ED /* CameraViewController.swift */; };
 		1FD204541C1F34DE001A99ED /* PhotoEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD204531C1F34DE001A99ED /* PhotoEditViewController.swift */; };
+		58078FE71C3C09B700BFF4E3 /* CameraManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58078FE61C3C09B700BFF4E3 /* CameraManager.swift */; };
+		58078FE91C3C10A300BFF4E3 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58078FE81C3C10A300BFF4E3 /* UIImage.swift */; };
 		5809EDA81C27ED60003E0057 /* MenuItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5809EDA71C27ED60003E0057 /* MenuItemView.xib */; };
 		5809EDAA1C27EE36003E0057 /* MenuItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5809EDA91C27EE36003E0057 /* MenuItemView.swift */; };
 		5809EDAC1C27F0D8003E0057 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5809EDAB1C27F0D8003E0057 /* MenuViewController.swift */; };
@@ -21,9 +23,12 @@
 		580BBE001C222870009178B5 /* PhotoAddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 580BBDFF1C222870009178B5 /* PhotoAddViewController.swift */; };
 		580BBE021C222E48009178B5 /* RecentStoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 580BBE011C222E48009178B5 /* RecentStoryTableViewCell.swift */; };
 		580BBE041C223A42009178B5 /* RecentStoryTabieViewAddStoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 580BBE031C223A42009178B5 /* RecentStoryTabieViewAddStoryCell.swift */; };
+		581020641C38C9C900D02340 /* SLStoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 581020631C38C9C900D02340 /* SLStoryViewController.swift */; };
 		582048AE1C1BEEC700D76B1D /* fixtures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582048AD1C1BEEC700D76B1D /* fixtures.swift */; };
 		5839C4591C2BFA190055D053 /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5839C4581C2BFA190055D053 /* IntroViewController.swift */; };
 		5839C45B1C2C55EB0055D053 /* Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5839C45A1C2C55EB0055D053 /* Label.swift */; };
+		58520F511C363C2000966AAF /* StoryHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58520F501C363C2000966AAF /* StoryHeaderView.swift */; };
+		58520F531C3754F900966AAF /* StoryHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 58520F521C3754F900966AAF /* StoryHeaderView.xib */; };
 		585881D61C29521A00F5A79F /* MenuViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 585881D51C29521A00F5A79F /* MenuViewItem.swift */; };
 		585881D81C2AB64000F5A79F /* InteractButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 585881D71C2AB64000F5A79F /* InteractButton.swift */; };
 		5880971A1C2AEF1F00B4049F /* FloatBubble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 588097191C2AEF1F00B4049F /* FloatBubble.swift */; };
@@ -66,6 +71,8 @@
 		1FA849CB1C22FC7300863F00 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		1FD2044F1C1F2BB6001A99ED /* CameraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CameraViewController.swift; path = ../Views/CameraViewController.swift; sourceTree = "<group>"; };
 		1FD204531C1F34DE001A99ED /* PhotoEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PhotoEditViewController.swift; path = ../Views/PhotoEditViewController.swift; sourceTree = "<group>"; };
+		58078FE61C3C09B700BFF4E3 /* CameraManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraManager.swift; sourceTree = "<group>"; };
+		58078FE81C3C10A300BFF4E3 /* UIImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 		5809EDA71C27ED60003E0057 /* MenuItemView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuItemView.xib; sourceTree = "<group>"; };
 		5809EDA91C27EE36003E0057 /* MenuItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuItemView.swift; sourceTree = "<group>"; };
 		5809EDAB1C27F0D8003E0057 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
@@ -76,9 +83,12 @@
 		580BBDFF1C222870009178B5 /* PhotoAddViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoAddViewController.swift; sourceTree = "<group>"; };
 		580BBE011C222E48009178B5 /* RecentStoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecentStoryTableViewCell.swift; sourceTree = "<group>"; };
 		580BBE031C223A42009178B5 /* RecentStoryTabieViewAddStoryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecentStoryTabieViewAddStoryCell.swift; sourceTree = "<group>"; };
+		581020631C38C9C900D02340 /* SLStoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SLStoryViewController.swift; sourceTree = "<group>"; };
 		582048AD1C1BEEC700D76B1D /* fixtures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = fixtures.swift; sourceTree = "<group>"; };
 		5839C4581C2BFA190055D053 /* IntroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroViewController.swift; sourceTree = "<group>"; };
 		5839C45A1C2C55EB0055D053 /* Label.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Label.swift; sourceTree = "<group>"; };
+		58520F501C363C2000966AAF /* StoryHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryHeaderView.swift; sourceTree = "<group>"; };
+		58520F521C3754F900966AAF /* StoryHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StoryHeaderView.xib; sourceTree = "<group>"; };
 		585881D51C29521A00F5A79F /* MenuViewItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewItem.swift; sourceTree = "<group>"; };
 		585881D71C2AB64000F5A79F /* InteractButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InteractButton.swift; sourceTree = "<group>"; };
 		588097191C2AEF1F00B4049F /* FloatBubble.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatBubble.swift; sourceTree = "<group>"; };
@@ -191,8 +201,10 @@
 		58CB631D1C244069005E6587 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				58078FE61C3C09B700BFF4E3 /* CameraManager.swift */,
 				58CB631E1C24407A005E6587 /* String.swift */,
 				585881D51C29521A00F5A79F /* MenuViewItem.swift */,
+				58078FE81C3C10A300BFF4E3 /* UIImage.swift */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -215,6 +227,7 @@
 				997160DA1C266EAB002B67B3 /* LoginViewController.swift */,
 				5809EDAB1C27F0D8003E0057 /* MenuViewController.swift */,
 				5839C4581C2BFA190055D053 /* IntroViewController.swift */,
+				581020631C38C9C900D02340 /* SLStoryViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -253,6 +266,8 @@
 				585881D71C2AB64000F5A79F /* InteractButton.swift */,
 				588097191C2AEF1F00B4049F /* FloatBubble.swift */,
 				5839C45A1C2C55EB0055D053 /* Label.swift */,
+				58520F501C363C2000966AAF /* StoryHeaderView.swift */,
+				58520F521C3754F900966AAF /* StoryHeaderView.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -331,6 +346,7 @@
 				5809EDA81C27ED60003E0057 /* MenuItemView.xib in Resources */,
 				99F1983E1C23D8E200DF28D3 /* KenBurnView.xib in Resources */,
 				58C42B6A1C1430BD00D4CCB8 /* LaunchScreen.storyboard in Resources */,
+				58520F531C3754F900966AAF /* StoryHeaderView.xib in Resources */,
 				58C42B671C1430BD00D4CCB8 /* Assets.xcassets in Resources */,
 				58C42B651C1430BD00D4CCB8 /* Main.storyboard in Resources */,
 			);
@@ -400,6 +416,7 @@
 				58CB63211C24DC2B005E6587 /* StoryPhotoPlayView.swift in Sources */,
 				585881D61C29521A00F5A79F /* MenuViewItem.swift in Sources */,
 				5809EDAA1C27EE36003E0057 /* MenuItemView.swift in Sources */,
+				58078FE91C3C10A300BFF4E3 /* UIImage.swift in Sources */,
 				5839C4591C2BFA190055D053 /* IntroViewController.swift in Sources */,
 				9985F3541C28FF9B0049251E /* RemindNotification.swift in Sources */,
 				99EECC6F1C170EDC00C6B792 /* PhotoCollectionViewCell.swift in Sources */,
@@ -414,8 +431,10 @@
 				58CB631F1C24407A005E6587 /* String.swift in Sources */,
 				99F85C0D1C1BF3D500E13642 /* PhotoCollectionDetailViewCell.swift in Sources */,
 				997160E11C26B463002B67B3 /* TextView.swift in Sources */,
+				58078FE71C3C09B700BFF4E3 /* CameraManager.swift in Sources */,
 				589ACA491C16E1200030A54D /* SLTabBarController.swift in Sources */,
 				589ACA4B1C16E3F80030A54D /* SLNavigationController.swift in Sources */,
+				58520F511C363C2000966AAF /* StoryHeaderView.swift in Sources */,
 				5890ABAE1C1A8D17004A74DC /* Interaction.swift in Sources */,
 				99D39D8D1C22FBCF0091188D /* PlayPhotosImageViewController.swift in Sources */,
 				580BBE041C223A42009178B5 /* RecentStoryTabieViewAddStoryCell.swift in Sources */,
@@ -433,6 +452,7 @@
 				582048AE1C1BEEC700D76B1D /* fixtures.swift in Sources */,
 				1FD204541C1F34DE001A99ED /* PhotoEditViewController.swift in Sources */,
 				58E4A9471C19A93F0008592E /* Story.swift in Sources */,
+				581020641C38C9C900D02340 /* SLStoryViewController.swift in Sources */,
 				580A6A681C2EAD5200EE38DD /* api.swift in Sources */,
 				5880971A1C2AEF1F00B4049F /* FloatBubble.swift in Sources */,
 			);
