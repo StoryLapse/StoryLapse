@@ -11,6 +11,8 @@
 		1FA849CD1C22FCCD00863F00 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FA849CB1C22FC7300863F00 /* MobileCoreServices.framework */; };
 		1FD204501C1F2BB6001A99ED /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD2044F1C1F2BB6001A99ED /* CameraViewController.swift */; };
 		1FD204541C1F34DE001A99ED /* PhotoEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD204531C1F34DE001A99ED /* PhotoEditViewController.swift */; };
+		1FE3B80F1C3C78C6003C2CAD /* BWWalkthroughPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE3B80D1C3C78C6003C2CAD /* BWWalkthroughPageViewController.swift */; };
+		1FE3B8101C3C78C6003C2CAD /* BWWalkthroughViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE3B80E1C3C78C6003C2CAD /* BWWalkthroughViewController.swift */; };
 		58078FE71C3C09B700BFF4E3 /* CameraManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58078FE61C3C09B700BFF4E3 /* CameraManager.swift */; };
 		58078FE91C3C10A300BFF4E3 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58078FE81C3C10A300BFF4E3 /* UIImage.swift */; };
 		5809EDA81C27ED60003E0057 /* MenuItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5809EDA71C27ED60003E0057 /* MenuItemView.xib */; };
@@ -51,8 +53,6 @@
 		58E4A9471C19A93F0008592E /* Story.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E4A9461C19A93F0008592E /* Story.swift */; };
 		8E48828F6850D502868522EF /* Pods_storylapse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D6BE209FD67D57ABFBE7798 /* Pods_storylapse.framework */; };
 		994832A71C19616600DBB136 /* PhotoDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 994832A61C19616600DBB136 /* PhotoDetailViewController.swift */; };
-		996EEBD51C3C32390053930B /* BWWalkthroughPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 996EEBD31C3C32390053930B /* BWWalkthroughPageViewController.swift */; };
-		996EEBD61C3C32390053930B /* BWWalkthroughViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 996EEBD41C3C32390053930B /* BWWalkthroughViewController.swift */; };
 		996EEBD81C3C333D0053930B /* WalkthroughViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 996EEBD71C3C333D0053930B /* WalkthroughViewController.swift */; };
 		996EEBDA1C3C34950053930B /* Walkthrough.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 996EEBD91C3C34950053930B /* Walkthrough.storyboard */; };
 		996EEBDE1C3C35210053930B /* CustomPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 996EEBDD1C3C35210053930B /* CustomPageViewController.swift */; };
@@ -76,6 +76,8 @@
 		1FA849CB1C22FC7300863F00 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		1FD2044F1C1F2BB6001A99ED /* CameraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CameraViewController.swift; path = ../Views/CameraViewController.swift; sourceTree = "<group>"; };
 		1FD204531C1F34DE001A99ED /* PhotoEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PhotoEditViewController.swift; path = ../Views/PhotoEditViewController.swift; sourceTree = "<group>"; };
+		1FE3B80D1C3C78C6003C2CAD /* BWWalkthroughPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BWWalkthroughPageViewController.swift; sourceTree = "<group>"; };
+		1FE3B80E1C3C78C6003C2CAD /* BWWalkthroughViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BWWalkthroughViewController.swift; sourceTree = "<group>"; };
 		58078FE61C3C09B700BFF4E3 /* CameraManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraManager.swift; sourceTree = "<group>"; };
 		58078FE81C3C10A300BFF4E3 /* UIImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 		5809EDA71C27ED60003E0057 /* MenuItemView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuItemView.xib; sourceTree = "<group>"; };
@@ -118,8 +120,6 @@
 		58CB63201C24DC2B005E6587 /* StoryPhotoPlayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryPhotoPlayView.swift; sourceTree = "<group>"; };
 		58E4A9461C19A93F0008592E /* Story.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Story.swift; sourceTree = "<group>"; };
 		994832A61C19616600DBB136 /* PhotoDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoDetailViewController.swift; sourceTree = "<group>"; };
-		996EEBD31C3C32390053930B /* BWWalkthroughPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BWWalkthroughPageViewController.swift; path = "../../../Desktop/BWWalkthrough-master/BWWalkthrough/BWWalkthroughPageViewController.swift"; sourceTree = "<group>"; };
-		996EEBD41C3C32390053930B /* BWWalkthroughViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BWWalkthroughViewController.swift; path = "../../../Desktop/BWWalkthrough-master/BWWalkthrough/BWWalkthroughViewController.swift"; sourceTree = "<group>"; };
 		996EEBD71C3C333D0053930B /* WalkthroughViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalkthroughViewController.swift; sourceTree = "<group>"; };
 		996EEBD91C3C34950053930B /* Walkthrough.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Walkthrough.storyboard; sourceTree = "<group>"; };
 		996EEBDD1C3C35210053930B /* CustomPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomPageViewController.swift; sourceTree = "<group>"; };
@@ -212,8 +212,8 @@
 		58CB631D1C244069005E6587 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				996EEBD31C3C32390053930B /* BWWalkthroughPageViewController.swift */,
-				996EEBD41C3C32390053930B /* BWWalkthroughViewController.swift */,
+				1FE3B80D1C3C78C6003C2CAD /* BWWalkthroughPageViewController.swift */,
+				1FE3B80E1C3C78C6003C2CAD /* BWWalkthroughViewController.swift */,
 				58078FE61C3C09B700BFF4E3 /* CameraManager.swift */,
 				58CB631E1C24407A005E6587 /* String.swift */,
 				585881D51C29521A00F5A79F /* MenuViewItem.swift */,
@@ -425,18 +425,17 @@
 			files = (
 				99F198401C23D90200DF28D3 /* KenBurnView.swift in Sources */,
 				99EECC691C16D1A000C6B792 /* Photo.swift in Sources */,
-				996EEBD61C3C32390053930B /* BWWalkthroughViewController.swift in Sources */,
 				580BBDF61C1D10D4009178B5 /* StoryTableViewCell.swift in Sources */,
 				589ACA4E1C17F8880030A54D /* Colors.swift in Sources */,
 				997160DD1C26934D002B67B3 /* UserListViewController.swift in Sources */,
 				585881D81C2AB64000F5A79F /* InteractButton.swift in Sources */,
 				58CB63211C24DC2B005E6587 /* StoryPhotoPlayView.swift in Sources */,
 				585881D61C29521A00F5A79F /* MenuViewItem.swift in Sources */,
+				1FE3B8101C3C78C6003C2CAD /* BWWalkthroughViewController.swift in Sources */,
 				5809EDAA1C27EE36003E0057 /* MenuItemView.swift in Sources */,
 				58078FE91C3C10A300BFF4E3 /* UIImage.swift in Sources */,
 				5839C4591C2BFA190055D053 /* IntroViewController.swift in Sources */,
 				9985F3541C28FF9B0049251E /* RemindNotification.swift in Sources */,
-				996EEBD51C3C32390053930B /* BWWalkthroughPageViewController.swift in Sources */,
 				99EECC6F1C170EDC00C6B792 /* PhotoCollectionViewCell.swift in Sources */,
 				996EEBD81C3C333D0053930B /* WalkthroughViewController.swift in Sources */,
 				997160DF1C269386002B67B3 /* UserListTableViewCell.swift in Sources */,
@@ -452,6 +451,7 @@
 				997160E11C26B463002B67B3 /* TextView.swift in Sources */,
 				58078FE71C3C09B700BFF4E3 /* CameraManager.swift in Sources */,
 				996EEBDE1C3C35210053930B /* CustomPageViewController.swift in Sources */,
+				1FE3B80F1C3C78C6003C2CAD /* BWWalkthroughPageViewController.swift in Sources */,
 				589ACA491C16E1200030A54D /* SLTabBarController.swift in Sources */,
 				589ACA4B1C16E3F80030A54D /* SLNavigationController.swift in Sources */,
 				58520F511C363C2000966AAF /* StoryHeaderView.swift in Sources */,
