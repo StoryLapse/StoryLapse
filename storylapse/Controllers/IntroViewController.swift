@@ -41,10 +41,10 @@ class IntroViewController: UIViewController {
       }, completion: nil)
     
     NSTimer.after(2.5) {
-      let mainViewController = self.storyboard!.instantiateViewControllerWithIdentifier("mainViewController")
+      let walkthroughViewController = self.storyboard!.instantiateViewControllerWithIdentifier("walkthroughViewController")
       
-       mainViewController.transitioningDelegate = self
-      self.presentViewController(mainViewController, animated: true, completion: nil)
+       walkthroughViewController.transitioningDelegate = self
+      self.presentViewController(walkthroughViewController, animated: true, completion: nil)
     }
   }
 }
