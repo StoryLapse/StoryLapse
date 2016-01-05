@@ -52,8 +52,9 @@ class WalkthroughViewController: UIViewController, BWWalkthroughViewControllerDe
   }
 
   func walkthroughCloseButtonPressed() {
-    dismissViewControllerAnimated(true, completion: nil)
-    performSegueWithIdentifier("goToMainView", sender: self)
+    dismissViewControllerAnimated(true) { () -> Void in
+      self.performSegueWithIdentifier("goToMainView", sender: self)
+    }
   }
 
 }

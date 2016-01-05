@@ -34,7 +34,7 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1av-Q5-sXe" userLabel="Prev">
                                 <rect key="frame" x="0.0" y="498" width="50" height="50"/>
-                                <state key="normal" image="leftarrow.png">
+                                <state key="normal" image="iPhoneScreen.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -132,50 +132,28 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bg.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="ddH-Bg-VjP">
-                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="walkthrough4" translatesAutoresizingMaskIntoConstraints="NO" id="sWE-Xi-JXS">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Custom pages" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f02-Bs-ITg">
-                                <rect key="frame" x="91" y="214" width="139" height="24"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4nB-34-Jd4">
-                                <rect key="frame" x="0.0" y="375" width="320" height="193"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose the style of every single page. They are not limited by a  predefined template" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cPv-dl-GED">
-                                        <rect key="frame" x="57" y="23" width="206" height="147"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="147" id="hyk-9v-WuY"/>
-                                            <constraint firstAttribute="width" constant="206" id="qZ5-EH-Zug"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" red="0.1176470588" green="0.12941176469999999" blue="0.13725490200000001" alpha="0.28000000000000003" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="centerX" secondItem="cPv-dl-GED" secondAttribute="centerX" id="Qai-Zd-8UV"/>
-                                    <constraint firstAttribute="height" constant="193" id="jQM-p0-QYh"/>
-                                    <constraint firstAttribute="centerY" secondItem="cPv-dl-GED" secondAttribute="centerY" id="tGF-4d-4sZ"/>
-                                </constraints>
-                            </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img3.png" translatesAutoresizingMaskIntoConstraints="NO" id="56p-KT-nhG">
-                                <rect key="frame" x="135" y="352" width="50" height="50"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="cloud1.png" translatesAutoresizingMaskIntoConstraints="NO" id="tXx-22-T53">
+                                <rect key="frame" x="314" y="10" width="64" height="35"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="cloud1.png" translatesAutoresizingMaskIntoConstraints="NO" id="hxH-ob-SP0">
+                                <rect key="frame" x="321" y="72" width="64" height="35"/>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="0.32980523950000001" green="0.74408280770000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="vOz-tz-GHu" firstAttribute="top" secondItem="4nB-34-Jd4" secondAttribute="bottom" id="8V1-Oa-VeQ"/>
-                            <constraint firstItem="4nB-34-Jd4" firstAttribute="leading" secondItem="fH3-10-vSm" secondAttribute="leadingMargin" constant="-16" id="H7C-Od-Ffl"/>
-                            <constraint firstItem="4nB-34-Jd4" firstAttribute="top" secondItem="56p-KT-nhG" secondAttribute="bottom" constant="-27" id="K04-y8-pe3"/>
-                            <constraint firstAttribute="centerX" secondItem="56p-KT-nhG" secondAttribute="centerX" constant="0.5" id="NcK-ei-hhD"/>
-                            <constraint firstItem="f02-Bs-ITg" firstAttribute="top" secondItem="WH9-hd-esy" secondAttribute="bottom" constant="194" id="VJ7-ve-T7p"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="4nB-34-Jd4" secondAttribute="trailing" constant="-16" id="gMe-37-XXC"/>
-                            <constraint firstAttribute="centerX" secondItem="f02-Bs-ITg" secondAttribute="centerX" id="pST-aa-CXg"/>
+                            <constraint firstAttribute="trailing" secondItem="sWE-Xi-JXS" secondAttribute="trailing" id="5ui-7y-iWo"/>
+                            <constraint firstItem="sWE-Xi-JXS" firstAttribute="leading" secondItem="fH3-10-vSm" secondAttribute="leading" id="ILl-rj-zh3"/>
+                            <constraint firstAttribute="topMargin" secondItem="sWE-Xi-JXS" secondAttribute="top" id="Qdn-PH-sv3"/>
+                            <constraint firstItem="vOz-tz-GHu" firstAttribute="top" secondItem="sWE-Xi-JXS" secondAttribute="bottom" id="kaT-O5-e9U"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="sWE-Xi-JXS" secondAttribute="bottom" id="vJ1-Da-ie7"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="kaT-O5-e9U"/>
+                            </mask>
+                        </variation>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                 </viewController>
@@ -251,12 +229,12 @@
         </scene>
     </scenes>
     <resources>
-        <image name="bg.jpg" width="50" height="50"/>
-        <image name="img3.png" width="50" height="50"/>
-        <image name="leftarrow.png" width="512" height="512"/>
+        <image name="cloud1.png" width="50" height="50"/>
+        <image name="iPhoneScreen.png" width="50" height="50"/>
         <image name="rightarrow.png" width="50" height="50"/>
         <image name="walkthrough1" width="1366" height="2048"/>
         <image name="walkthrough2" width="1366" height="2048"/>
         <image name="walkthrough3" width="1366" height="2048"/>
+        <image name="walkthrough4" width="1366" height="2048"/>
     </resources>
 </document>
