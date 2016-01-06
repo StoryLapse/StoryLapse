@@ -15,7 +15,7 @@ func api(
   query: [String: AnyObject]? = nil,
   body: [String: AnyObject]? = nil) -> Alamofire.Request {
     typealias PE = Alamofire.ParameterEncoding
-    let mutableURLRequest = NSMutableURLRequest(URL: NSURL(string: "http://localhost:2292/api/v1\(path)")!)
+    let mutableURLRequest = NSMutableURLRequest(URL: NSURL(string: "http://103.47.192.73:2292/api/v1\(path)")!)
     let encodedURLRequest = PE.JSON.encode(
       PE.URLEncodedInURL.encode(mutableURLRequest, parameters: query).0,
       parameters: body).0

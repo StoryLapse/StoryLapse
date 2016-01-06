@@ -16,6 +16,7 @@ class Photo: CBLModel {
   @NSManaged var interactionCount: Int
   
   @NSManaged var storyId: String
+  @NSManaged var remoteUrl: String?
   
   @NSManaged var createdAt: NSDate
   @NSManaged var creatorId: String

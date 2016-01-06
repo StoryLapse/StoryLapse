@@ -20,14 +20,14 @@ class Story: CBLModel {
   @NSManaged var remindeAtHour: Int
   @NSManaged var remindeAtMinute: Int
   @NSManaged var remindeAtDaysOfWeek: [Bool]
-
+  
   @NSManaged var interactionCount: Int
   @NSManaged var commentCount: Int
   
   @NSManaged var creatorId: String
   @NSManaged var creatorName: String
   @NSManaged var creatorAvatarPath: String
-
+  
   @NSManaged var createdAt: NSDate
   @NSManaged var updatedAt: NSDate?
   
@@ -40,6 +40,26 @@ class Story: CBLModel {
   var photoCount: Int {
     get {
       return photoIds.count
+    }
+  }
+  
+  var updatedMoment: String {
+    get {
+      let currentSeconds = Int(NSDate().timeIntervalSince1970)
+      let updatedAtSeconds = Int((updatedAt ?? createdAt).timeIntervalSince1970)
+      let moment = currentSeconds - updatedAtSeconds
+      
+      if moment < 60 {
+        return "\(moment) seconds ago"
+        
+      } else if moment >= 60 && moment < 3600 {
+        return "\(moment / 60) minutes ago"
+        
+      } else if moment >= 3600 && moment < 86400 {
+        return "\(moment / 3600) hours ago"
+      }
+      
+      return "\(moment / 86400) days ago"
     }
   }
   
@@ -76,9 +96,16 @@ extension Story {
         type = doc["type"] as? String,
         creatorId = doc["creatorId"] as? String where
         type == Story.type && creatorId == User.currentUser.id {
-          emit(doc["createdAt"]!, doc)
+          emit(doc["createdAt"]!, nil)
       }
       }, version: "1")
+    
+    let allStoriesView = db.viewNamed("allStories")
+    allStoriesView.setMapBlock({ (doc, emit) -> Void in
+      if let type = doc["type"] as? String where type == Story.type {
+          emit(doc["createdAt"]!, nil)
+      }}, version: "1")
+    
   }
   
   static func updateCurrentUserStories(db: CBLDatabase) {
@@ -95,6 +122,20 @@ extension Story {
 extension Story {
   static func getCurrentUserStories(db: CBLDatabase) -> [Story] {
     let query = db.viewNamed("currentUserStories").createQuery()
+    
+    query.descending = true
+    
+    let results = try! query.run()
+    let stories = results.map { Story(forDocument: $0.document!!) }
+    
+    return stories
+  }
+  
+  static func getAllStories(db: CBLDatabase) -> [Story] {
+    let query = db.viewNamed("allStories").createQuery()
+    
+    query.descending = true
+    
     let results = try! query.run()
     let stories = results.map { Story(forDocument: $0.document!!) }
     

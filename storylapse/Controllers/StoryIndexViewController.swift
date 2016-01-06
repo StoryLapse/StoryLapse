@@ -24,8 +24,8 @@ class StoryIndexViewController: UIViewController {
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
     
-    title = "Stories"
-    stories = Story.getCurrentUserStories(getDatabase())
+    navigationItem.title = "Stories"
+    stories = Story.getAllStories(getDatabase())
     dispatch_async(dispatch_get_main_queue()) {
       self.storyTableView.reloadData()
     }

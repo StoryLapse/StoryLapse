@@ -191,7 +191,6 @@ class PhotoDetailViewController: UIViewController, AAShareBubblesDelegate, UICol
     presentViewController(menuViewController, animated: true, completion: nil)
   }
   
-  
   func handleInteraction(button: InteractButton) {
     view.addSubview(
       FloatBubble(

@@ -138,6 +138,7 @@ class StoryAddViewController: UIViewController, UITextFieldDelegate {
       showAlertViewWhenTitleIsNil()
     } else {
       story?.title = titleTextField.text!
+      story?.desc = descriptionTextView.text!
       story?.hashtags = hashtagsTextField.text!.split("\\s*,\\s*")
       
       try! story?.save()

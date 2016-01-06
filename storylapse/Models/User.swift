@@ -65,7 +65,7 @@ extension User {
     let state: String = generateStateWithLength(20) as String
     
     oauthswift.authorizeWithCallbackURL(
-      NSURL(string: "http://localhost:2292/api/v1/login/facebook/callback")!,
+      NSURL(string: "http://103.47.192.73:2292/api/v1/login/facebook/callback")!,
       scope: "public_profile,email",
       state: state,
       

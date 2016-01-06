@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import CameraManager
 import AVFoundation
 import MobileCoreServices
 import AssetsLibrary

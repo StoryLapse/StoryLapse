@@ -20,6 +20,29 @@ class SLStoryViewController: UIViewController {
   }
   
   @IBOutlet var tableView: StoryTableView!
+  
+  @IBOutlet var interactionCountButton: UIButton!
+  @IBOutlet var interactButton1: InteractButton! {
+    didSet {
+      interactButton1.interaction = Interaction(type: .ThumbUp)
+    }
+  }
+  @IBOutlet var interactButton2: InteractButton! {
+    didSet {
+      interactButton2.interaction = Interaction(type: .Heart)
+    }
+  }
+  @IBOutlet var interactButton3: InteractButton! {
+    didSet {
+      interactButton3.interaction = Interaction(type: .Gorgeous)
+    }
+  }
+  @IBOutlet var interactButton4: InteractButton! {
+    didSet {
+      interactButton4.interaction = Interaction(type: .Kiss)
+    }
+  }
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     
@@ -29,10 +52,22 @@ class SLStoryViewController: UIViewController {
     tableView.dataSource = self
     
     tableView.backgroundColor = Colors.secondaryBackgroundColor
+    
+    // Interact buttons
+    [interactButton1, interactButton2, interactButton3, interactButton4].forEach { button in
+      button.addTarget(target: self, action: "handleInteraction:")
+    }
+    
+    interactionCountButton.tintColor = Colors.primaryTextColor
   }
   
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
+    
+    if story != nil {
+      story = Story(forDocument: getDatabase().documentWithID(story.document!.documentID)!)
+    }
+    
     tableView.reloadData()
   }
   
@@ -55,12 +90,42 @@ class SLStoryViewController: UIViewController {
   @IBAction func handlePlayButtonTap(sender: UIBarButtonItem) {
     performSegueWithIdentifier("playStorySegue", sender: nil)
   }
+  
+  
+  func handleInteraction(button: InteractButton) {
+    view.addSubview(
+      FloatBubble(
+        frame: view.frame,
+        interaction: button.interaction,
+        direction: .LeftToRight,
+        intensive: CGFloat(50)
+      )
+    )
+    
+    NSTimer.after(0.5) { () -> Void in
+      let interaction = [
+        Interaction(type: .ThumbUp),
+        Interaction(type: .Heart),
+        Interaction(type: .Gorgeous),
+        Interaction(type: .Kiss)
+        ][Int(arc4random_uniform(4))]
+      
+      self.view.addSubview(
+        FloatBubble(
+          frame: self.view.frame,
+          interaction: interaction,
+          direction: .RightToLeft,
+          intensive: CGFloat(50)
+        )
+      )
+    }
+  }
 }
 
 extension SLStoryViewController: UITableViewDataSource {
   
   func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-    return 3
+    return 2
   }
   
   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -102,13 +167,6 @@ extension SLStoryViewController: UITableViewDataSource {
       
       return cell
       
-    case 2:
-      // Story interactions
-      let cell = tableView.dequeueReusableCellWithIdentifier("statsCell") as! SLStoryStatsCell
-      
-      cell.story = story
-      return cell
-      
     default:
       return UITableViewCell()
     }
@@ -142,7 +200,9 @@ class SLStoryInfoCell: UITableViewCell {
   
   @IBOutlet var creatorAvatarImageView: UIImageView!
   @IBOutlet var creatorNameLabel: UILabel!
+  @IBOutlet var updatedMomentLabel: UILabel!
   @IBOutlet var titleLabel: UILabel!
+  @IBOutlet var descriptionLabel: UILabel!
   
   var story: Story! {
     didSet {
@@ -152,6 +212,10 @@ class SLStoryInfoCell: UITableViewCell {
       
       creatorNameLabel.text = story.creatorName
       titleLabel.text = story.title
+      updatedMomentLabel.text = story.updatedMoment
+      descriptionLabel.text = story.desc
+      
+      descriptionLabel.hidden = descriptionLabel.text == ""
     }
   }
   
@@ -162,6 +226,8 @@ class SLStoryInfoCell: UITableViewCell {
     
     creatorNameLabel.textColor = Colors.primaryTextColor
     titleLabel.textColor = Colors.primaryTextColor
+    updatedMomentLabel.textColor = Colors.primaryTextColor
+    descriptionLabel.textColor = Colors.primaryTextColor
   }
 }
 
