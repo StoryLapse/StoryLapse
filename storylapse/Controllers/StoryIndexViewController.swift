@@ -14,6 +14,7 @@ class StoryIndexViewController: UIViewController {
   @IBOutlet var storyTableView: UITableView!
   
   var stories: [Story]!
+  var social: Bool = false
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -25,7 +26,10 @@ class StoryIndexViewController: UIViewController {
     super.viewWillAppear(animated)
     
     navigationItem.title = "Stories"
-    stories = Story.getAllStories(getDatabase())
+    stories = social ?
+      Story.getAllStories(getDatabase()) :
+      Story.getCurrentUserStories(getDatabase())
+    
     dispatch_async(dispatch_get_main_queue()) {
       self.storyTableView.reloadData()
     }

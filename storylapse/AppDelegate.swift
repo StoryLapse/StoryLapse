@@ -20,7 +20,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   
   func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
     initializePhotoDir()
-    resetFixtures()
     initializeDatabase()
     User.initializeCurrentUser(getDatabase())
     

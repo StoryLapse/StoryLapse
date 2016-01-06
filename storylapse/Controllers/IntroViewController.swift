@@ -109,7 +109,11 @@ extension IntroViewController {
           if doc.properties!["type"] as? String == Photo.type {
             let photo = Photo(forDocument: doc)
             
-            try! fileManager.removeItemAtPath(photo.localPath)
+            do {
+              try fileManager.removeItemAtPath(photo.localPath)
+            } catch {
+              
+            }
           }
           
           try! doc.deleteDocument()

@@ -38,7 +38,8 @@ class SLTabBarController: UITabBarController, BWWalkthroughViewControllerDelegat
     view.addSubview(cameraButton)
     
     // Explore view controller
-    let exploreViewController = storyboard!.instantiateViewControllerWithIdentifier("storyIndexNavController")
+    let exploreViewController = storyboard!.instantiateViewControllerWithIdentifier("storyIndexNavController") as! SLNavigationController
+    (exploreViewController.topViewController as! StoryIndexViewController).social = true
     let exploreTabBarItem = UITabBarItem(title: nil, image: UIImage(named: "compass-icon"), tag: 0)
     
     exploreTabBarItem.imageInsets = UIEdgeInsets(top: 6, left: 0, bottom: -6, right: 0)

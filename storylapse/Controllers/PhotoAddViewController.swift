@@ -64,7 +64,7 @@ class PhotoAddViewController: UIViewController {
     photo.caption = captionTextField.text
     photo.storyId = story.document!.documentID
     
-    story.photoIds += [photo.document!.documentID]
+    story.photoIds = [photo.document!.documentID] + story.photoIds
     
     try! photo.save()
     try! story.save()

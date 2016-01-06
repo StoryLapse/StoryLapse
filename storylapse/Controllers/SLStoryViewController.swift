@@ -15,6 +15,7 @@ class SLStoryViewController: UIViewController {
   var story: Story! {
     didSet {
       photos = Photo.getPhotos(getDatabase(), story: story)
+      print(photos.count)
       title = story.title
     }
   }
@@ -165,6 +166,8 @@ extension SLStoryViewController: UITableViewDataSource {
         cell.addPhotoTarget(self, action: "handlePhotoTap:")
       }
       
+      cell.layoutIfNeeded()
+      
       return cell
       
     default:
@@ -250,6 +253,7 @@ class SLStoryPhotoRow: UITableViewCell {
           $0.element.alpha = 0
           
         } else {
+          $0.element.alpha = 1
           $0.element.image = UIImage(named: photos[$0.index].localPath)
         }
       }
